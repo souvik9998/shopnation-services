@@ -14,8 +14,8 @@ export const instance = new Razorpay({
     key_id: 'rzp_test_tKErgxv1zhxPDM',
     key_secret: '1p790OsReg4WRYyk2grj9mS8'
 })
-app.use(stripeCheckoutRoutes);
-app.use(razorpayRoutes);
+app.use("/paymentapi",stripeCheckoutRoutes);
+app.use("/paymentapi",razorpayRoutes);
 
 
 app.get('/getApiKey', (req,res) =>{

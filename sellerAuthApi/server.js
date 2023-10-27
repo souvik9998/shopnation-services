@@ -18,10 +18,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors({ origin: '*' }));
 
-app.use("/auth", userRouter);
-app.use("/inventory", inventoryRouter);
-app.use("/onboard", onboardRouter);
-app.use("/order",orderRouter);
+app.use("/sellerapi/auth", userRouter);
+app.use("/sellerapi/inventory", inventoryRouter);
+app.use("/sellerapi/onboard", onboardRouter);
+app.use("/sellerapi/order",orderRouter);
 //Error handling
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find the route ${req.url} on this server`, 404));

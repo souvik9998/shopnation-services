@@ -26,9 +26,9 @@ db.connect((err) =>{
     console.log("database connected");
 }); 
 
-app.use("/auth",authRoutes);
-app.use("/cart",cartRouter);
-app.use("/order",OrderRouter);
+app.use("/userapi/auth",authRoutes);
+app.use("/userapi/cart",cartRouter);
+app.use("/userapi/order",OrderRouter);
 app.use(addressRouter);
 
 app.listen(process.env.PORT, ()=>{
