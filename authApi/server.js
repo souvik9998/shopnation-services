@@ -31,6 +31,6 @@ app.use("/userapi/cart",cartRouter);
 app.use("/userapi/order",OrderRouter);
 app.use(addressRouter);
 
-app.listen(process.env.PORT, ()=>{
-    console.log(`server connected on port ${process.env.PORT}`);
+app.listen(9000, ()=>{
+    console.log(`server connected on port 9000`);
 })

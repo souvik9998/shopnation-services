@@ -64,7 +64,7 @@ const AppProvider = ({children}) => {
     }
     const isAuthorized = async()=>{
         try{
-        const res = await axios.get(`http://localhost:9000/auth/isUserAuth`,{
+        const res = await axios.get(`http://34.228.69.205:9000/authapi/auth/isUserAuth`,{
           headers : {
             "Authorization" : window.localStorage.getItem("token"),
           }
@@ -110,7 +110,7 @@ const AppProvider = ({children}) => {
 
        const getAll = async() => {
         return await axios
-          .get('http://localhost:4000/api/getAll')
+          .get('http://34.228.69.205:4000/searchapi/getAll')
           .then((response) => {
             setStoreList(response.data);
             console.log(response.data);
