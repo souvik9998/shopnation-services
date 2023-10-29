@@ -1,7 +1,7 @@
 import React,{useContext, useEffect, useState} from "react";
 import axios from 'axios';
 import env from "react-dotenv";
-
+import {baseUrl} from "../config/config.js";
 
 const AppContext = React.createContext();
 const AppProvider = ({children}) => {
@@ -64,7 +64,7 @@ const AppProvider = ({children}) => {
     }
     const isAuthorized = async()=>{
         try{
-        const res = await axios.get(`http://34.228.69.205:9000/authapi/auth/isUserAuth`,{
+        const res = await axios.get(`http://${baseUrl}:9000/userapi/auth/isUserAuth`,{
           headers : {
             "Authorization" : window.localStorage.getItem("token"),
           }
@@ -110,7 +110,7 @@ const AppProvider = ({children}) => {
 
        const getAll = async() => {
         return await axios
-          .get('http://34.228.69.205:4000/searchapi/getAll')
+          .get(`http://${baseUrl}:4000/searchapi/getAll`)
           .then((response) => {
             setStoreList(response.data);
             console.log(response.data);

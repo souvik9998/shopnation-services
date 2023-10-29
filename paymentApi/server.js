@@ -23,6 +23,6 @@ app.get('/getApiKey', (req,res) =>{
 });
 
 
-app.listen(process.env.PORT, () => {
-    console.log(`Listening on port ${process.env.PORT}!`)
+app.listen(7000, () => {
+    console.log(`Listening on port 7000!`)
 });
