@@ -23,9 +23,6 @@ app.use('/searchapi',elasticRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-app.get('/searchapi/getRes', (req, res) => {
-  res.send('searchapi');
-});
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
