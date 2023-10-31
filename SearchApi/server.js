@@ -23,7 +23,7 @@ app.use('/searchapi',elasticRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-app.get('/searchapi', (req, res) => {
+app.get('/searchapi/getRes', (req, res) => {
   res.send('searchapi');
 });
 // error handler

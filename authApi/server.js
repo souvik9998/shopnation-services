@@ -30,9 +30,9 @@ app.use("/userapi/auth",authRoutes);
 app.use("/userapi/cart",cartRouter);
 app.use("/userapi/order",OrderRouter);
 app.use("/userapi/address",addressRouter);
-app.get('/userapi', (req, res) => {
-    res.send('Hello, World!');
-  });
+// app.get('/userapi', (req, res) => {
+//     res.send('Hello, World!');
+//   });
 app.listen(9000, ()=>{
     console.log(`server connected on port 9000`);
 })
