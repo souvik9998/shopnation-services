@@ -64,7 +64,7 @@ const AppProvider = ({children}) => {
     }
     const isAuthorized = async()=>{
         try{
-        const res = await axios.get(`http://${baseUrl}:9000/userapi/auth/isUserAuth`,{
+        const res = await axios.get(`http://${baseUrl}/userapi/auth/isUserAuth`,{
           headers : {
             "Authorization" : window.localStorage.getItem("token"),
           }

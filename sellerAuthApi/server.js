@@ -1,6 +1,7 @@
 var express = require("express");
 var logger = require("morgan");
 var path = require("path");
+require("dotenv").config();
 var cookieParser = require("cookie-parser");
 var AppError = require("./utils/appError");
 var userRouter = require("./routes/userRouters");
@@ -37,5 +38,12 @@ app.use(function (err, req, res, next) {
     messageFromKoko: err.koko,
   });
 });
-
+mongoose
+  .connect(
+    process.env.MONGO_URL,
+    { useNewUrlParser: true },
+    mongoose.set("strictQuery", true)
+  )
+  .then(() => console.log("connected mongo"))
+  .catch((err) => console.log(err));
 module.exports = app;

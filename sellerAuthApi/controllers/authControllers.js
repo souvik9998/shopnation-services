@@ -10,14 +10,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const { decode } = require("punycode");
 const axios = require('axios');
-mongoose
-  .connect(
-    process.env.MONGO_URL,
-    { useNewUrlParser: true },
-    mongoose.set("strictQuery", true)
-  )
-  .then(() => console.log("connected mongo"))
-  .catch((err) => console.log(err));
+
 
 const singToken = (id) => {
   return jwt.sign({ id: id }, process.env.JWT_SECRET, {
