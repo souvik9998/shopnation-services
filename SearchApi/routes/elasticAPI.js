@@ -276,7 +276,6 @@ router.post('/searchResult',run1,(req, res) =>{
 });
 router.get('/getAll',run2,(req,res)=>{
     console.log("hello");
-    
 })
 router.post('/searchProduct',productSearch,(req, res) =>{
   console.log("response sent")

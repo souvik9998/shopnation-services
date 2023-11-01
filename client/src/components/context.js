@@ -84,7 +84,7 @@ const AppProvider = ({children}) => {
       }
       const getCartDetails = async(userId) =>{
         return await axios
-        .get(`http://localhost:9000/cart/getCartDetails/${userId}`,{
+        .get(`http://${baseUrl}/cart/getCartDetails/${userId}`,{
             headers : {
                 "Authorization" : window.localStorage.getItem("token"), 
               }
@@ -110,7 +110,7 @@ const AppProvider = ({children}) => {
 
        const getAll = async() => {
         return await axios
-          .get(`http://${baseUrl}:4000/searchapi/getAll`)
+          .get(`http://${baseUrl}/searchapi/getAll`)
           .then((response) => {
             setStoreList(response.data);
             console.log(response.data);
