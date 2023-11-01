@@ -90,12 +90,13 @@ app.use(function (err, req, res, next) {
 });
 
 mongoose
-  .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+  .connect("mongodb+srv://ecommerce:ecommerce9998@cluster0.hbwdzdi.mongodb.net/?retryWrites=true&w=majority",
+   { useNewUrlParser: true },mongoose.set('strictQuery',true))
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
-const port = process.env.PORT || 3002;
+const port = 3002;
 app.set('port', port);
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
