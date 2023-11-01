@@ -200,6 +200,7 @@ router.get("/getProduct/:shopId", async (req, res) => {
 
 router.get("/getProductInfo/:productId",async(req,res) =>{
   try{
+    console.log(req.params.productId);
     const productId = req.params.productId;
     let result;
     result = await productModel.findOne({_id:productId});
