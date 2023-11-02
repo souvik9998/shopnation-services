@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon server.js",
+    "debug": "ndb server.js"     
   },
   "dependencies": {
     "@elastic/elasticsearch": "^8.6.0",

@@ -200,7 +200,6 @@ router.get("/getProduct/:shopId", async (req, res) => {
 
 router.get("/getProductInfo/:productId",async(req,res) =>{
   try{
-    console.log(req.params.productId);
     const productId = req.params.productId;
     let result;
     result = await productModel.findOne({_id:productId});
@@ -229,7 +228,6 @@ router.get("/getProductInfo/:productId",async(req,res) =>{
       isAvailable: result.isAvailable,
       mainImagePath : path.join('..','assets',`${result.shopId}`,result.mainImage.data.toString()),
   }
-  console.log(item);
   res.status(200).json({item})
 }
   catch(err){
