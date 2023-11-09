@@ -28,7 +28,7 @@ const Storehub = () => {
         modules={[Grid, Autoplay, Pagination]}
         breakpoints={{
           0: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             grid: {
               rows: 2,
             }
@@ -51,7 +51,7 @@ const Storehub = () => {
       >
         {
           storeList.filter((curr,idx) => idx < 10).map((currStore) =>{
-            return <SwiperSlide className=' py-2 px-3'><Storecard store={currStore}/></SwiperSlide>
+            return <SwiperSlide className='py-1 px-[3px] lg:py-2 lg:px-3'><Storecard store={currStore}/></SwiperSlide>
           })
         }
         </Swiper>

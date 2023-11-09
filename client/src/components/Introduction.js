@@ -1,24 +1,68 @@
 import React, { useEffect } from 'react'
 import Introimage from '../Images/IntroImage.png';
 import { motion } from 'framer-motion';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/grid";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Grid, Autoplay, Pagination, Navigation } from "swiper";
+import "../App.css";
 
 const Introduction = () => {
   // const introImage = window.localStorage.getItem('introImage');
   return (
     <>
-        <div className='flex justify-center items-center w-full bg-red-200/30 h-full rounded-sm font-Inter gap-2'>
+    <Swiper
+        freeMode={true}
+        autoplay={{
+          delay: 6000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Grid, Autoplay, Pagination]}
+        // breakpoints={{
+        //   0: {
+        //     slidesPerView: 2,
+        //     grid: {
+        //       rows: 2,
+        //     }
+        //   },
+        //   768: {
+        //     slidesPerView: 3,
+        //     grid: {
+        //       rows: 2,
+        //     }
+        //   },
+        //   1024: {
+        //     slidesPerView: 4,
+        //     grid: {
+        //       rows: 2,
+        //     }
+        //   }
+        // }}
+       
+        className="mySwiper2 w-full h-full  rounded-sm font-Inter"
+      >
+      <SwiperSlide className='w-full bg-red-200/30'>
         <div
-            className='w-1/2 flex flex-col pl-10 gap-4 md:gap-6'>
-                <div className='text-3xl  lg:text-6xl font-semibold space-y-4 font-Inter'>Access your nearest<br/>virtual stores </div>
-                <div><button className='bg-buttonColor font-medium text-white w-32 h-9 text-md md:w-36 md:h-12 md:text-lg rounded-md'>Shop now</button></div>
-            </div>
-            <div
-            className='w-1/2 h-full flex justify-end pr-20 pb-6 items-center'>
-                {/* <img src={Introimage} loading='lazy' className='h-full w-fit scale-125'></img> */}
+            className='w-full flex flex-col pl-2 lg:pl-10 gap-2 md:gap-6'>
+                <div className='text-lg  lg:text-5xl font-semibold space-y-4 font-Inter'>Access your nearest<br/>virtual stores </div>
+                <div><button className='bg-buttonColor  text-white w-fit h-fit px-2 py-1 text-xs rounded font-normal lg:font-medium lg:px-5 lg:py-[5px] lg:text-base  lg:rounded-md'>Shop now</button></div>
             </div>
             
+        </SwiperSlide>
+        <SwiperSlide className='w-full bg-buttonColor'>
+        <div
+            className='w-full flex flex-col pl-2 lg:pl-10 gap-2 md:gap-6'>
+                <div className='text-lg  lg:text-5xl font-semibold space-y-4 font-Inter text-white'>Access your nearest<br/>virtual stores </div>
+                <div><button className='bg-white  text-buttonColor w-fit h-fit px-2 py-1 text-xs rounded font-medium lg:font-medium lg:px-5 lg:py-[5px] lg:text-base  lg:rounded-md'>Shop now</button></div>
+            </div>
             
-        </div> 
+        </SwiperSlide>
+        </Swiper>
     </>
   )
 }
