@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useGlobalContext } from '../components/context';
 import { motion } from 'framer-motion'
 import Introimage from '../Images/ecom.png';
+import { baseUrl } from '../config/config';
 const Login = () => {
   const navigate = useNavigate();
   const{setLoginStatus,user,setUser} = useGlobalContext();
@@ -37,7 +38,7 @@ const Login = () => {
   }
   const login = async() =>{
     try{
-      const res =  await axios.post('http://localhost:9000/auth/login', userInfo);
+      const res =  await axios.post(`http://${baseUrl}/userapi/auth/login`, userInfo);
       
         window.localStorage.setItem("token",res.data.token);
         setUser({

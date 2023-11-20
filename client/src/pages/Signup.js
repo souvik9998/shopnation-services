@@ -4,7 +4,7 @@ import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-
+import { baseUrl } from "../config/config";
 const Signup = () => {
   const[user,setUser] = useState(
     {
@@ -26,7 +26,7 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     return await axios
-      .post('http://localhost:9000/auth/register', user)
+      .post(`http://${baseUrl}/userapi/auth/register`, user)
       .then((response) => {
         console.log(response);
         navigate("/login");

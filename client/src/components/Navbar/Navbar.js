@@ -4,7 +4,7 @@ import Searchbar from '../Searchbar';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
-
+import shopnation from '../../Images/Shopnation.png'
 const Navbar = () => {
     const[open,setOpen] = useState(false);
     const {user,cartProductCounter,cartList} = useGlobalContext();
@@ -16,7 +16,11 @@ const Navbar = () => {
   return (
     <>
      <div className='font-Inter font-semibold w-full flex h-fit py-2 lg:py-5 px-1 lg:pr-8 lg:pl-8 bg-navColor justify-between text-white items-center'>
-        <h1 className='hidden text-lg font-medium lg:font-semibold lg:text-xl lg:w-[12%] lg:block'><Link to='/'>Shopnation</Link></h1>
+        <div className='hidden text-lg font-medium lg:font-semibold lg:text-xl lg:w-[12%] lg:block'>
+        <Link to='/'>
+            <img className='' src={shopnation}></img>
+        </Link>
+        </div>
         <div className= 'hidden lg:block w-10/12 lg:w-[45%] '><Searchbar/></div>
         <div className='w-full flex flex-col gap-2 lg:hidden'>
             <div className='flex items-center justify-between'>
@@ -27,7 +31,9 @@ const Navbar = () => {
                     <ion-icon name="menu"></ion-icon>
                 }
                 </div>
-                <div className='text-lg font-medium lg:font-semibold lg:text-xl lg:w-[12%] lg:block'><Link to='/'>Shopnation</Link></div>
+                <div className='text-lg font-medium lg:font-semibold lg:text-xl lg:w-[12%] lg:block'><Link to='/'>
+                    <img src={shopnation}></img>
+                </Link></div>
                 </div>
                 
                 {

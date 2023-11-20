@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useGlobalContext } from './context';
 import Storesearch from '../pages/Storesearch';
 import { useLocation } from 'react-router-dom';
-
+import { baseUrl } from '../config/config';
 const Searchbar = () => {
   const{searchStoreList,searchQuery,setSearchQuery,setSearchStoreList,storeList} = useGlobalContext();
   const {isFormClicked,setFormClicked,setProductList} = useGlobalContext();
@@ -42,7 +42,7 @@ const Searchbar = () => {
   const handleSearch = async (event) => {
     event.preventDefault();
     return await axios
-      .post('http://localhost:4000/api/searchResult', { query: searchQuery })
+      .post(`http://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
       .then((response) => {
         setSearchStoreList(response.data);
         console.log(response.data);
@@ -51,7 +51,6 @@ const Searchbar = () => {
         navigate('/Storesearch');   
       })
       .catch((err) => console.log(err));
-        
   }
 
   // const handleProductPage = async(shopId) => {

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { useGlobalContext } from '../../../components/context'
 import axios from 'axios';
-
+import { baseUrl } from '../../../config/config';
 const PersonalInfo = () => {
   const {user,setUser} = useGlobalContext();
   const [nameEditing,setNameEditing] = useState(false);
@@ -19,7 +19,7 @@ const PersonalInfo = () => {
   }
   const handleUpdate = async(name,value)=>{
     try{
-        const res = await axios.put(`http://localhost:9000/auth/updateUser/${user.userId}`,{
+        const res = await axios.put(`http://${baseUrl}/userapi/auth/updateUser/${user.userId}`,{
             [name] : value
         });
         console.log(res);

@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import animationData from '../../Images/GreenAnimation.json';
 import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
-
+import { baseUrl } from '../../config/config';
 const Sellersignup = ({setSlideFull,slideFull}) => {
   const navigate = useNavigate();
   const [page,setPage] = useState(0);
@@ -56,22 +56,22 @@ const Sellersignup = ({setSlideFull,slideFull}) => {
       return <Shoptimings sellerInfo={sellerInfo} setSellerInfo={setSellerInfo}/>
   }
   }
-  const showToast = () => {
-    toast.success('Sign up successfull', {
-      position: "bottom-left",
-      autoClose: 800,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-  };
+  // const showToast = () => {
+  //   toast.success('Sign up successfull', {
+  //     position: "bottom-left",
+  //     autoClose: 800,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //     });
+  // };
 
     const signupdata = async(formData)=>{
       try{
-        const res = await axios.post('http://localhost:3002/auth/signUp',formData);
+        const res = await axios.post(`http://${baseUrl}/sellerapi/auth/signUp`,formData);
         return res.data;
       }
       catch(err){
@@ -112,7 +112,7 @@ const Sellersignup = ({setSlideFull,slideFull}) => {
       console.log(res1);
       // const res2 = await registerShop(shopData);
       // console.log(res2);
-      setSignUpSuccess(!signUpSuccess);
+      setSignUpSuccess(true);
       // showToast();
       // await new Promise((resolve) => setTimeout(resolve, 4500))
       // navigate('/loginrole')

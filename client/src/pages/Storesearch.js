@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import { PuffLoader } from 'react-spinners';
-
+import { baseUrl } from '../config/config';
 const Storesearch = () => {
   const{searchStoreList,setSearchStoreList,searchQuery,setSearchQuery} = useGlobalContext();
   let [loading, setLoading] = useState(true);
@@ -24,7 +24,7 @@ const Storesearch = () => {
   },[])
   const handleSearch = async (searchQuery) => {
     return await axios
-      .post('http://52.203.150.188:4000/api/searchResult', { query: searchQuery })
+      .post(`http://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
       .then((response) => {
         setSearchStoreList(response.data);
         console.log(response.data);

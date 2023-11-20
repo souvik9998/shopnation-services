@@ -91,7 +91,7 @@ exports.signup = async (req, res, next) => {
 };
 const registerShop = async(shopdata) =>{
     try{
-      const res = await axios.post('http://localhost:4000/api/registerShop',shopdata);
+      const res = await axios.post('http://54.237.194.15/searchapi/registerShop',shopdata);
       return res.data.msg;
     }
     catch(err){
