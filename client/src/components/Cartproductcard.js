@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from './context';
 import axios from 'axios';
 import Skeletoncard from './skeletonComponents/Skeletoncard';
-
+import {baseUrl} from "../config/config.js";
 const Cartproductcard = (props) => {
   const{cartProductCounter,setCartProductCounter,cartTotalPrice,setCartTotalPrice,calculateExpectedDelivery} = useGlobalContext();
   const{cartList,setCartList} = useGlobalContext();
@@ -16,7 +16,7 @@ const Cartproductcard = (props) => {
   const increaseCount = async()=>{
     if(quantity < 9){
       return await axios
-      .put("http://localhost:9000/cart/updateCart",{
+      .put(`http://${baseUrl}/userapi/cart/updateCart`,{
         productId : productId,
         quantity : quantity+1
       })
@@ -44,7 +44,7 @@ const Cartproductcard = (props) => {
   const decreaseCount = async()=>{
     if(quantity > 1){
       return await axios
-      .put("http://localhost:9000/cart/updateCart",{
+      .put(`http://${baseUrl}/userapi/cart/updateCart`,{
         productId : productId,
         quantity : quantity-1
       })
@@ -71,7 +71,7 @@ const Cartproductcard = (props) => {
 
   const deleteFromCart = async()=>{
     return await axios
-    .post(`http://localhost:9000/cart/deleteFromCart`,{
+    .post(`http://${baseUrl}/userapi/cart/deleteFromCart`,{
       productId : productId
     }
     )
@@ -89,7 +89,7 @@ const Cartproductcard = (props) => {
   const getProductInfo = async() =>{
     try{
       let productInfo;
-      productInfo = await axios.get(`http://localhost:3002/onboard/getProductInfo/${productId}`);
+      productInfo = await axios.get(`http://${baseUrl}/sellerapi/onboard/getProductInfo/${productId}`);
       console.log(productInfo)
       setCartProductInfo(productInfo.data.item);
       setCartLoading(false);

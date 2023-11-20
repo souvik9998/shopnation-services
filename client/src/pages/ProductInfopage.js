@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useGlobalContext } from '../components/context';
 import { useLocation } from 'react-router-dom';
+import { baseUrl } from '../config/config';
 const ProductInfopage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -40,7 +41,7 @@ const ProductInfopage = () => {
     if(location.pathname === `/ShopProductPage/${shopId}/${productId}`){
       
       try{  
-        const res =  await axios.get(`http://localhost:3002/onboard/showProduct/${productId}`);
+        const res =  await axios.get(`http://${baseUrl}/sellerapi/onboard/showProduct/${productId}`);
         console.log(res);
         setItem(res.data.item);
         // setDefaultProductId(productId);
@@ -52,7 +53,7 @@ const ProductInfopage = () => {
     }
     else{
         try{
-            const res = await axios.get(`http://localhost:3002/onboard/getProductVariantInfo/${productId}?variantName=${variantName}`);
+            const res = await axios.get(`http://${baseUrl}/sellerapi/onboard/getProductVariantInfo/${productId}?variantName=${variantName}`);
             const newSizeArray = [];
             variants.forEach((v)=>{
             v.typeArray.forEach((i)=>{
@@ -188,7 +189,7 @@ const ProductInfopage = () => {
   const handleAddtoCart = async() =>{
     try{
       const res1 =  await axios
-      .post("http://localhost:9000/cart/addToCart",{
+      .post(`http://${baseUrl}/cart/addToCart`,{
         productId : item.productId,
         userId: user.userId,
         productName : item.productName,
@@ -228,7 +229,7 @@ const ProductInfopage = () => {
                 <img
                 className='rounded-sm w-full h-full object-contain  overflow-hidden'
                 onMouseEnter={()=>handleImageHover(item.mainImagePath)}  
-                src={`http://localhost:3002/${item.mainImagePath}`}></img></div>
+                src={`http://${baseUrl}/${item.mainImagePath}`}></img></div>
             }
             {
               (productImages)?

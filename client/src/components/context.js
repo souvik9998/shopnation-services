@@ -84,7 +84,7 @@ const AppProvider = ({children}) => {
       }
       const getCartDetails = async(userId) =>{
         return await axios
-        .get(`http://${baseUrl}/cart/getCartDetails/${userId}`,{
+        .get(`http://${baseUrl}/userapi/cart/getCartDetails/${userId}`,{
             headers : {
                 "Authorization" : window.localStorage.getItem("token"), 
               }
@@ -179,7 +179,7 @@ const AppProvider = ({children}) => {
       // }
       const getShippingAddress = async(userId) =>{
         try{
-          const res = await axios.get(`http://localhost:9000/getDefaultAddress/${userId}`);
+          const res = await axios.get(`http://${baseUrl}/userapi/getDefaultAddress/${userId}`);
           setShippingAddress(res.data.defaultAddress);
           console.log(res.data.defaultAddress);
         }
