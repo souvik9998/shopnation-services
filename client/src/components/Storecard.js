@@ -14,7 +14,7 @@ const Storecard = ({store}) => {
       onClick={()=>handleClick()}
       className="font-Inter flex flex-col justify-center items-center bg-white w-full h-full rounded-md shadow-lg hover:shadow-xl border-inherit border hover:border hover:bg-gray-300">
         <div className='w-full h-full flex items-center justify-center relative'>
-          <img className="w-full h-full md:rounded-md" src={`http://${baseUrl}/${store.shopImagePath}`} alt="Product Image" />
+          <img className="w-full h-full md:rounded-md" src={store.shopImagePath} alt="Product Image" />
           <div className="absolute w-full h-full rounded-md bg-black/20"></div>
             <div className='absolute left-0 top-1 md:top-3 flex gap-[2px] bg-green-600 text-white rounded-sm w-6 md:w-12 text-xs items-center justify-center'>
               <div className='md:py-1 text-[7px] md:text-xs'>4.2</div>
