@@ -12,6 +12,7 @@ const axios = require('axios');
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const { S3Client } = require("@aws-sdk/client-s3");
+const inventoryModel = require("../models/inventoryModel");
 
 // create s3 instance using S3Client 
 // (this is how we create s3 instance in v3)
@@ -198,8 +199,11 @@ exports.getSellerInfo = async(req,res,next) =>{
 }
 
 
-
-
+// async function run(){
+//   const db = mongoose.connection;
+//   await db.collection('variantmodels').deleteMany({});
+// }
+// run();
 exports.protectRoutes = async (req, res, next) => {
   //Authorize user before alloewing access to protected routes
   try {
