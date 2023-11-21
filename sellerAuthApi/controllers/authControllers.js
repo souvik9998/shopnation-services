@@ -185,7 +185,6 @@ exports.getSellerInfo = async(req,res,next) =>{
     const shopId = req.params.shopId;
     let result = await userModel.findOne({_id:shopId});
     result = result.toObject();
-    const shopImagePath = path.join('..','assets',result.shopImage.data.toString());
     delete result.password;
     delete result.confirmPassword;
     delete result.shopImage;
