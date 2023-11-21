@@ -40,8 +40,8 @@ const schema = new mongoose.Schema({
     },
   },
   shopImage: {
-    data:Buffer,
-    contentType:String
+    url: String, // Store the full URL of the image
+    contentType: String,
   },
   shopName: {
     type: String,

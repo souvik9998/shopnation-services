@@ -18,7 +18,7 @@ const Navbar = () => {
      <div className='font-Inter font-semibold w-full flex h-fit py-2 lg:py-5 px-1 lg:pr-8 lg:pl-8 bg-navColor justify-between text-white items-center'>
         <div className='hidden text-lg font-medium lg:font-semibold lg:text-xl lg:w-[12%] lg:block'>
         <Link to='/'>
-            <img className='' src={shopnation}></img>
+            <img className='h-4 w-8 lg:h-full lg:w-full' src={shopnation}></img>
         </Link>
         </div>
         <div className= 'hidden lg:block w-10/12 lg:w-[45%] '><Searchbar/></div>

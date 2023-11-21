@@ -3,13 +3,58 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const AppError = require("../utils/appError");
 const { promisify } = require("util");
-var multer = require("multer");
 const userModel = require("../models/userModel")
 const path = require("path");
 //const connect =  require('../utils/dbConnection');
 const mongoose = require("mongoose");
 const { decode } = require("punycode");
 const axios = require('axios');
+const multer = require("multer");
+const multerS3 = require("multer-s3");
+const { S3Client } = require("@aws-sdk/client-s3");
+
+// create s3 instance using S3Client 
+// (this is how we create s3 instance in v3)
+const s3 = new S3Client({
+    credentials: {
+        accessKeyId: "AKIASXLHVPFDWDOFEAQE", // store it in .env file to keep it safe
+        secretAccessKey: "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"
+    },
+    region: "ap-south-1" // this is the region that you select in AWS account
+})
+
+const s3Storage = multerS3({
+  s3: s3, // s3 instance
+  bucket: "shopnationbucket", // change it as per your project requirement
+  acl: "public-read", // storage access type
+  metadata: (req, file, cb) => {
+      cb(null, {fieldname: file.fieldname})
+  },
+  key: (req, file, cb) => {
+      const fileName = Date.now() + "_" + file.fieldname + "_" + file.originalname;
+      cb(null, fileName);
+  }
+});
+
+function sanitizeFile(file, cb) {
+  // Define the allowed extension
+  const fileExts = [".png", ".jpg", ".jpeg", ".gif"];
+
+  // Check allowed extensions
+  const isAllowedExt = fileExts.includes(
+      path.extname(file.originalname.toLowerCase())
+  );
+
+  // Mime type must be an image
+  const isAllowedMimeType = file.mimetype.startsWith("image/");
+
+  if (isAllowedExt && isAllowedMimeType) {
+      return cb(null, true); // no errors
+  } else {
+      // pass error msg to callback, which can be displaye in frontend
+      cb("Error: File type not allowed!");
+  }
+}
 
 
 const singToken = (id) => {
@@ -18,15 +63,18 @@ const singToken = (id) => {
   });
 };
 
-const Storage = multer.diskStorage({
-  destination: "public/assets", // productImages file is created
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + file.originalname); //stored in binary format
-  },
-});
+// const Storage = multer.diskStorage({
+//   destination: "public/assets", // productImages file is created
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + file.originalname); //stored in binary format
+//   },
+// });
 
 const upload = multer({
-  storage: Storage,
+  storage: s3Storage,
+  fileFilter: (req, file, callback) => {
+      sanitizeFile(file, callback)
+  },
 }).single("shopImage");
 
 exports.signup = async (req, res, next) => {
@@ -60,10 +108,10 @@ exports.signup = async (req, res, next) => {
           shopAddress: JSON.parse(shopAddress),
           shopType: shopType,
           shopTimings: JSON.parse(shopTimings),
-          shopImage : {
-            data : req.file.filename,
+          shopImage: {
+            url: req.file.location, // Use the location provided by S3
             contentType: req.body.mimetype,
-          }
+          },
         });
     
         const token = singToken(newUser._id);
@@ -71,7 +119,7 @@ exports.signup = async (req, res, next) => {
           shopId: newUser._id,
           shopName: newUser.shopName,
           shopType: newUser.shopType,
-          shopImagePath: path.join('..','assets',newUser.shopImage.data.toString())
+          shopImagePath: req.file.location
         }
         const elasticRegister = await registerShop(shopData);
         res.status(200).json({
