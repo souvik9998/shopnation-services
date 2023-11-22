@@ -187,8 +187,6 @@ exports.getSellerInfo = async(req,res,next) =>{
     result = result.toObject();
     delete result.password;
     delete result.confirmPassword;
-    delete result.shopImage;
-    result.shopImagePath = shopImagePath;
     console.log(result);
     res.status(200).json({sellerInfo:result});
   }
