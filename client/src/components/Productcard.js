@@ -70,7 +70,7 @@ const ProductCard = ({product}) => {
     <>
       <div className='h-fit w-full capitalize  rounded-md font-Inter bg-white gap-4 flex justify-around mb-3 shadow pr-4'>
         <div className='flex flex-col gap-2 w-[28%] rounded-l-md px-2 py-2 bg-gray-100'>
-          <div className=' h-full flex justify-center items-center '><img className='w-full min-h-full max-h-44' src={`http://${baseUrl}/${product.mainImagePath}`}/></div>
+          <div className=' h-full flex justify-center items-center '><img className='w-full min-h-full max-h-44' src={product.mainImagePath}/></div>
           <div className='lg:hidden w-full flex flex-col gap-2 justify-center text-sm text-white font-semibold'>
               <div><button className='bg-buttonColor w-full h-8 rounded-md'>Buy Now</button></div>
               <div><button onClick={handleAddtocart} className='bg-white border-2 border-buttonColor text-black w-full h-8 rounded-md'>Add to cart</button></div>

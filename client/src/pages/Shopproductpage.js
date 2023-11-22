@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Productcard from '../components/Productcard';
 import StoredetailsCard from '../components/StoredetailsCard';
 import SkeletonshopdetailsCard from '../components/skeletonComponents/SkeletonshopdetailsCard';
+import { baseUrl } from '../config/config';
 const ShopProductPage = () => {
   const {shopId} = useParams();
   const {calculateExpectedDelivery} = useGlobalContext();
@@ -19,10 +20,10 @@ const ShopProductPage = () => {
   },[])
   const getAllProducts = async() => {
     try{
-      const res1 = await axios.get(`http://localhost:3002/auth/getSellerInfo/${shopId}`);
+      const res1 = await axios.get(`http://${baseUrl}/userapi/auth/getSellerInfo/${shopId}`);
       console.log(res1);
       setShopInfo(res1.data.sellerInfo);
-      const res2 = await axios.get(`http://localhost:3002/onboard/getProduct/${shopId}`);
+      const res2 = await axios.get(`http://${baseUrl}/userapi/onboard/getProduct/${shopId}`);
       console.log(res2);
       setProductList(res2.data);
     } 
@@ -33,7 +34,7 @@ const ShopProductPage = () => {
   const handleClick = async(event)=>{
     event.preventDefault();
     try{
-      const searchResult = await axios.post('http://localhost:4000/api/searchProduct', { query: searchQuery });
+      const searchResult = await axios.post(`http://${baseUrl}/searchapi/searchProduct`, { query: searchQuery });
       console.log(searchResult);
       setProductList([]);
       const res = await getProductInfo(searchResult.data);
@@ -47,7 +48,7 @@ const ShopProductPage = () => {
   const getProductInfo = async(productList) =>{
     try{
       const promises = productList.map(async(item)=>{
-        const product = await axios.get(`http://localhost:3002/onboard/getProductInfo/${item._source.productId}`);
+        const product = await axios.get(`http://${baseUrl}/sellerapi/onboard/getProductInfo/${item._source.productId}`);
         return product.data.item;
       })
 

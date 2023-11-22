@@ -229,7 +229,7 @@ const ProductInfopage = () => {
                 <img
                 className='rounded-sm w-full h-full object-contain  overflow-hidden'
                 onMouseEnter={()=>handleImageHover(item.mainImagePath)}  
-                src={`http://${baseUrl}/${item.mainImagePath}`}></img></div>
+                src={item.mainImagePath}></img></div>
             }
             {
               (productImages)?
@@ -238,12 +238,12 @@ const ProductInfopage = () => {
               className={`w-full h-[25%] rounded-sm  ${mainImage === image.imagePath?'border-2 border-blue-500':'border'}`}>
               <img
               onMouseEnter={()=>handleImageHover(image.imagePath)} 
-              className='w-full h-full object-contain overflow-hidden rounded-sm' src={`http://localhost:3002/${image.imagePath}`}></img></div>
+              className='w-full h-full object-contain overflow-hidden rounded-sm' src={image.imagePath}></img></div>
               
             }):''
             }
             </div>
-            <div className='w-[75%] h-full flex shadow'><img className='w-full h-full object-contain' src={`http://localhost:3002/${mainImage}`}></img></div>
+            <div className='w-[75%] h-full flex shadow'><img className='w-full h-full object-contain' src={mainImage}></img></div>
 
           </div>
           <div className='w-fit max-w-96 flex flex-col h-fit gap-3'>
