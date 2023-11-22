@@ -20,10 +20,10 @@ const ShopProductPage = () => {
   },[])
   const getAllProducts = async() => {
     try{
-      const res1 = await axios.get(`http://${baseUrl}/userapi/auth/getSellerInfo/${shopId}`);
+      const res1 = await axios.get(`http://${baseUrl}/sellerapi/auth/getSellerInfo/${shopId}`);
       console.log(res1);
       setShopInfo(res1.data.sellerInfo);
-      const res2 = await axios.get(`http://${baseUrl}/userapi/onboard/getProduct/${shopId}`);
+      const res2 = await axios.get(`http://${baseUrl}/sellerapi/onboard/getProduct/${shopId}`);
       console.log(res2);
       setProductList(res2.data);
     } 
