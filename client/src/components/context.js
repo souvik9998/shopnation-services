@@ -65,7 +65,7 @@ const AppProvider = ({children}) => {
     }
     const isAuthorized = async()=>{
         try{
-        const res = await axios.get(`http://${baseUrl}/userapi/auth/isUserAuth`,{
+        const res = await axios.get(`https://${baseUrl}/userapi/auth/isUserAuth`,{
           headers : {
             "Authorization" : window.localStorage.getItem("token"),
           }
@@ -85,7 +85,7 @@ const AppProvider = ({children}) => {
       }
       const getCartDetails = async(userId) =>{
         return await axios
-        .get(`http://${baseUrl}/userapi/cart/getCartDetails/${userId}`,{
+        .get(`https://${baseUrl}/userapi/cart/getCartDetails/${userId}`,{
             headers : {
                 "Authorization" : window.localStorage.getItem("token"), 
               }
@@ -111,7 +111,7 @@ const AppProvider = ({children}) => {
 
        const getAll = async() => {
         return await axios
-          .get(`http://${baseUrl}/searchapi/getAll`)
+          .get(`https://${baseUrl}/searchapi/getAll`)
           .then((response) => {
             setStoreList(response.data);
             console.log(response.data);
@@ -124,9 +124,9 @@ const AppProvider = ({children}) => {
       //     const productInfoPromises = cartList.map(async (item) => {
       //       let response;
       //       if(item.product_type === "main"){
-      //         response = await axios.get(`http://localhost:3002/onboard/getProductInfo/${item.product_id}`);
+      //         response = await axios.get(`https://localhost:3002/onboard/getProductInfo/${item.product_id}`);
       //       }
-      //       else response = await axios.get(`http://localhost:3002/onboard/getProductVariantInfo/${item.product_id}`);
+      //       else response = await axios.get(`https://localhost:3002/onboard/getProductVariantInfo/${item.product_id}`);
       //       return {
       //         ...item,
       //         expectedDelivery: calculateExpectedDelivery(response.data.item.expectedDelivery),
@@ -142,7 +142,7 @@ const AppProvider = ({children}) => {
       // }
       // const getOrderDetails = async(userId)=>{
       //   try{
-      //     const res = await axios.get(`http://localhost:9000/order/getOrderDetails/${userId}`);
+      //     const res = await axios.get(`https://localhost:9000/order/getOrderDetails/${userId}`);
       //     console.log(res);
       //     if(res.data.orderItems){
       //       const res2 = await getOrderProductInfo(res.data.orderItems);
@@ -162,7 +162,7 @@ const AppProvider = ({children}) => {
       // const getOrderProductInfo = async(orderList)=>{
       //   try {
       //     const productInfoPromises = orderList.map(async (item) => {
-      //       const res = await axios.get(`http://localhost:3002/onboard/getProductInfo/${item.product_id}`);
+      //       const res = await axios.get(`https://localhost:3002/onboard/getProductInfo/${item.product_id}`);
       //       return {
       //         ...item,
       //         productName: res.data.item.productName,
@@ -180,7 +180,7 @@ const AppProvider = ({children}) => {
       // }
       const getShippingAddress = async(userId) =>{
         try{
-          const res = await axios.get(`http://${baseUrl}/userapi/address/getDefaultAddress/${userId}`);
+          const res = await axios.get(`https://${baseUrl}/userapi/address/getDefaultAddress/${userId}`);
           setShippingAddress(res.data.defaultAddress);
           console.log(res.data.defaultAddress);
         }
