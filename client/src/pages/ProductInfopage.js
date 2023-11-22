@@ -228,8 +228,8 @@ const ProductInfopage = () => {
                 <div className={`w-full h-[25%] rounded-sm ${mainImage === item.mainImagePath? 'border-2 border-blue-500 ':''}`}>
                 <img
                 className='rounded-sm w-full h-full object-contain  overflow-hidden'
-                onMouseEnter={()=>handleImageHover(item.mainImagePath)}  
-                src={item.mainImagePath}></img></div>
+                onMouseEnter={()=>handleImageHover(item.mainImagePath.url)}  
+                src={item.mainImagePath.url}></img></div>
             }
             {
               (productImages)?
@@ -237,13 +237,13 @@ const ProductInfopage = () => {
               return <div 
               className={`w-full h-[25%] rounded-sm  ${mainImage === image.imagePath?'border-2 border-blue-500':'border'}`}>
               <img
-              onMouseEnter={()=>handleImageHover(image.imagePath)} 
-              className='w-full h-full object-contain overflow-hidden rounded-sm' src={image.imagePath}></img></div>
+              onMouseEnter={()=>handleImageHover(image.imagePath.url)} 
+              className='w-full h-full object-contain overflow-hidden rounded-sm' src={image.imagePath.url}></img></div>
               
             }):''
             }
             </div>
-            <div className='w-[75%] h-full flex shadow'><img className='w-full h-full object-contain' src={mainImage}></img></div>
+            <div className='w-[75%] h-full flex shadow'><img className='w-full h-full object-contain' src={mainImage.url}></img></div>
 
           </div>
           <div className='w-fit max-w-96 flex flex-col h-fit gap-3'>

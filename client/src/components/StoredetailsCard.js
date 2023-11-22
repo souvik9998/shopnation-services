@@ -4,7 +4,7 @@ const StoredetailsCard = ({shopInfo}) => {
   return (
     <>
       <div className='flex justify-center items-center px-5'>
-            <img className='w-11/12 min-h-40' src={`http://localhost:3002/${shopInfo.shopImagePath}`}></img>
+            <img className='w-11/12 min-h-40' src={shopInfo.shopImage.url}></img>
           </div>
           <div className='flex flex-col items-center gap-6 w-full'>
             <div className='text-lg font-semibold capitalize px-5'>{shopInfo.shopName}</div>
