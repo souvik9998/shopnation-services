@@ -1,1 +1,1 @@
-export const baseUrl = "54.237.194.15";
+export const baseUrl = "shopnation.co.in"
