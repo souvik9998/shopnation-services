@@ -20,10 +20,10 @@ const ShopProductPage = () => {
   },[])
   const getAllProducts = async() => {
     try{
-      const res1 = await axios.get(`http://${baseUrl}/sellerapi/auth/getSellerInfo/${shopId}`);
+      const res1 = await axios.get(`https://${baseUrl}/sellerapi/auth/getSellerInfo/${shopId}`);
       console.log(res1);
       setShopInfo(res1.data.sellerInfo);
-      const res2 = await axios.get(`http://${baseUrl}/sellerapi/onboard/getProduct/${shopId}`);
+      const res2 = await axios.get(`https://${baseUrl}/sellerapi/onboard/getProduct/${shopId}`);
       console.log(res2);
       setProductList(res2.data);
     } 
@@ -34,7 +34,7 @@ const ShopProductPage = () => {
   const handleClick = async(event)=>{
     event.preventDefault();
     try{
-      const searchResult = await axios.post(`http://${baseUrl}/searchapi/searchProduct`, { query: searchQuery });
+      const searchResult = await axios.post(`https://${baseUrl}/searchapi/searchProduct`, { query: searchQuery });
       console.log(searchResult);
       setProductList([]);
       const res = await getProductInfo(searchResult.data);
@@ -48,7 +48,7 @@ const ShopProductPage = () => {
   const getProductInfo = async(productList) =>{
     try{
       const promises = productList.map(async(item)=>{
-        const product = await axios.get(`http://${baseUrl}/sellerapi/onboard/getProductInfo/${item._source.productId}`);
+        const product = await axios.get(`https://${baseUrl}/sellerapi/onboard/getProductInfo/${item._source.productId}`);
         return product.data.item;
       })
 

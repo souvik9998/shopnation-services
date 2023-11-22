@@ -23,7 +23,7 @@ const Sellerlogin = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     return await axios
-      .post(`http://${baseUrl}/sellerapi/auth/login`, user)
+      .post(`https://${baseUrl}/sellerapi/auth/login`, user)
       .then((response) => {
         console.log(response.data);
         // setUserInfo({

@@ -38,7 +38,7 @@ const Login = () => {
   }
   const login = async() =>{
     try{
-      const res =  await axios.post(`http://${baseUrl}/userapi/auth/login`, userInfo);
+      const res =  await axios.post(`https://${baseUrl}/userapi/auth/login`, userInfo);
       
         window.localStorage.setItem("token",res.data.token);
         setUser({

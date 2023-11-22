@@ -24,7 +24,7 @@ const ProductCard = ({product}) => {
   const handleAddtocart = async() =>{
     setIsLoading(true);
     const res1 =  await axios
-      .post(`http://${baseUrl}/userapi/cart/addToCart`,{
+      .post(`https://${baseUrl}/userapi/cart/addToCart`,{
         productId : product.productId,
         userId: user.userId,
         productName : product.productName,

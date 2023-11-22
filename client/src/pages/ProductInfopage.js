@@ -41,7 +41,7 @@ const ProductInfopage = () => {
     if(location.pathname === `/ShopProductPage/${shopId}/${productId}`){
       
       try{  
-        const res =  await axios.get(`http://${baseUrl}/sellerapi/onboard/showProduct/${productId}`);
+        const res =  await axios.get(`https://${baseUrl}/sellerapi/onboard/showProduct/${productId}`);
         console.log(res);
         setItem(res.data.item);
         // setDefaultProductId(productId);
@@ -53,7 +53,7 @@ const ProductInfopage = () => {
     }
     else{
         try{
-            const res = await axios.get(`http://${baseUrl}/sellerapi/onboard/getProductVariantInfo/${productId}?variantName=${variantName}`);
+            const res = await axios.get(`https://${baseUrl}/sellerapi/onboard/getProductVariantInfo/${productId}?variantName=${variantName}`);
             const newSizeArray = [];
             variants.forEach((v)=>{
             v.typeArray.forEach((i)=>{
@@ -189,7 +189,7 @@ const ProductInfopage = () => {
   const handleAddtoCart = async() =>{
     try{
       const res1 =  await axios
-      .post(`http://${baseUrl}/userapi/cart/addToCart`,{
+      .post(`https://${baseUrl}/userapi/cart/addToCart`,{
         productId : item.productId,
         userId: user.userId,
         productName : item.productName,
