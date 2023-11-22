@@ -85,12 +85,12 @@ const variantSchema = new Schema({
         default:'variant'
     },
     mainImage:{
-        data:Buffer,
-        contentType:String,
+        url: String,
+        contentType: String,
     },
     productImages:[{
-        data:Buffer,
-        contentType:String
+        url: String,
+        contentType: String,
     }],
     size:{
         type:String

@@ -41,19 +41,20 @@ const AppProvider = ({children}) => {
       },[authorizationMessage])
       const getUserDetails = async() =>{
         try{
-            const res2 = getAll();
+            const res2 = await getAll();
             let res1;
             if(authorizationMessage !== 'authorized'){
               res1 = await isAuthorized();
               console.log(res1);
             }
-            
-            if(res1){
-              const res3 = await getCartDetails(res1.user_id);
+            console.log(authorizationMessage)
+            if(authorizationMessage === 'authorized'){
+              const userId = user.userId || res1.user_id
+              const res3 = await getCartDetails(userId);
               setCartList(res3);
               console.log(res3);
               // const res5 = await getOrderDetails(res1.user_id);
-              await getShippingAddress(res1.user_id);
+              await getShippingAddress(userId);
             }
             setIsLoading(false);
         }
@@ -179,7 +180,7 @@ const AppProvider = ({children}) => {
       // }
       const getShippingAddress = async(userId) =>{
         try{
-          const res = await axios.get(`http://${baseUrl}/userapi/getDefaultAddress/${userId}`);
+          const res = await axios.get(`http://${baseUrl}/userapi/address/getDefaultAddress/${userId}`);
           setShippingAddress(res.data.defaultAddress);
           console.log(res.data.defaultAddress);
         }

@@ -10,6 +10,7 @@ import Maindropzone from '../../components/SellerComponents/Maindropzone';
 import VariantDropzone from '../../components/SellerComponents/VariantDropzone';
 import ProductForm from './ProductForm';
 import AddproductVariant from './AddproductVariant';
+import { baseUrl } from '../../config/config';
 const Addproductinfo = () => {
   const {savedProduct,setSavedProduct} = useSellerContext();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'))
@@ -145,7 +146,7 @@ const Addproductinfo = () => {
         form.append('productImages',image)
       })
         form.append('size',size);
-        const res = await axios.post('http://localhost:3002/onboard/storeProduct',form,{headers})
+        const res = await axios.post(`http://${baseUrl}/sellerapi/onboard/storeProduct`,form,{headers})
         console.log(res);
         return res.data.productId;
     }
@@ -178,7 +179,7 @@ const Addproductinfo = () => {
             });
             form.append("size",size);
             form.append("productId",productId);
-            await axios.post('http://localhost:3002/onboard/storeProductVariant',form,{headers})
+            await axios.post(`http://${baseUrl}/sellerapi/onboard/storeProductVariant`,form,{headers})
           })
           const res1 = Promise.all(sizePromises);
           console.log(res1);
@@ -193,7 +194,7 @@ const Addproductinfo = () => {
 
           });
           form.append("productId",productId);
-          await axios.post('http://localhost:3002/onboard/storeProductVariant',form,{headers})
+          await axios.post(`http://${baseUrl}/sellerapi/onboard/storeProductVariant`,form,{headers})
         }
         
       })
@@ -228,7 +229,7 @@ const Addproductinfo = () => {
           form.append('productImages',image);
         })
         
-        const res1 = await axios.post('http://localhost:3002/onboard/storeProductVariant',form,{headers})
+        const res1 = await axios.post(`http://${baseUrl}/sellerapi/onboard/storeProductVariant`,form,{headers})
       })
       const res2 = await Promise.all(productPromises);
       return res2;

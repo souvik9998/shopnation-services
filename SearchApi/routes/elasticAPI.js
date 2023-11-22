@@ -33,30 +33,39 @@ const { Client } = require('@elastic/elasticsearch')
   //             await client.index({
   //               index: 'shop-details',
   //               document: {
-  //                 shopId : '6532a4d532897368220b75c9',
+  //                 shopId : '655ce265d4d02eda006568b7',
   //                 storeName : 'food shop',
   //                 type : 'food',
-  //                 shopImagePath: '..\\assets\\1697817813190360_F_286178925_8zk89O9uC5JJVPvqhvBMUpaRxp8AFXzD.jpg'
+  //                 shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700586083720_shopImage_360_F_286178925_8zk89O9uC5JJVPvqhvBMUpaRxp8AFXzD.jpg'
   //               }
   //             })
   //             await client.index({
   //               index: 'shop-details',
   //               document: {
-  //                 shopId : '6532a49432897368220b75c7',
+  //                 shopId : '655ce191d4d02eda006568b1',
   //                 storeName : 'mobile shop',
   //                 type : 'electronics',
-  //                 shopImagePath: '..\\assets\\1697817748975futuristic-gadgets-showcase-lineup-sleek-modern-technological-devices_977107-682.avif'
+  //                 shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700585872405_shopImage_futuristic-gadgets-showcase-lineup-sleek-modern-technological-devices_977107-682.avif'
   //               }
   //             })
   //             await client.index({
   //               index: 'shop-details',
   //               document: {
-  //                 shopId : '64d26ced56d9dd620fa75b1b',
-  //                 storeName : 'great shop2',
-  //                 type : 'hardware',
-  //                 shopImagePath: '..\\assets\\shoesShop.avif'
+  //                 shopId : '655cdb5ed4d02eda006568af',
+  //                 storeName : 'great shop',
+  //                 type : 'shoes',
+  //                 shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700584284158_shopImage_premium_photo-1682435561654-20d84cef00eb.avif'
   //               }
   //             })
+  //            await client.index({
+    //               index: 'shop-details',
+    //               document: {
+    //                 shopId : '655c7dccabd801febc9e30c4',
+    //                 storeName : 'grocery shop',
+    //                 type : 'grocery',
+    //                 shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700560332218_shopImage_download%20%281%29.jfif'
+    //               }
+    //             })
               
               
             

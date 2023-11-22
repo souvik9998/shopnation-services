@@ -14,8 +14,8 @@ var productSchema = new Schema({
         required: true
     },
     mainImage:{
-        data:Buffer,
-        contentType:String,
+        url: String,
+        contentType: String,
         // required:true
     },
     variantName:{
@@ -25,8 +25,8 @@ var productSchema = new Schema({
         type: String,
     },
     productImages:[{
-        data:Buffer,
-        contentType:String
+        url: String,
+        contentType: String,
     }],
     productDescription:{
         type : String,
