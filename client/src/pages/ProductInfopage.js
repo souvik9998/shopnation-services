@@ -189,7 +189,7 @@ const ProductInfopage = () => {
   const handleAddtoCart = async() =>{
     try{
       const res1 =  await axios
-      .post(`http://${baseUrl}/cart/addToCart`,{
+      .post(`http://${baseUrl}/userapi/cart/addToCart`,{
         productId : item.productId,
         userId: user.userId,
         productName : item.productName,
@@ -228,17 +228,17 @@ const ProductInfopage = () => {
                 <div className={`w-full h-[25%] rounded-sm ${mainImage === item.mainImagePath? 'border-2 border-blue-500 ':''}`}>
                 <img
                 className='rounded-sm w-full h-full object-contain  overflow-hidden'
-                onMouseEnter={()=>handleImageHover(item.mainImagePath.url)}  
+                onMouseEnter={()=>handleImageHover(item.mainImagePath)}  
                 src={item.mainImagePath.url}></img></div>
             }
             {
               (productImages)?
               productImages.map((image)=>{
               return <div 
-              className={`w-full h-[25%] rounded-sm  ${mainImage === image.imagePath?'border-2 border-blue-500':'border'}`}>
+              className={`w-full h-[25%] rounded-sm  ${mainImage === image?'border-2 border-blue-500':'border'}`}>
               <img
-              onMouseEnter={()=>handleImageHover(image.imagePath.url)} 
-              className='w-full h-full object-contain overflow-hidden rounded-sm' src={image.imagePath.url}></img></div>
+              onMouseEnter={()=>handleImageHover(image)} 
+              className='w-full h-full object-contain overflow-hidden rounded-sm' src={image.url}></img></div>
               
             }):''
             }
