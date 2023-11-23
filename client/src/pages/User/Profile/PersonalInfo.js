@@ -19,7 +19,7 @@ const PersonalInfo = () => {
   }
   const handleUpdate = async(name,value)=>{
     try{
-        const res = await axios.put(`http://${baseUrl}/userapi/auth/updateUser/${user.userId}`,{
+        const res = await axios.put(`https://${baseUrl}/userapi/auth/updateUser/${user.userId}`,{
             [name] : value
         });
         console.log(res);

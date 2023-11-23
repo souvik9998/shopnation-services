@@ -5,7 +5,7 @@ import Addressform from './Adressform';
 import axios from 'axios';
 import { useGlobalContext } from '../../components/context';
 import Addresscard from './Addresscard';
-
+import { baseUrl } from '../../config/config';
 const Addresspage = () => {
   const [isOpen,setIsOpen] = useState(false);
   const[userAddress,setUserAddress] = useState([]);
@@ -18,7 +18,7 @@ const Addresspage = () => {
 
   const isAuthorized = async()=>{
     try{
-      const res = await axios.get(`http://localhost:9000/auth/isUserAuth`,{
+      const res = await axios.get(`https://${baseUrl}/userapi/auth/isUserAuth`,{
         headers : {
           "Authorization" : window.localStorage.getItem("token"),
         }
@@ -42,7 +42,7 @@ const Addresspage = () => {
       let userId;
       if(authorizationMessage !== 'authorized')userId = await isAuthorized();
       else userId = user.userId;
-      const res =  await axios.get(`http://localhost:9000/getUserAddress/${userId}`)
+      const res =  await axios.get(`https://${baseUrl}/userapi/address/getUserAddress/${userId}`)
       console.log(res.data);
       if(res.data.length === 1){
         setDefaultAddress(res.data[0].id)

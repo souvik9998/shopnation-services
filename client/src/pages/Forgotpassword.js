@@ -3,12 +3,13 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { baseUrl } from '../config/config';
 const Forgotpassword = () => {
     const [mobileNumber,setMobileNumber] = useState('');
     const navigate = useNavigate();
     const handleClick = async() =>{
         try{
-            const res = await axios.post(`http://localhost:9000/auth/forgotPassword`,{mobileNumber});
+            const res = await axios.post(`https://${baseUrl}/userapi/auth/forgotPassword`,{mobileNumber});
             console.log(res);
             navigate('/loginpage/otp-verify',{state:{mobileNumber}});
         }

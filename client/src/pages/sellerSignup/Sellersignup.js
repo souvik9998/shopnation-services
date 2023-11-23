@@ -71,7 +71,7 @@ const Sellersignup = ({setSlideFull,slideFull}) => {
 
     const signupdata = async(formData)=>{
       try{
-        const res = await axios.post(`http://${baseUrl}/sellerapi/auth/signUp`,formData);
+        const res = await axios.post(`https://${baseUrl}/sellerapi/auth/signUp`,formData);
         return res.data;
       }
       catch(err){

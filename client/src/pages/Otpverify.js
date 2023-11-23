@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { baseUrl } from '../config/config';
 const Otpverify = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Otpverify = () => {
     const {mobileNumber} = location.state;
     const handleClick = async() =>{
         try{
-            const res = await axios.post(`http://localhost:9000/auth/verifyOTP`,{mobileNumber,otp});
+            const res = await axios.post(`https://${baseUrl}/userapi/auth/verifyOTP`,{mobileNumber,otp});
             console.log(res);
             navigate('/loginpage/reset-password',{state:{mobileNumber}});
         }

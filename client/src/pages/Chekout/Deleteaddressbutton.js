@@ -1,13 +1,13 @@
 import React from 'react'
 import { useGlobalContext } from '../../components/context'
 import axios from 'axios';
-
+import { baseUrl } from '../../config/config';
 const Deleteaddressbutton = ({addressId,onClick,onFetch}) => {
     const{userAddress,setUserAddress,setDefaultAddress} = useGlobalContext();
     const handleClick = async(event)=>{
         event.stopPropagation();
         return await axios
-        .delete(`http://localhost:9000/deleteUserAddress/${addressId}`)
+        .delete(`https://${baseUrl}/userapi/address/deleteUserAddress/${addressId}`)
         .then((res)=>{
           console.log(res);
           const updatedUserAddress = userAddress.filter((curr) => curr.id !== addressId);

@@ -16,7 +16,7 @@ const Cartproductcard = (props) => {
   const increaseCount = async()=>{
     if(quantity < 9){
       return await axios
-      .put(`http://${baseUrl}/userapi/cart/updateCart`,{
+      .put(`https://${baseUrl}/userapi/cart/updateCart`,{
         productId : productId,
         quantity : quantity+1
       })
@@ -44,7 +44,7 @@ const Cartproductcard = (props) => {
   const decreaseCount = async()=>{
     if(quantity > 1){
       return await axios
-      .put(`http://${baseUrl}/userapi/cart/updateCart`,{
+      .put(`https://${baseUrl}/userapi/cart/updateCart`,{
         productId : productId,
         quantity : quantity-1
       })
@@ -71,7 +71,7 @@ const Cartproductcard = (props) => {
 
   const deleteFromCart = async()=>{
     return await axios
-    .post(`http://${baseUrl}/userapi/cart/deleteFromCart`,{
+    .post(`https://${baseUrl}/userapi/cart/deleteFromCart`,{
       productId : productId
     }
     )
@@ -89,7 +89,7 @@ const Cartproductcard = (props) => {
   const getProductInfo = async() =>{
     try{
       let productInfo;
-      productInfo = await axios.get(`http://${baseUrl}/sellerapi/onboard/getProductInfo/${productId}`);
+      productInfo = await axios.get(`https://${baseUrl}/sellerapi/onboard/getProductInfo/${productId}`);
       console.log(productInfo)
       setCartProductInfo(productInfo.data.item);
       setCartLoading(false);
@@ -105,7 +105,7 @@ const Cartproductcard = (props) => {
   (cartProductInfo)?
     <div className='border border-gray-200 min-h-48  m-auto font-Inter capitalize rounded-sm bg-white flex flex-1 mb-4'>
       <div className='flex flex-col gap-4 w-5/12 lg:w-3/12 bg-gray-50 py-2 px-2'>
-        <div className='h-full flex justify-center items-center'><img className='w-full min-h-full max-h-44' src={`http://localhost:3002/${cartProductInfo.mainImagePath}`}/></div>
+        <div className='h-full flex justify-center items-center'><img className='w-full min-h-full max-h-44' src={cartProductInfo.mainImagePath.url}/></div>
 
         {/* mobile button */}
 

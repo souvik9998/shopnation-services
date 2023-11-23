@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useGlobalContext } from '../../components/context';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import { baseUrl } from '../../config/config';
 const Paymentpage = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const {user,cartList,cartTotalPrice,setCartList,setIsLoading,defaultAddress,shippingAddress} = useGlobalContext();
@@ -18,8 +18,8 @@ const Paymentpage = () => {
     if (selectedOption === 'razorpayUPI') {
       try{
         const totalAmount = cartTotalPrice;
-        const {data:{key}} = await axios.get('http://localhost:7000/getApiKey');
-        const response = await axios.post("http://localhost:7000/razorpayCheckout",{
+        const {data:{key}} = await axios.get(`https://${baseUrl}/paymentapi/getApiKey`);
+        const response = await axios.post(`https://${baseUrl}/paymentapi/razorpayCheckout`,{
           totalAmount : totalAmount
         })
         var options = {
@@ -30,7 +30,7 @@ const Paymentpage = () => {
           description: "Test Transaction",
           image: "https://www.pngwing.com/en/search?q=razorpay",
           order_id: response.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-          callback_url: "http://localhost:7000/paymentVerification",
+          callback_url: `https://${baseUrl}/paymentapi/paymentVerification`,
           prefill: {
               name: "Gaurav Kumar",
               email: "gaurav.kumar@example.com",
@@ -53,7 +53,7 @@ const Paymentpage = () => {
     else if (selectedOption === 'stripe') {
       console.log(cartList);
         try{
-          const res = await axios.post("http://localhost:7000/create-checkout-session",{
+          const res = await axios.post(`https://${baseUrl}/paymentapi/create-checkout-session`,{
             cartList: cartList,
             userId : userId,
             shippingAddress:shippingAddress
@@ -70,7 +70,7 @@ const Paymentpage = () => {
       else if(selectedOption === 'cashOnDelivery'){
         setIsLoading(true);
         try{
-          const res = await axios.post("http://localhost:7000/createCODOrder",{
+          const res = await axios.post(`https://${baseUrl}/paymentapi/createCODOrder`,{
             cartList: cartList,
             userId:userId,
             shippingAddress:shippingAddress

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../../components/context';
-
+import { baseUrl } from '../../config/config';
 const Addressform = ({onClose}) => {
   // const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
   
@@ -28,7 +28,7 @@ const Addressform = ({onClose}) => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     return await axios
-    .post('http://localhost:9000/addAddress',formData)
+    .post(`https://${baseUrl}/userapi/address/addAddress`,formData)
     .then((res) =>{
       console.log(res);
       const updatedUserAddress = [...userAddress,res.data.address];

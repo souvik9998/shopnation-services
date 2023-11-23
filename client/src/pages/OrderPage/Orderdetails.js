@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react'
 import { useGlobalContext } from '../../components/context'
 import axios, { isAxiosError } from 'axios';
 import Ordercard from './Ordercard';
+import { baseUrl } from '../../config/config';
 const Orderdetails = () => {
   const {user,setUser,setAuthorizationMessage,authorizationMessage} = useGlobalContext();
   const[orderList,setOrderList] = useState([]);
@@ -11,7 +12,7 @@ const Orderdetails = () => {
 
   const isAuthorized = async()=>{
     try{
-      const res = await axios.get(`http://localhost:9000/auth/isUserAuth`,{
+      const res = await axios.get(`https://${baseUrl}/userapi/auth/isUserAuth`,{
         headers : {
           "Authorization" : window.localStorage.getItem("token"),
         }
@@ -46,7 +47,7 @@ const Orderdetails = () => {
   const getOrderList = async(userId)=>{
     try{
       console.log(userId);
-      const res = await axios.get(`http://localhost:9000/order/getOrderDetails/${userId}`);
+      const res = await axios.get(`https://${baseUrl}/userapi/order/getOrderDetails/${userId}`);
       console.log(res);
       if(res.data.orderItems){
         const res2 = await getOrderProductInfo(res.data.orderItems);
@@ -64,7 +65,7 @@ const Orderdetails = () => {
   const getOrderProductInfo = async(orderList)=>{
     try {
       const productInfoPromises = orderList.map(async (item) => {
-        const res = await axios.get(`http://localhost:3002/onboard/getProductInfo/${item.product_id}`);
+        const res = await axios.get(`https://${baseUrl}/sellerapi/onboard/getProductInfo/${item.product_id}`);
         return {
           ...item,
           productName: res.data.item.productName,

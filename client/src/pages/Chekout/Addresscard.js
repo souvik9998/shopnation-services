@@ -4,13 +4,14 @@ import { useGlobalContext } from '../../components/context';
 import { useState } from 'react';
 import Deleteaddressbutton from './Deleteaddressbutton';
 import Loading from '../../Images/Rolling.svg';
+import { baseUrl } from '../../config/config';
 const Addresscard = (props) => {
     const {userName,addressLine1,state,country,city,postalCode,mobileNumber,addressId,isDefault} = props;
     const{userAddress,setUserAddress,defaultAddress,setDefaultAddress,setShippingAddress} = useGlobalContext();
     const [isLoading,setLoading] = useState(false);
     const handleDefault = async() =>{
       return await axios
-      .put(`http://localhost:9000/setDefaultAddress/${addressId}`,{
+      .put(`https://${baseUrl}/userapi/address/setDefaultAddress/${addressId}`,{
         isDefault : true
       })
       .then((res)=>{

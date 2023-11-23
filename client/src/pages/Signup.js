@@ -26,7 +26,7 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     return await axios
-      .post(`http://${baseUrl}/userapi/auth/register`, user)
+      .post(`https://${baseUrl}/userapi/auth/register`, user)
       .then((response) => {
         console.log(response);
         navigate("/login");
