@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import db from '../utils/SqlConnection.js';
 import axios from 'axios';
 dotenv.config();
-
+const baseUrl = "shopnation.co.in"
 const router = express.Router();
 const stripe = new Stripe(process.env.SECRET_KEY)
 const endpointSecret = "whsec_1b8b9984a1469b8f891adea098eacfcce4ab37161d4a37b227a2d35c8a1b3d3c";
@@ -325,7 +325,7 @@ const insertCODOrderItems = async (cartList, orderId, createTime) => {
 
 const updateInventoryOnInventoryServer = async(productList) => {
   try {
-    const inventoryServerURL = 'http://localhost:3002/inventory/updateInventory';
+    const inventoryServerURL = `https://${baseUrl}/sellerapi/inventory/updateInventory`;
     const productPromises =  productList.map(async(item) => {
       try{
         const data = {
@@ -351,7 +351,7 @@ const updateInventoryOnInventoryServer = async(productList) => {
 
 const addCODOrder = async(productList,shippingAddress)=>{
   try{
-    const res = await axios.post('http://localhost:3002/order/addOrder',{productList,shippingAddress});
+    const res = await axios.post(`https://${baseUrl}/sellerapi/order/addOrder`,{productList,shippingAddress});
     console.log(res);
   }
   catch(err){
@@ -364,7 +364,7 @@ const addOrder = async(productList,shippingAddress)=>{
     const shippingAddress = {
       
     }
-    const res = await axios.post('http://localhost:3002/order/addOrder',{productList,shippingAddress});
+    const res = await axios.post(`https://${baseUrl}/sellerapi/order/addOrder`,{productList,shippingAddress});
     console.log(res);
   }
   catch(err){
