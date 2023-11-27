@@ -13,14 +13,9 @@ const multer = require("multer");
 const multerS3 = require("multer-s3");
 const { S3Client } = require("@aws-sdk/client-s3");
 
-
 const s3 = new S3Client({
-    credentials: {
-        accessKeyId: process.env.accessKeyId, // store it in .env file to keep it safe
-        secretAccessKey: process.env.secretAccessKey
-    },
-    region: "ap-south-1" // this is the region that you select in AWS account
-})
+  region: "ap-south-1"
+});
 
 const s3Storage = multerS3({
   s3: s3, // s3 instance
