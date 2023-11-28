@@ -130,7 +130,7 @@ exports.signup = async (req, res, next) => {
 };
 const registerShop = async(shopdata) =>{
     try{
-      const res = await axios.post('http://54.237.194.15/searchapi/registerShop',shopdata);
+      const res = await axios.post('https://shopnation.co.in/searchapi/registerShop',shopdata);
       return res.data.msg;
     }
     catch(err){

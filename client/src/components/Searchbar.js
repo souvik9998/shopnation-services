@@ -42,7 +42,7 @@ const Searchbar = () => {
   const handleSearch = async (event) => {
     event.preventDefault();
     return await axios
-      .post(`http://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
+      .post(`https://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
       .then((response) => {
         setSearchStoreList(response.data);
         console.log(response.data);

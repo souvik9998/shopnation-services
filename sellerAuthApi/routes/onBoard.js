@@ -35,10 +35,6 @@ const { S3Client } = require("@aws-sdk/client-s3");
 //   },
 // });
 const s3 = new S3Client({
-  credentials: {
-      accessKeyId: "AKIASXLHVPFDWDOFEAQE", // store it in .env file to keep it safe
-      secretAccessKey: "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"
-  },
   region: "ap-south-1" // this is the region that you select in AWS account
 })
 
