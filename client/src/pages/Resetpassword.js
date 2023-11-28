@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { baseUrl } from '../config/config';
 const Resetpassword = () => {
     const [password,setPassword] = useState({
         newPassword : '',
@@ -21,7 +22,7 @@ const Resetpassword = () => {
       };
       const handleClick = async() =>{
         try{
-            const res = await axios.post(`http://localhost:9000/auth/createNewPassword`,{mobileNumber,password});
+            const res = await axios.post(`https://${baseUrl}/userapi/auth/createNewPassword`,{mobileNumber,password});
             console.log(res);
             navigate('/loginpage');
         }
