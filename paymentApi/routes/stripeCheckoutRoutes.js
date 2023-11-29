@@ -214,7 +214,6 @@ const insertOrderItems = async (productList, orderId, createTime) => {
 
 router.post("/createCODorder",async(req,res)=>{
   try{
-    console.log(req.body.cartList);
     const createTime = new Date();
     const userId = req.body.userId;
     const cartList = req.body.cartList;
