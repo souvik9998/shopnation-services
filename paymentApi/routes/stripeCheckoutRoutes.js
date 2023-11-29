@@ -343,7 +343,6 @@ const updateInventoryOnInventoryServer = async(productList) => {
 
     })
     const res = await Promise.all(productPromises);
-    console.log(res);
   } catch (error) {
     console.error('Error updating inventory:', error);
     throw error;
@@ -365,7 +364,6 @@ const addOrder = async(productList,shippingAddress)=>{
       
     }
     const res = await axios.post(`https://${baseUrl}/sellerapi/order/addOrder`,{productList,shippingAddress});
-    console.log(res);
   }
   catch(err){
     console.log(err);
