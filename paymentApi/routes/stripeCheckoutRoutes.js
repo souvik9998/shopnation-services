@@ -192,7 +192,7 @@ const updatePaymentDetails = async (session, orderTableValues) => {
 };
 
 const deleteFromCart = async (userId) => {
-  await db.query('delete from cart where uuid = ?', userId);
+  await db.query('delete from cart where user_id = ?', userId);
 };
 
 const insertOrderItems = async (productList, orderId, createTime) => {

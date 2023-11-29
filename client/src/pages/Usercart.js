@@ -36,7 +36,18 @@ const Usercart = () => {
       </div>
       </div>
     </div>:
-      <div className='bg-gray-100 flex flex-col lg:min-w-screen lg:min-h-screen lg:flex-row justify-around p-2 lg:p-4 lg:py-10 font-Inter'>
+    (cartProductCounter === 0)?
+    <div className='min-w-screen min-h-screen flex justify-center'>
+    <div className=' py-8 px-4 bg-cardColor rounded-sm border-buttonColor w-[80%] h-[80%] flex flex-col mt-8 items-center'>
+    <div className=''>
+      <img src={cartsvg}></img>
+    </div>
+    <div className='flex flex-col justify-center items-center gap-4'>
+      <div className='font-medium text-sm'>No items in cart</div>
+      <div className='font-medium text-lg text-buttonColor'>Explore stores to add items in the cart...</div>
+    </div>
+    </div>
+  </div>:<div className='bg-gray-100 flex flex-col lg:min-w-screen lg:min-h-screen lg:flex-row justify-around p-2 lg:p-4 lg:py-10 font-Inter'>
         <div className='block lg:hidden px-1'>
           <Carttotal />
         </div>

@@ -35,42 +35,42 @@ const Home = () => {
         <Storehub/>
       </div>
     </div>
-    <div className='w-[20%] hidden  lg:flex flex-col gap-4 pb-4 pt-4 bg-yellow-200/20 border-[1px] border-yellow-300/30 shadow'>
+    <div className='w-[20%] hidden  lg:flex flex-col gap-4 pb-4 pt-4 bg-slate-200/60 shadow'>
             <div className='font-semibold text-2xl px-4'>Access your nearest services</div>
             <div className='w-full h-full grid grid-rows-3 grid-cols-3 gap-2 px-2'>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={maid}></img>
                 <div className='text-sm font-semibold text-center'>Maid service</div>
               </div>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={cook}></img>
                 <div className='text-sm font-semibold text-center'>Cook</div>
               </div>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={plumber}></img>
                 <div className='text-sm font-semibold text-center'>Plumber</div>
               </div>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={carpenter}></img>
                 <div className='text-sm font-semibold text-center'>Carpenter</div>
               </div>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={teacher}></img>
                 <div className='text-sm font-semibold text-center'>Teaching</div>
               </div>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={milkman}></img>
                 <div className='text-sm font-semibold text-center'>Milk seller</div>
               </div>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={barber}></img>
                 <div className='text-sm font-semibold text-center'>Barber</div>
               </div>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={homecleaner}></img>
                 <div className='text-sm font-semibold text-center'>Home cleaning</div>
               </div>
-              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-yellow-200/30 hover:bg-yellow-300/10 rounded-xl'>
+              <div className='flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={newspaperseller}></img>
                 <div className='text-sm font-semibold text-center'>Newspaper seller</div>
               </div>
