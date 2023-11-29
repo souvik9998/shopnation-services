@@ -31,7 +31,7 @@ const Ordercard = ({orderItem}) => {
               </div>
             </div>
             <div className='px-10 py-8 flex justify-between'>
-                <div className='w-[13%] h-full flex justify-center items-center'><img className='w-full lg:w-11/12 min-h-full max-h-28 border border-gray-200' src={`http://localhost:3002/${mainImagePath}`}></img></div>
+                <div className='w-[13%] h-full flex justify-center items-center'><img className='w-full lg:w-11/12 min-h-full max-h-28 border border-gray-200' src={mainImagePath.url}></img></div>
                 <div className='w-[63%] flex flex-col gap-3'>
                   <div className='capitalize text-base font-medium text-slate-600'>
                   {productName} Mens Fly by Mid 3 Men's Basketball Shoes Boat Shoe
