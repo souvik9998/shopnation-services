@@ -301,10 +301,10 @@ const insertCODOrderItems = async (cartList, orderId, createTime) => {
       const orderItemValues = {
         id: uuidv4(),
         order_id: orderId,
-        product_id: item.productId,
-        quantity: item.productAmount,
-        price: item.productAmount,
-        expected_delivery: item.expectedDelivery,
+        product_id: item.product_id,
+        quantity: item.quantity,
+        price: item.product_amount,
+        expected_delivery: item.expected_delivery,
         created_at: createTime,
         modified_at: createTime,
       };
