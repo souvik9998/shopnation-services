@@ -220,7 +220,7 @@ router.post("/createCODorder",async(req,res)=>{
     const shippingAddress = req.body.shippingAddress;
     const cartTotal = cartList.reduce((cartTotal,item) =>{
       return item.product_amount + cartTotal;
-    })
+    },0)
     console.log(cartTotal);
     const productList = req.body.cartList.map((item) =>{
       return {
