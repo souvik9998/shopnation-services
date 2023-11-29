@@ -353,7 +353,6 @@ const updateInventoryOnInventoryServer = async(productList) => {
 const addCODOrder = async(productList,shippingAddress)=>{
   try{
     const res = await axios.post(`https://${baseUrl}/sellerapi/order/addOrder`,{productList,shippingAddress});
-    console.log(res);
   }
   catch(err){
     console.log(err);
