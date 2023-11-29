@@ -214,6 +214,7 @@ const insertOrderItems = async (productList, orderId, createTime) => {
 
 router.post("/createCODorder",async(req,res)=>{
   try{
+    console.log(req.body.cartList);
     const createTime = new Date();
     const userId = req.body.userId;
     const cartList = req.body.cartList;
@@ -223,10 +224,10 @@ router.post("/createCODorder",async(req,res)=>{
     })
     const productList = req.body.cartList.map((item) =>{
       return {
-        productId : item.productId,
-        productPrice : item.productAmount,
+        productId : item.product_id,
+        productPrice : item.product_amount,
         productQuantity : item.quantity,
-        expectedDelivery : item.expectedDelivery,
+        expectedDelivery : item.expected_delivery,
       }
     })
     await createCODsession(userId,createTime);
