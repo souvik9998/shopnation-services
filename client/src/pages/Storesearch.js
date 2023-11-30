@@ -26,8 +26,8 @@ const Storesearch = () => {
     return await axios
       .post(`https://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
       .then((response) => {
-        setSearchStoreList(response.data);
-        console.log(response.data);
+        setSearchStoreList(response);
+        console.log(response);
       })
       .catch((err) => console.log(err));
       
