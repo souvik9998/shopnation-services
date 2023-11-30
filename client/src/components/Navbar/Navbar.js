@@ -7,7 +7,7 @@ import { useGlobalContext } from '../context';
 import shopnation from '../../Images/Shopnation.png'
 const Navbar = () => {
     const[open,setOpen] = useState(false);
-    const {user,cartProductCounter,cartList} = useGlobalContext();
+    const {user,cartProductCounter,cartList,authorizationMessage} = useGlobalContext();
     const userId = user.userId;
     const navigate = useNavigate();
     const handleClick = (e)=>{
@@ -17,14 +17,14 @@ const Navbar = () => {
     open ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
   return (
     <>
-     <div className='font-Inter font-semibold w-full flex h-fit py-2 lg:py-5 px-1 lg:pr-8 lg:pl-8 bg-navColor justify-between text-white items-center'>
+     <div className='font-Inter font-semibold w-full flex h-fit py-[10px]  lg:py-5 px-1 lg:pr-8 lg:pl-8 bg-navColor justify-between text-white items-center'>
         <div className='hidden text-lg font-medium lg:font-semibold lg:text-xl lg:w-[12%] lg:block'>
         <Link to='/'>
             <img className='h-4 w-8 lg:h-full lg:w-full' src={shopnation}></img>
         </Link>
         </div>
         <div className= 'hidden lg:block w-10/12 lg:w-[45%] '><Searchbar/></div>
-        <div className='w-full flex flex-col gap-2 lg:hidden'>
+        <div className='w-full flex flex-col gap-3 lg:hidden'>
             <div className='flex items-center justify-around'>
                 <div className='flex gap-2 w-[70%] items-center '>
                 <div onClick={()=>{setOpen(true)}} className='block lg:hidden text-lg text-white pt-[3px] ' >
@@ -34,21 +34,27 @@ const Navbar = () => {
                 </div>
                 <div className='text-lg font-medium lg:font-semibold lg:text-xle w-[60%]'>
                     <Link to='/'>
-                    <img className='h-[80%] w-fit' src={shopnation}></img>
+                    <img className='h-[80%] w-fit ' src={shopnation}></img>
                 </Link></div>
                 </div>
-                
+                <div className='w-[10%]'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white" class="w-5 h-5">
+                    <path d="M1 1.75A.75.75 0 011.75 1h1.628a1.75 1.75 0 011.734 1.51L5.18 3a65.25 65.25 0 0113.36 1.412.75.75 0 01.58.875 48.645 48.645 0 01-1.618 6.2.75.75 0 01-.712.513H6a2.503 2.503 0 00-2.292 1.5H17.25a.75.75 0 010 1.5H2.76a.75.75 0 01-.748-.807 4.002 4.002 0 012.716-3.486L3.626 2.716a.25.25 0 00-.248-.216H1.75A.75.75 0 011 1.75zM6 17.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15.5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                    </svg>
+                </div>
                 {
-                    (user)?
-                    <div className='flex gap-1 w-[30%] justify-center'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    (authorizationMessage === 'authorized')?
+                    <div className='flex gap-1 w-[20%] justify-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
                         </svg>
 
                         <div className='text-[10px] font-medium'>{user.userName}</div>
                     </div>
                     :
-                    <div>Sign in</div>
+                    <div className='flex gap-2 w-[30%] items-center justify-center '>
+                        <div className='font-medium text-[14px]'>Sign in</div>
+                    </div>
                 }
             </div>
             

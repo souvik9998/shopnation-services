@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 const Myaccount = (props) => {
   const navigate = useNavigate();
-    const {authorizationMessage,setAuthorizationMessage} = useGlobalContext();
+    const {authorizationMessage,setAuthorizationMessage,user,setUser} = useGlobalContext();
     const logout = () =>{
+    setUser('');
 		window.localStorage.clear();
-    setAuthorizationMessage(null);
+    setAuthorizationMessage('');
 		navigate("/loginrole");
     }
   return (
