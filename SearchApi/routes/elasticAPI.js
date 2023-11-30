@@ -113,16 +113,20 @@ async function run1 (req,res,next) {
               }
             }
         })
-        console.log(result.hits.hits);
-        const res = result.hits.hits._source;
-        const store = {
-          shopId: res.shopId,
-          shopImage : path.join('..','assets',res.shopImage.data.toString()),
-          storeName : res.storeName,
-          type : res.type
+        const hits = result.hits.hits;
+        const storeArray = []
+        hits.map(store => {
+          const item = {
+            shopId: store._source.shopId,
+            shopImagePath: store._source.shopImagePath,
+            storeName: store._source.storeName,
+            type: store._source.type
+          }
+          storeArray.push(item);
         }
-        res.send(store);
-        
+    );
+      console.log(storeArray);  
+      res.send(storeArray);
         next();
       
     } catch (error) {
@@ -148,7 +152,6 @@ async function run1 (req,res,next) {
               }
           }
       });
-      console.log(result.hits.hits);
       const hits = result.hits.hits;
       const storeArray = []
       hits.map(store => {
