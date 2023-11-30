@@ -16,8 +16,10 @@ const Myaccount = (props) => {
       {(authorizationMessage === 'authorized')?
            <div className='lg:relative group'>
            <div className='flex cursor-pointer gap-2 lg:h-9 lg:px-2 lg:rounded-md lg:hover:bg-zinc-800 lg:border lg:border-navColor items-center'>
-             <div className='flex items-center gap-1'><div className='pt-1'><ion-icon style={{fontSize:'20px'}} name="person-outline"></ion-icon></div><div>My account</div></div>
-             <div className='mt-1'>
+             <div className='flex items-center gap-1'>
+              <div className='pt- lg:block hidden'><ion-icon style={{fontSize:'20px'}} name="person-outline"></ion-icon></div>
+             <div>My account</div></div>
+             <div className='mt-1 lg:block hidden'>
              {/* <div className='mt-1 group group-hover:origin-center group-hover:rotate-180 group-hover:-mt-1 hover:origin-center hover:-mt-1 transition-all duration-200 hover:rotate-180'> */}
               <ion-icon name="chevron-down-outline"></ion-icon></div>
            </div>

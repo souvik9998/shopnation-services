@@ -29,7 +29,7 @@ const Home = () => {
     </div>
     
     <div className='bg-white lg:flex w-screen px-1 lg:px-8 py-2 lg:gap-4'>
-    <div className=' bg-slate-200/60 border-black  flex flex-col w-full lg:w-[80%] h-64 md:h-[80vh] lg:px-6 lg:pb-4'>
+    <div className=' bg-slate-200/60 border-black  flex flex-col w-full lg:w-[80%] h-[38vh] md:h-[80vh] lg:px-6 lg:pb-4'>
       <div className='font-Inter text-sm md:text-2xl font-semibold text-black pl-2 h-[13%] flex items-center'>Top store picks for you</div>
       <div className='flex  w-full rounded-lg md:w-full border-black h-[87%]'>
         <Storehub/>

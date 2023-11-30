@@ -2,9 +2,9 @@ import React from 'react'
 
 const Successfulorder = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <div className='w-screen h-screen'></div>  
+    </>
   )
 }
 

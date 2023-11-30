@@ -6,6 +6,7 @@ import { baseUrl } from '../../config/config';
 const Orderdetails = () => {
   const {user,setUser,setAuthorizationMessage,authorizationMessage} = useGlobalContext();
   const[orderList,setOrderList] = useState([]);
+  const[orderLoading,setOrderLoading] = useState(false);
   useEffect(()=>{
     getOrderDetails();
   },[])
@@ -32,13 +33,14 @@ const Orderdetails = () => {
   }
   const getOrderDetails = async()=>{
     try{
+      setOrderLoading(true);
       let userId;
       if(authorizationMessage !== 'authorized')userId = await isAuthorized();
       else userId = user.userId;
       
       const res = await getOrderList(userId);
       console.log(res);
-      
+      setOrderLoading(false);
     }
     catch(err){
       console.log(err);
@@ -46,6 +48,7 @@ const Orderdetails = () => {
   }
   const getOrderList = async(userId)=>{
     try{
+
       console.log(userId);
       const res = await axios.get(`https://${baseUrl}/userapi/order/getOrderDetails/${userId}`);
       console.log(res);
@@ -95,8 +98,13 @@ const Orderdetails = () => {
   else{
     return (
     <>
-      <div className='w-full flex flex-col gap-10'>
+      <div className='w-full min-h-screen flex flex-col gap-10'>
         {
+          orderLoading?
+          <div className='w-full rounded-xl h-42  flex flex-col bg-slate-300 shadow-md'>
+
+          </div>
+          :
           orderList.map((order) =>{
             return <Ordercard
               orderItem = {order}
