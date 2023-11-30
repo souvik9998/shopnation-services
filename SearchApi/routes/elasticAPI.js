@@ -88,7 +88,6 @@ const { Client } = require('@elastic/elasticsearch')
   // run().catch(console.log)
 async function run1 (req,res,next) {
 
-  console.log('KJRiPJjvSs2OyxjK2LsBRw');
     //Let's search!
     try {
          // here we are forcing an index refresh, otherwise we will not

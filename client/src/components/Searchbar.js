@@ -36,23 +36,18 @@ const Searchbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  useEffect(()=>{
-    if (isFormClicked) {
-      // Navigate to a page if on mobile
-      if (window.innerWidth < 1024) {
-        navigate('/mobile-search'); // Replace '/search-results' with the desired URL
-      }
-    }
-  },[isFormClicked])
   const handleFormClicked = ()=>{
     setFormClicked(!isFormClicked);
+    if (window.innerWidth < 1024) {
+       navigate('/mobile-search');
+    }
   }
   const handleSearch = async (event) => {
     event.preventDefault();
     return await axios
       .post(`https://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
       .then((response) => {
-        setSearchStoreList(response.data);
+        setSearchStoreList(response);
         console.log(response.data);
         window.localStorage.setItem('searchQuery',searchQuery);
         setFormClicked(false);

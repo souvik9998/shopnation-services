@@ -56,6 +56,7 @@ function App() {
     <>
     <BrowserRouter>
         <Routes>
+          
           <Route path = '/' element = {<Layout/>}>
             <Route path= '/' index element = {<Home/>} />
             <Route path ="/ShopProductPage/:shopId" element={<Shopproductpage/>}/>
@@ -76,6 +77,7 @@ function App() {
               <Route path='/order-page/successful-order' element={<Successfulorder/>} />
             </Route>
           </Route>
+          <Route path='/mobile-search' element={<MobileSearch />} />
           <Route path='/checkout' element={<Checkoutlayout />}>
               <Route path = '/checkout' index element = {<Addresspage/>} />
               <Route path = '/checkout/paymentpage' element = {<Paymentpage/>} />
@@ -108,7 +110,7 @@ function App() {
           </Route>
           <Route path='/animation-test' element={<Animation/>} />
           <Route path='*' element={<Notfound/>}/>
-          <Route path='/mobile-search' element={<MobileSearch />} />
+          
         </Routes>
           
       </BrowserRouter>
