@@ -75,7 +75,7 @@ const Searchbar = () => {
         handleFormClicked();
         }
       }}
-      className={`${isFormClicked ? 'lg:searchBoxShadow':''} relative font-Inter text-black flex justify-center items-center w-full h-7 lg:h-11 rounded-md`} >
+      className={`${isFormClicked ? 'searchBoxShadow':''} relative font-Inter text-black flex justify-center items-center w-full h-7 lg:h-11 rounded-md`} >
         {/* <div className='pt-2 hidden sm:block md:text-xl'><ion-icon name="search"></ion-icon></div> */}
         <input 
           name='item' 
@@ -91,9 +91,9 @@ const Searchbar = () => {
           className="w-3/12 lg:w-[15%] hover:bg-indigo-600 text-xs lg:text-base h-8 lg:h-full text-white bg-buttonColor hidden sm:flex justify-center items-center rounded-r-md">Search</button>
         {/* <button onClick={handleSearch} className="rounded-xl w-2/12 h-8 lg:h-9 text-white font-bold bg-buttonColor flex justify-center items-center sm:hidden"><ion-icon name="search"></ion-icon></button> */}
       </div>
-      <div onClick={handleFormClicked} className={`${isFormClicked ? 'block': 'hidden'} lg:block hidden fixed top-[5rem] left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)] z-40`}>
+      <div onClick={handleFormClicked} className={`${isFormClicked ? 'block': 'hidden'} fixed top-[5rem] left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)] z-40`}>
       </div>
-      <div className={`${isFormClicked ? ' hidden lg:flex flex-col font-semibold text-sm absolute top-[43px] z-40 w-full h-fit bg-white rounded-b-sm border-t border-slate-400 searchSuggestionShadow' :'hidden'} `}> 
+      <div className={`${isFormClicked ? 'flex flex-col font-semibold text-sm absolute top-[43px] z-40 w-full h-fit bg-white rounded-b-sm border-t border-slate-400 searchSuggestionShadow' :'hidden'} `}> 
           {
             (storeList.length > 0)?
             storeList.filter((item) =>{
