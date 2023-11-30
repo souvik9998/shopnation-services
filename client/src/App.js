@@ -49,6 +49,7 @@ import Forgotpassword from './pages/Forgotpassword';
 import Otpverify from './pages/Otpverify';
 import Resetpassword from './pages/Resetpassword';
 import ProductInfopage from './pages/ProductInfopage';
+import MobileSearch from './pages/MobileSearch';
 // import UserCart from './pages/UserCart';
 function App() {
   return (
@@ -107,6 +108,7 @@ function App() {
           </Route>
           <Route path='/animation-test' element={<Animation/>} />
           <Route path='*' element={<Notfound/>}/>
+          <Route path='/mobile-search' element={<MobileSearch />} />
         </Routes>
           
       </BrowserRouter>

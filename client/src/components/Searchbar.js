@@ -36,6 +36,14 @@ const Searchbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  useEffect(()=>{
+    if (isFormClicked) {
+      // Navigate to a page if on mobile
+      if (window.innerWidth < 1024) {
+        navigate('/mobile-search'); // Replace '/search-results' with the desired URL
+      }
+    }
+  },[isFormClicked])
   const handleFormClicked = ()=>{
     setFormClicked(!isFormClicked);
   }
