@@ -40,12 +40,12 @@ const Storesearch = () => {
         <PuffLoader className='m-auto mt-60 'color="#0F5398" size={80} loading={loading}/>
         </div> 
         :
-        <div className='hidden lg:flex gap-4 min-h-screen  w-full '>
-          <div className='w-[18%] bg-gray-200'>
+        <div className=' lg:flex gap-4 min-h-screen  w-full '>
+          <div className='lg:hidden block w-[18%] bg-gray-200'>
 
           </div>
          
-          <div className=' w-[82%] h-fit px-10 py-10 grid grid-cols-2 lg:grid-cols-4 grid-rows-3 gap-5 rounded-md'>{
+          <div className='w-full lg:w-[82%] h-fit lg:px-10 px-2 py-4 lg:py-10 grid grid-cols-2 lg:grid-cols-4 grid-rows-3 gap-5 rounded-md'>{
             searchStoreList.length >=1 ? searchStoreList.filter((currStore,idx) => idx < 12).map((currStore) =>{
               return <Searchstorecard store={currStore}/>
             }): <div className='font-Inter text-3xl text-center'>
