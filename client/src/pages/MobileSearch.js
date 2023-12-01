@@ -8,7 +8,6 @@ const MobileSearch = () => {
     const location = useLocation();
     const{searchStoreList,searchQuery,setSearchQuery,setSearchStoreList,storeList} = useGlobalContext();
     const handleBack = () => {
-        
         navigate(-1); 
     };
     const handleSearch = async (event) => {
@@ -33,7 +32,7 @@ const MobileSearch = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                 </svg>
                 </div>
-                <form onSubmit={()=>handleSearch()}>
+                <form onSubmit={handleSearch}>
                 <input
                  name='item' 
                  method='post' 

@@ -20,7 +20,7 @@ const Navbar = () => {
      <div className='font-Inter font-semibold w-full flex h-fit py-[10px]  lg:py-5 px-1 lg:pr-8 lg:pl-8 bg-navColor justify-between text-white items-center'>
         <div className='hidden text-lg font-medium lg:font-semibold lg:text-xl lg:w-[12%] lg:block'>
         <Link to='/'>
-            <img className='h-4 w-8 lg:h-full lg:w-full' src={shopnation}></img>
+            <img className=' lg:h-full lg:w-full' src={shopnation}></img>
         </Link>
         </div>
         <div className= 'hidden lg:block w-10/12 lg:w-[45%] '><Searchbar/></div>
@@ -44,12 +44,10 @@ const Navbar = () => {
                 </div>
                 {
                     (authorizationMessage === 'authorized')?
-                    <div className='flex gap-1 w-[20%] justify-center'>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                    <div className='flex w-[10%] justify-center'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
                         <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
                         </svg>
-
-                        <div className='text-[10px] font-medium'>{user.userName}</div>
                     </div>
                     :
                     <div className='flex gap-2 w-[30%] items-center justify-center '>
@@ -61,7 +59,7 @@ const Navbar = () => {
             <div className= 'w-full'><Searchbar/></div>
             
         </div>
-        <ul className='lg:w-[30%] hidden lg:flex font-size-[20px] font-medium justify-around items-center tracking-wide'>
+        <ul className='w-[30%]  hidden lg:flex font-size-[20px] font-medium justify-around items-center tracking-wide'>
             {/* <li className='px-4'><Link to='/'>Home</Link></li> */}
             <li className=''><Link to='/order-page'>
                 <div className='flex items-center gap-2 cursor-pointer'>
@@ -87,7 +85,7 @@ const Navbar = () => {
         
         <div
         onClick={()=>setOpen(false)} 
-        className={open ?' fixed h-full top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)] z-40':''}>
+        className={open ?' fixed h-full top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)] z-40':'hidden'}>
             <ul 
             onClick={(e)=>handleClick(e)} 
             className={open ?' shadow-xl w-[65%] h-full z-40 bg-white text-gray-600 items-center fixed top-0 left-0 ease-in-out duration-300 shadow-black': 'fixed top-0 left-[-100%] '}>

@@ -17,7 +17,7 @@ const Usercart = () => {
    const {cartList,setCartList,isAuthorized,authorizationMessage,isLoading} = useGlobalContext();
    const {cartLoading,setCartLoading} = useGlobalContext();
    const navigate = useNavigate();
-   console.log(cartList);
+   
   return (
     <>{
       
@@ -56,7 +56,6 @@ const Usercart = () => {
             // isLoading ? 
             // skeleton.map((curr)=>{return <Skeletoncard />}):
             cartList.map((currProduct)=>{
-              console.log(currProduct.product_id);
                 return <Cartproductcard 
                   productId = {currProduct.product_id}
                   productName={currProduct.product_name}

@@ -26,8 +26,8 @@ const Storesearch = () => {
     return await axios
       .post(`https://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
       .then((response) => {
-        setSearchStoreList(response);
-        console.log(response);
+        setSearchStoreList(response.data);
+        console.log(response.data);
       })
       .catch((err) => console.log(err));
       
@@ -36,22 +36,18 @@ const Storesearch = () => {
     <>
       {
         loading ?
-        <div className='w-screen h-screen'>
+        <div className='w-screen min-h-screen'>
         <PuffLoader className='m-auto mt-60 'color="#0F5398" size={80} loading={loading}/>
         </div> 
         :
-        <div className='flex m-4 gap-4 h-min-screen'>
-          <div className='bg-mybg rounded-md w-2/12 h-screen font-Inter flex flex-col'>
-            <div className='text-xl bg-buttonColor rounded-t-md text-white text-center h-12 py-2'>
-              <div>Categories</div>
-            </div>
-            <div className='text-black'><div className='border-b-2 border-buttonColor px-2 py-1'>Hardware</div>
-            <div className='border-b-2 border-buttonColor px-2 py-1'>Electronics</div>
-            <div className='border-b-2 border-buttonColor px-2 py-1'>Snacks and beverages</div></div>
+        <div className='hidden lg:flex gap-4 min-h-screen  w-full '>
+          <div className='w-[18%] bg-gray-200'>
+
           </div>
-          <div className='bg-mybg w-10/12 p-3 grid lg:grid-cols-4 grid-rows-3 gap-5 rounded-md'>{
+         
+          <div className=' w-[82%] h-fit px-10 py-10 grid grid-cols-2 lg:grid-cols-4 grid-rows-3 gap-5 rounded-md'>{
             searchStoreList.length >=1 ? searchStoreList.filter((currStore,idx) => idx < 12).map((currStore) =>{
-              return <Searchstorecard storeName = {currStore._source.storeName} shopId = {currStore._source.shopId}/>
+              return <Searchstorecard store={currStore}/>
             }): <div className='font-Inter text-3xl text-center'>
               <br></br>
               <br></br>

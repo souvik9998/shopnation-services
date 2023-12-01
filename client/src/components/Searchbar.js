@@ -47,8 +47,8 @@ const Searchbar = () => {
     return await axios
       .post(`https://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
       .then((response) => {
-        setSearchStoreList(response);
-        console.log(response);
+        setSearchStoreList(response.data);
+        console.log(response.data);
         window.localStorage.setItem('searchQuery',searchQuery);
         setFormClicked(false);
         navigate('/Storesearch');   
