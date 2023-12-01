@@ -38,6 +38,7 @@ router.get('/getCartDetails/:id',verifyToken,async (req,res)=>{
                 console.log(err);
             }
             else{
+                console.log(result);
                 res.status(200).send(result);
             }
         })
