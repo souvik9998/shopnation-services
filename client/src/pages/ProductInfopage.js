@@ -196,7 +196,7 @@ const ProductInfopage = () => {
         productAmount : item.productPrice,
         productType : item.productType,
         shopId : shopId,
-        expectedDelivery:item.expectedDelivery,
+        expectedDelivery:calculateExpectedDelivery(item.expectedDelivery),
         quantity : 1
       },
       {

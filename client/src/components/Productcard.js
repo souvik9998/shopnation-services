@@ -7,7 +7,7 @@ import { baseUrl } from '../config/config';
 const ProductCard = ({product}) => {
   // const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
   const token = window.localStorage.getItem("token");
-  const {cartList,user,setCartList,getCartDetails,getCartProductInfo} = useGlobalContext();
+  const {cartList,user,setCartList,getCartDetails,getCartProductInfo,calculateExpectedDelivery} = useGlobalContext();
   const [isLoading, setIsLoading] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const [goToCart,setGoToCart] = useState(false);
@@ -31,7 +31,7 @@ const ProductCard = ({product}) => {
         productAmount : product.productPrice,
         shopId : product.shopId,
         productType: product.productType,
-        expectedDelivery:product.expectedDelivery,
+        expectedDelivery:calculateExpectedDelivery(product.expectedDelivery),
         quantity : 1
       },
       {
