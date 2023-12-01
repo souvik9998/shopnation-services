@@ -31,6 +31,7 @@ const ProductCard = ({product}) => {
         productAmount : product.productPrice,
         shopId : product.shopId,
         productType: product.productType,
+        expectedDelivery:product.expectedDelivery,
         quantity : 1
       },
       {

@@ -90,17 +90,8 @@ const Cartproductcard = (props) => {
     try{
       let productInfo;
       productInfo = await axios.get(`https://${baseUrl}/sellerapi/onboard/getProductInfo/${productId}`);
+      console.log(productInfo.data.item);
       setCartProductInfo(productInfo.data.item);
-      const updatedCartList = cartList.map((item)=>{
-        if(item.product_id === productInfo.data.item.productId){
-          const expectedDelivery = calculateExpectedDelivery(productInfo.data.item.expectedDelivery)
-          return {
-            ...item,
-            expected_delivery:expectedDelivery
-          }
-        }
-      })
-      setCartList(updatedCartList);
       setCartLoading(false);
     }
     catch(err){

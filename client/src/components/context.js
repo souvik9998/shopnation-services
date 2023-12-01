@@ -51,8 +51,7 @@ const AppProvider = ({children}) => {
             if(authorizationMessage === 'authorized'){
               const userId = user.userId || res1.user_id
               const res3 = await getCartDetails(userId);
-              setCartList(res3);
-              console.log(res3);
+              // console.log(res3);
               // const res5 = await getOrderDetails(res1.user_id);
               await getShippingAddress(userId);
             }
@@ -92,6 +91,8 @@ const AppProvider = ({children}) => {
         })
         .then((res) =>{
             cartTotal(res.data);
+            setCartList(res.data);
+            console.log(res);
             return res.data
         })
         .catch((err) =>{
@@ -108,7 +109,6 @@ const AppProvider = ({children}) => {
         setCartProductCounter(totalQuantity);
         setCartTotalPrice(totalPrice);
        }
-
        const getAll = async() => {
         return await axios
           .get(`https://${baseUrl}/searchapi/getAll`)

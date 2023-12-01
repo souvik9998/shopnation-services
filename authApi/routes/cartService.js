@@ -6,9 +6,9 @@ const router =  express.Router();
 //store item in a cart
 router.post('/addToCart',verifyToken,async (req,res)=>{
     console.log(req.body);
-    const {productId,userId,productName,productAmount,productType,shopId,quantity} = req.body;
+    const {productId,userId,productName,productAmount,productType,shopId,quantity,expectedDelivery} = req.body;
     try {
-        await db.query('INSERT INTO cart set ?',{product_id : productId ,user_id:userId,product_name:productName, shop_id: shopId, product_amount: productAmount,product_type:productType, quantity :quantity},async(err,result)=>{
+        await db.query('INSERT INTO cart set ?',{product_id : productId ,user_id:userId,product_name:productName, shop_id: shopId, product_amount: productAmount,product_type:productType, quantity :quantity,expected_delivery:expectedDelivery},async(err,result)=>{
             if(err){
                 if(err.code === 'ER_DUP_ENTRY'){
                     res.status(409).json({error:'Already in the cart'})
