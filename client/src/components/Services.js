@@ -56,7 +56,7 @@ const Services = () => {
               </div>
               <div className='lg:hidden flex flex-col items-center justify-around p-4 hover:shadow-md hover:border-[1px] hover:border-slate-200/90 hover:bg-slate-200/80 rounded-xl'>
                 <img className='h-fit w-fit' src={programmer}></img>
-                <div className='text-xs lg:text-sm px-2 font-semibold text-center'>Programmer</div>
+                <div className='text-xs lg:text-sm font-semibold text-center'>Programmer</div>
               </div>
             </div>
             <div className='flex justify-center items-center'>

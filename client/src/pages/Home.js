@@ -17,7 +17,7 @@ const Home = () => {
         <StoreType />
       </div>
     </div>
-    <div className='bg-white w-screen h-32 lg:h-60 flex justify-center items-center px-1 pt-1  lg:rounded-none lg:pt-0 lg:px-8'>
+    <div className='bg-white w-screen h-36 lg:h-60 flex justify-center items-center px-1 pt-1  lg:rounded-none lg:pt-0 lg:px-8'>
       <Introduction/>
     </div>
     
