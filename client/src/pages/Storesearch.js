@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useGlobalContext } from '../components/context'
 import Searchstorecard from '../components/Searchstorecard';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import { PuffLoader } from 'react-spinners';
@@ -9,6 +9,7 @@ import { baseUrl } from '../config/config';
 const Storesearch = () => {
   const{searchStoreList,setSearchStoreList,searchQuery,setSearchQuery} = useGlobalContext();
   let [loading, setLoading] = useState(true);
+  const location = useLocation();
   useEffect(()=>{
     const searchQuery = window.localStorage.getItem('searchQuery');
     setSearchQuery(searchQuery);
@@ -41,7 +42,7 @@ const Storesearch = () => {
         </div> 
         :
         <div className=' lg:flex gap-4 min-h-screen  w-full '>
-          <div className='lg:hidden block w-[18%] bg-gray-200'>
+          <div className='lg:block hidden w-[18%] bg-gray-200'>
 
           </div>
          

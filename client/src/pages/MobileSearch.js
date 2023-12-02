@@ -10,17 +10,10 @@ const MobileSearch = () => {
     const handleBack = () => {
         navigate(-1); 
     };
-    const handleSearch = async (event) => {
-        event.preventDefault();
-        return await axios
-          .post(`https://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
-          .then((response) => {
-            setSearchStoreList(response.data);
-            console.log(response.data);
+    const handleSearch = async () => {
+
             window.localStorage.setItem('searchQuery',searchQuery);
             navigate('/Storesearch');   
-          })
-          .catch((err) => console.log(err));
       }
   return (
     <>

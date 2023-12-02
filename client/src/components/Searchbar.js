@@ -42,18 +42,17 @@ const Searchbar = () => {
        navigate('/mobile-search');
     }
   }
-  const handleSearch = async (event) => {
-    event.preventDefault();
-    return await axios
-      .post(`https://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
-      .then((response) => {
-        setSearchStoreList(response.data);
-        console.log(response.data);
+  const handleSearch = async () => {
+    // event.preventDefault();
+    // return await axios
+    //   .post(`https://${baseUrl}/searchapi/searchResult`, { query: searchQuery })
+    //   .then((response) => {
+    //     setSearchStoreList(response.data);
+    //     console.log(response.data);
         window.localStorage.setItem('searchQuery',searchQuery);
-        setFormClicked(false);
+    //     setFormClicked(false);
         navigate('/Storesearch');   
-      })
-      .catch((err) => console.log(err));
+      
   }
 
   // const handleProductPage = async(shopId) => {
