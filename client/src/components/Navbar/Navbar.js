@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import shopnation from '../../Images/Shopnation.png'
+import { motion } from 'framer-motion';
 const Navbar = () => {
     const[open,setOpen] = useState(false);
     const {user,cartProductCounter,cartList,authorizationMessage} = useGlobalContext();
@@ -85,7 +86,7 @@ const Navbar = () => {
         
         <div
         onClick={()=>setOpen(false)} 
-        className={open ?' fixed h-full top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.7)] z-40':'hidden'}>
+        className={open ?'lg:hidden fixed h-full top-0 left-0 right-0 bottom-0 ease-in-out duration-300 bg-[rgba(0,0,0,0.7)] z-40':'lg:hidden'}>
             <ul 
             onClick={(e)=>handleClick(e)} 
             className={open ?' shadow-xl w-[65%] h-full z-40 bg-white text-gray-600 items-center fixed top-0 left-0 ease-in-out duration-300 shadow-black': 'fixed top-0 left-[-100%] '}>
