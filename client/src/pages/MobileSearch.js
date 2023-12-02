@@ -11,7 +11,6 @@ const MobileSearch = () => {
         navigate(-1); 
     };
     const handleSearch = async () => {
-
             window.localStorage.setItem('searchQuery',searchQuery);
             navigate('/Storesearch');   
       }

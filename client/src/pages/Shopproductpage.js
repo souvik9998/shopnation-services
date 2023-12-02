@@ -63,7 +63,7 @@ const ShopProductPage = () => {
   }
   return (
     <>
-      <div className='font-Inter pt-10 flex px-1 lg:px-4 gap-8 bg-gray-200'>
+      <div className='font-Inter pt-2 lg:pt-10 flex px-1 lg:px-4 gap-8 bg-gray-200'>
         <div className='lg:flex flex-col gap-6 items-center hidden w-[23%] rounded-md bg-white h-fit py-6 shadow'>
           {
             (shopInfo && productList.length >=1)?
@@ -76,10 +76,10 @@ const ShopProductPage = () => {
             (shopInfo && productList.length >=1)? 
         <div className='w-full lg:w-7/12 mx-auto flex flex-col gap-6'>
           
-          <div className='w-full'>
+          <div className='w-full '>
             <form 
             onSubmit={handleClick}
-            className='shadow h-10 rounded-lg bg-white flex items-center justify-center'>
+            className='w-full shadow h-10 rounded-lg bg-white flex items-center justify-center'>
               <input
               name='item' 
               method='post' 
@@ -87,10 +87,10 @@ const ShopProductPage = () => {
               type="search" placeholder="Search for a product.." 
               value={searchQuery} 
               onChange={(event) => setSearchQuery(event.target.value)}
-              className='w-full h-10 px-6 rounded-lg focus:outline-none '
+              className='w-[90%] lg:w-[95%] h-10 px-6 rounded-lg focus:outline-none '
               />
               <button
-                className='pt-1 h-full w-[5%]  bg-gray-300 rounded-r-md flex  justify-center items-center'><ion-icon name="search-sharp"></ion-icon></button>
+                className='pt-1 h-full w-[10%] lg:w-[5%]  bg-gray-300 rounded-r-md flex  justify-center items-center'><ion-icon name="search-sharp"></ion-icon></button>
             </form>
           </div>
           <div className='flex items-center gap-4'>
