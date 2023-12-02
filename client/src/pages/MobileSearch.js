@@ -18,7 +18,7 @@ const MobileSearch = () => {
   return (
     <>
         <div className='bg-gray-200 flex flex-col gap-2 h-screen w-full'>
-            <div className='bg-white flex gap-2 h-16 items-center pl-3'>
+            <div className='bg-white flex gap-2 h-[8%] items-center pl-3'>
                 <div
                 onClick={()=>handleBack()}
                 ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#666666" class="w-5 h-5">
@@ -38,7 +38,7 @@ const MobileSearch = () => {
                 </form>
                 
             </div>
-            <div className='bg-white h-full'></div>
+            <div className='bg-white h-[92%]'></div>
         </div>  
     </>
   )
