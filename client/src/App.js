@@ -50,6 +50,7 @@ import Otpverify from './pages/Otpverify';
 import Resetpassword from './pages/Resetpassword';
 import ProductInfopage from './pages/ProductInfopage';
 import MobileSearch from './pages/MobileSearch';
+import MobileProductInfo from './pages/MobileProductInfo';
 // import UserCart from './pages/UserCart';
 function App() {
   return (
@@ -78,6 +79,8 @@ function App() {
             </Route>
           </Route>
           <Route path='/mobile-search' element={<MobileSearch />} />
+          {/* <Route path='/ShopProductPage/mobileProductPage/:shopId/:productId' element={<MobileProductInfo />} />
+          <Route path='/ShopProductPage/mobileProductPage/:shopId/:productId/:variantId' element={<MobileProductInfo />} /> */}
           <Route path='/checkout' element={<Checkoutlayout />}>
               <Route path = '/checkout' index element = {<Addresspage/>} />
               <Route path = '/checkout/paymentpage' element = {<Paymentpage/>} />
