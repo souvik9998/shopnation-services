@@ -90,7 +90,7 @@ const ProductCard = ({product}) => {
           <div className=''>
             <div className='text-lg font-semibold'>₹{product.productPrice}</div>
           </div>
-          <div className='text-sm lg:text-sm'>FREE <span className='font-semibold'>delivery by {product.expectedDelivery}</span></div>
+          <div className='text-sm lg:text-sm'>FREE <span className='font-semibold'>delivery by {calculateExpectedDelivery(product.expectedDelivery)}</span></div>
           <div className='text-sm lg:text-sm '>Rating</div>
         </div>
         <div className='w-[25%] hidden lg:flex flex-col gap-3 justify-center text-white font-semibold'>

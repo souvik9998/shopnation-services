@@ -6,6 +6,16 @@ import { useState } from 'react';
 import { useGlobalContext } from '../components/context';
 import { useLocation } from 'react-router-dom';
 import { baseUrl } from '../config/config';
+import MobileProductInfo from './MobileProductInfo';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/grid";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import '../App.css';
+
+import { Pagination} from "swiper";
 const ProductInfopage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -221,8 +231,8 @@ const ProductInfopage = () => {
   return (
     <>
     {item? 
-      <div className=' w-screen min-h-screen font-Inter '>
-        <div className='flex gap-10 h-fit w-full px-16 pt-16 py-10'>
+      <div className='w-screen min-h-screen font-Inter '>
+        <div className='hidden lg:flex gap-10 h-fit w-full px-16 pt-16 py-10'>
           <div className='w-[45%] h-96 px-2 flex justify-center gap-2'>
           <div className='w-[25%] h-full px-4 flex flex-col gap-2 overflow-scroll'>
             {
@@ -322,6 +332,29 @@ const ProductInfopage = () => {
             <div className='flex gap-3 items-center'>
             <div className='text-slate-700'><ion-icon name="wallet" style={{fontSize:'22px'}}></ion-icon></div>
             <div className='font-semibold text-slate-600 text-sm'>FREE return by 30 days <span className='underline'>Details.</span></div></div>
+          </div>
+        </div>
+        <div className='lg:hidden flex flex-col min-h-screen py-2 px-2 rounded-md'>
+          <div className='w-full h-[60vh]'>
+            <Swiper pagination={true} modules={[Pagination]} className="productImageSwiper h-full">
+            {
+                <SwiperSlide className={`w-full h-full rounded-sm`}>
+                <img
+                className='rounded-sm w-full h-full object-contain  overflow-hidden'
+                src={item.mainImagePath.url}></img></SwiperSlide>
+            }
+            {
+              (productImages)?
+              productImages.map((image)=>{
+              return <SwiperSlide
+              className={`w-full h-full rounded-sm flex`}>
+              <img
+              className= ' object-contain w-full h-full overflow-hidden rounded-sm' src={image.url}></img>
+              </SwiperSlide>
+              
+            }):''
+            }
+            </Swiper>
           </div>
         </div>
       </div>
