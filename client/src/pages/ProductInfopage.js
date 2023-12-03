@@ -336,19 +336,25 @@ const ProductInfopage = () => {
         </div>
         <div className='lg:hidden flex flex-col min-h-screen py-2 px-3 rounded-md'>
           <div className='flex justify-between mb-3'>
-            <div className='bg-gray-200/50 px-2 py-2 shadow-sm rounded-xl flex items-center justify-center'>
+            <div 
+            onClick={()=>navigate(-1)}
+            className='bg-gray-200/50 px-2 py-2 shadow-sm rounded-xl flex items-center justify-center'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#6c6c6c" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
             </div>
             <div className='flex gap-4'>
-              <div className=' px-2 py-2 shadow-sm rounded-lg flex items-center justify-center'>
+              <div
+              onClick={()=>navigate("/mobile-search")}
+               className=' px-2 py-2 bg-inherit rounded-lg flex items-center justify-center'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#6c6c6c" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>
 
               </div>
-              <div className='bg-gray-200/50 px-2 py-2 shadow-sm rounded-xl flex items-center justify-center'>
+              <div 
+              onClick={()=>navigate(`/user-cart/${user.userId}`)}
+              className='bg-gray-200/50 px-2 py-2 shadow-sm rounded-xl flex items-center justify-center'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#6c6c6c" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
               </svg>
@@ -384,7 +390,30 @@ const ProductInfopage = () => {
             }
             </Swiper>
           </div>
-          
+          {
+              variants.map((variant)=>{
+                return <div className='flex flex-col gap-5 w-[85%] h-28 justify-center'>
+                <div className='text-sm font-semibold text-gray-700 uppercase'>{variant.variantType}:<span className='pl-2 text-gray-600 font-medium'>{item.variantName}</span></div>
+                <div className='flex items-center gap-2'>
+                {
+                variant.typeArray.map((v) =>{
+                  if(variant.variantType === "color"){
+                    return <div 
+                    onClick={()=>handleVariantClick(v)}
+                    className='flex relative items-center justify-center '>
+                    <div className={`${v.variantName === item.variantName ? 'border-gray-700' : 'border-gray-300'} w-8 h-8 border-2 rounded-full`}></div>
+                    <div className={`w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full cursor-pointer`} style={{backgroundColor:v.variantName}}></div>
+                    </div>
+                  }
+                  else{
+                    return <div className='text-xs font-semibold text-gray-600 uppercase'>{v.variantName}</div>
+                  }
+                })
+                }
+              </div>
+            </div>
+            })
+          }
         </div>
       </div>
       :
