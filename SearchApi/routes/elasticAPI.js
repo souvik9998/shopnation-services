@@ -7,8 +7,8 @@ const { Client } = require('@elastic/elasticsearch')
 
     //connect to client api
     const client = new Client({
-        cloud: { id: 'b2fd716a995b45d397bf116250bd88e4:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDczMzRmMTllNjJkYTRlZjk4ODdlNTg1M2NmZGZmNzJjJDEyOWU3ODk0MDdhNTQ3NDZhYjA1MzQ0MTFjOGY1MDM0' },
-        auth: { apiKey:  'MjJHWTY0c0JFNWUwc0duRzZlU3M6bjd2dWE0VVpUQmV6SUFMTTNCdXJTUQ=='}
+        cloud: { id: 'My_deployment:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGFhODM4MDIwNmJjZTQzNWVhYzY0YTBmMDc3N2YxNDZhJDFiOWQ0NWUzYTAwMjQ1NTNiOWE0OGEyYWI2NzM0YjIy' },
+        auth: { apiKey:  'TndvdlE0d0JyMVM4eFNveWs3YXQ6RGoyMWFJQlVSWU9HbXpEb3k4azB5UQ=='}
       })
       async function run (req,res,next) {
         console.log(req.body);
@@ -58,14 +58,14 @@ const { Client } = require('@elastic/elasticsearch')
   //               }
   //             })
   //            await client.index({
-    //               index: 'shop-details',
-    //               document: {
-    //                 shopId : '655c7dccabd801febc9e30c4',
-    //                 storeName : 'grocery shop',
-    //                 type : 'grocery',
-    //                 shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700560332218_shopImage_download%20%281%29.jfif'
-    //               }
-    //             })
+  //                 index: 'shop-details',
+  //                 document: {
+  //                   shopId : '655c7dccabd801febc9e30c4',
+  //                   storeName : 'grocery shop',
+  //                   type : 'grocery',
+  //                   shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700560332218_shopImage_download%20%281%29.jfif'
+  //                 }
+  //               })
               
               
             

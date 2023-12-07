@@ -74,7 +74,7 @@ const ShopProductPage = () => {
         </div>
         {
             (shopInfo && productList.length >=1)? 
-        <div className='w-full lg:w-7/12 mx-auto flex flex-col gap-6'>
+        <div className='w-full lg:w-7/12 mx-auto flex flex-col gap-4'>
           
           <div className='w-full '>
             <form 
@@ -93,12 +93,7 @@ const ShopProductPage = () => {
                 className='pt-1 h-full w-[10%] lg:w-[5%]  bg-gray-300 rounded-r-md flex  justify-center items-center'><ion-icon name="search-sharp"></ion-icon></button>
             </form>
           </div>
-          <div className='flex items-center gap-4'>
-            <div className='w-fit h-fit py-[4.5px] px-3 text-black font-medium text-xs bg-gray-400/30 rounded-xl drop-shadow-md'>Show all</div>
-            <div className='w-fit h-fit py-[4.5px] px-3 text-black font-medium text-xs bg-gray-400/30 rounded-xl drop-shadow-md'>Show all</div>
-            <div className='w-fit h-fit py-[4.5px] px-3 text-black font-medium text-xs bg-gray-400/30 rounded-xl drop-shadow-md'>Show all</div>
-            <div className='w-fit h-fit py-[4.5px] px-3 text-black font-medium text-xs bg-gray-400/30 rounded-xl drop-shadow-md'>Show all</div>
-          </div> 
+          
           <div className='w-full'>{
           productList.map((currProduct) =>{
           const expectedDelivery = calculateExpectedDelivery(currProduct.expectedDelivery)

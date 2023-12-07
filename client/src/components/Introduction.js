@@ -54,6 +54,14 @@ const Introduction = () => {
             </div>
             
         </SwiperSlide>
+        <SwiperSlide className='w-full bg-red-200/30'>
+        <div
+            className='w-full flex flex-col pl-2 lg:pl-10 gap-2 md:gap-6'>
+                <div className='text-lg  lg:text-4xl font-semibold space-y-4 font-Inter'>This website is in test mode<br/>Please visit Great shop to shop your products </div>
+                <div><button className='bg-buttonColor  text-white w-fit h-fit px-2 py-1 text-xs rounded font-normal lg:font-medium lg:px-5 lg:py-[5px] lg:text-base  lg:rounded-md'>Shop now</button></div>
+            </div>
+            
+        </SwiperSlide>
         <SwiperSlide className='w-full bg-buttonColor'>
         <div
             className='w-full flex flex-col pl-2 lg:pl-10 gap-2 md:gap-6'>
