@@ -65,8 +65,6 @@ router.post('/storeProduct',(req,res)=>{
       res.send(err);
     }
     else{
-      console.log(req.body) 
-      console.log(req.files)
       const mainImage = req.files.mainImage[0]
         const mainImageData = {
           url: mainImage.location,
@@ -121,8 +119,6 @@ router.post('/storeProductVariant',(req,res)=>{
       res.send(err);
     }
     else{
-      console.log(req.body) 
-      console.log(req.file)
       const mainImage = req.files.mainImage[0];
         const mainImageData = {
           url: mainImage.location,
@@ -158,9 +154,10 @@ router.post('/storeProductVariant',(req,res)=>{
             variantId: savedProduct._id,
             variantType: req.body.variantType,
             variantName: req.body.variantName,
-            variantMainImage: savedProduct.mainImage.url,
+            variantMainImage: savedProduct.mainImage,
             size : req.body.size
           };
+          console.log(newVariant);
           await productModel.findByIdAndUpdate(
             savedProduct.productId, 
             { $push: { variant: newVariant } }
