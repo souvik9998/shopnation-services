@@ -416,7 +416,7 @@ const ProductInfopage = () => {
           }
           {
               (sizeArray.length > 0) ? 
-              <div className='flex gap-3 w-full min-h-[96px] items-center'>
+              <div className='flex gap-3 w-full min-h-[80px] items-center'>
                 <div className='text-sm font-semibold text-gray-700 uppercase'>size:</div>
                     {
                       sizeArray.map((size)=>{
