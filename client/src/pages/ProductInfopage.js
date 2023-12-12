@@ -285,7 +285,7 @@ const ProductInfopage = () => {
             </div>
             {
               (sizeArray.length > 0) ? 
-              <div className='flex gap-6 w-[85%] h-12 items-center'>
+              <div className='flex gap-6 w-[85%] h-16  items-center'>
                 <div className='text-sm font-semibold text-gray-700 uppercase'>size:</div>
                     {
                       sizeArray.map((size)=>{
@@ -299,17 +299,17 @@ const ProductInfopage = () => {
             }
             {
               variants.map((variant)=>{
-                return <div className='flex flex-col gap-5 w-[85%] h-28 justify-center'>
+                return <div className='flex flex-col gap-4 w-[85%] h-36 justify-center'>
                 <div className='text-sm font-semibold text-gray-700 uppercase'>{variant.variantType}:<span className='pl-2 text-gray-600 font-medium'>{item.variantName}</span></div>
                 <div className='flex items-center gap-2'>
                 {
                 variant.typeArray.map((v) =>{
+                  console.log(v);
                   if(variant.variantType === "color"){
                     return <div 
                     onClick={()=>handleVariantClick(v)}
-                    className='flex relative items-center justify-center '>
-                    <div className={`${v.variantName === item.variantName ? 'border-gray-700' : 'border-gray-300'} w-8 h-8 border-2 rounded-full`}></div>
-                    <div className={`w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full cursor-pointer`} style={{backgroundColor:v.variantName}}></div>
+                    className={`${v.variantName === item.variantName ? 'border-gray-700' : 'border-gray-300'} border-2 rounded-md cursor-pointer`}>
+                      <img className='h-20 w-24 object-contain' src={v.variantArray[0].variantMainImage.url}></img>
                     </div>
                   }
                   else{
@@ -392,17 +392,17 @@ const ProductInfopage = () => {
           </div>
           {
               variants.map((variant)=>{
-                return <div className='flex flex-col gap-5 w-[85%] h-28 justify-center'>
-                <div className='text-sm font-semibold text-gray-700 uppercase'>{variant.variantType}:<span className='pl-2 text-gray-600 font-medium'>{item.variantName}</span></div>
+                return <div className='flex flex-col gap-3 w-[85%] h-28 py-2 justify-center'>
+                <div className='text-sm font-bold text-gray-600 uppercase'>Choose {variant.variantType}</div>
                 <div className='flex items-center gap-2'>
                 {
                 variant.typeArray.map((v) =>{
+                  console.log(v);
                   if(variant.variantType === "color"){
                     return <div 
                     onClick={()=>handleVariantClick(v)}
-                    className='flex relative items-center justify-center '>
-                    <div className={`${v.variantName === item.variantName ? 'border-gray-700' : 'border-gray-300'} w-8 h-8 border-2 rounded-full`}></div>
-                    <div className={`w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full cursor-pointer`} style={{backgroundColor:v.variantName}}></div>
+                    className={`${v.variantName === item.variantName ? 'border-gray-700' : 'border-gray-300'} border-2 rounded-md cursor-pointer`}>
+                      <img className='h-20 w-24 object-contain' src={v.variantArray[0].variantMainImage.url}></img>
                     </div>
                   }
                   else{
