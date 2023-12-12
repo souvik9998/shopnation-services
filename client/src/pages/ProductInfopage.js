@@ -334,7 +334,7 @@ const ProductInfopage = () => {
             <div className='font-semibold text-slate-600 text-sm'>FREE return by 30 days <span className='underline'>Details.</span></div></div>
           </div>
         </div>
-        <div className='lg:hidden flex flex-col min-h-screen py-2 px-3 rounded-md'>
+        <div className='lg:hidden flex flex-col min-h-screen pb-1 pt-2 px-3 rounded-md'>
           <div className='flex justify-between mb-3'>
             <div 
             onClick={()=>navigate(-1)}
@@ -365,7 +365,7 @@ const ProductInfopage = () => {
 
           </div>
           <div>
-          <div className='capitalize text-gray-800 font-bold text-xl'>{item.productName}</div>
+          <div className='capitalize text-gray-800 font-bold text-lg'>{item.productName}</div>
           <div className='capitalize text-gray-500 font-semibold text'>{item.productDescription}</div>
           </div>
         
