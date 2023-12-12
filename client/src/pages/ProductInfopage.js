@@ -369,7 +369,7 @@ const ProductInfopage = () => {
           <div className='capitalize text-gray-500 font-semibold text'>{item.productDescription}</div>
           </div>
         
-          <div className='w-full h-[60vh]'>
+          <div className='w-full h-[52vh]'>
             <Swiper pagination={true} modules={[Pagination]} className="productImageSwiper h-full">
             {
                 <SwiperSlide className={`w-full h-full rounded-sm`}>
@@ -383,7 +383,7 @@ const ProductInfopage = () => {
               return <SwiperSlide
               className={`w-full h-full rounded-sm flex`}>
               <img
-              className= ' object-contain w-full h-[85%] overflow-hidden rounded-sm' src={image.url}></img>
+              className= ' object-contain w-full h-[90%] overflow-hidden rounded-sm' src={image.url}></img>
               </SwiperSlide>
               
             }):''
@@ -392,7 +392,7 @@ const ProductInfopage = () => {
           </div>
           {
               variants.map((variant)=>{
-                return <div className='flex flex-col gap-3 w-[85%] h-28 py-2 justify-center'>
+                return <div className='flex flex-col gap-3 w-[85%] min-h-[112px] py-2 justify-center'>
                 <div className='text-sm font-bold text-gray-600 uppercase'>Choose {variant.variantType}</div>
                 <div className='flex items-center gap-2'>
                 {
@@ -414,6 +414,20 @@ const ProductInfopage = () => {
             </div>
             })
           }
+          {
+              (sizeArray.length > 0) ? 
+              <div className='flex gap-3 w-full min-h-[96px] items-center'>
+                <div className='text-sm font-semibold text-gray-700 uppercase'>size:</div>
+                    {
+                      sizeArray.map((size)=>{
+                        return <div 
+                        onClick={()=>setSizeName(size)}
+                        className={`${(size === sizeName) ?'bg-slate-800 text-white border-2 border-transparent':'bg-white text-slate-800 border-2 border-gray-400'} py-[6px] px-2 text-sm font-semibold  border-2  rounded-md uppercase cursor-pointer`}>{size}</div>
+                      })
+                    }
+              </div>
+              :''
+            }
         </div>
       </div>
       :
