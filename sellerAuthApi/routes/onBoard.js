@@ -158,7 +158,7 @@ router.post('/storeProductVariant',(req,res)=>{
             variantId: savedProduct._id,
             variantType: req.body.variantType,
             variantName: req.body.variantName,
-            variantMainImage: savedProduct.mainImage,
+            variantMainImage: savedProduct.mainImage.url,
             size : req.body.size
           };
           await productModel.findByIdAndUpdate(
