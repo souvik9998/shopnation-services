@@ -103,7 +103,7 @@ var productSchema = new Schema({
         variantName:{
             type:String,
         },
-        variantImage:{
+        variantMainImage:{
             url:String,
             contentType: String,
         },
