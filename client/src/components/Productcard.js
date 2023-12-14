@@ -7,7 +7,7 @@ import { baseUrl } from '../config/config';
 const ProductCard = ({product}) => {
   // const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
   const token = window.localStorage.getItem("token");
-  const {cartList,user,setCartList,getCartDetails,getCartProductInfo,calculateExpectedDelivery} = useGlobalContext();
+  const {cartList,user,setCartList,getCartDetails,getCartProductInfo,calculateExpectedDelivery,authorizationMessage} = useGlobalContext();
   const [isLoading, setIsLoading] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const [goToCart,setGoToCart] = useState(false);
@@ -22,41 +22,47 @@ const ProductCard = ({product}) => {
     })
 },[cartList])
   const handleAddtocart = async() =>{
-    setIsLoading(true);
-    const res1 =  await axios
-      .post(`https://${baseUrl}/userapi/cart/addToCart`,{
-        productId : product.productId,
-        userId: user.userId,
-        productName : product.productName,
-        productAmount : product.productPrice,
-        shopId : product.shopId,
-        productType: product.productType,
-        expectedDelivery:calculateExpectedDelivery(product.expectedDelivery),
-        quantity : 1
-      },
-      {
-        headers : {
-          "Authorization" : token, 
-        }
-      })
-      .then((res)=>{
-        console.log(res.data);
-        // setCartList(res.data.cartList)
-        setTimeout(()=>{
-          setIsLoading(false)
-          setIsAdded(true)
+    if(authorizationMessage !== 'authorized'){
+      navigate('/user-cart')
+    }
+    else{
+      setIsLoading(true);
+      const res1 =  await axios
+        .post(`https://${baseUrl}/userapi/cart/addToCart`,{
+          productId : product.productId,
+          userId: user.userId,
+          productName : product.productName,
+          productAmount : product.productPrice,
+          shopId : product.shopId,
+          productType: product.productType,
+          expectedDelivery:calculateExpectedDelivery(product.expectedDelivery),
+          quantity : 1
+        },
+        {
+          headers : {
+            "Authorization" : token, 
+          }
+        })
+        .then((res)=>{
+          console.log(res.data);
+          // setCartList(res.data.cartList)
           setTimeout(()=>{
-            setIsAdded(false)
-          },1500)
-        },1000)
-      })
-      .catch((err) => {
-        console.log(err.response.data.error);
-        setErrMsg(err.response.data.error);
-        setIsLoading(false);
-      })
-      const res2 = await getCartDetails(user.userId);
-      setCartList(res2);
+            setIsLoading(false)
+            setIsAdded(true)
+            setTimeout(()=>{
+              setIsAdded(false)
+            },1500)
+          },1000)
+        })
+        .catch((err) => {
+          console.log(err.response.data.error);
+          setErrMsg(err.response.data.error);
+          setIsLoading(false);
+        })
+        const res2 = await getCartDetails(user.userId);
+        setCartList(res2);
+    }
+    
   }
   const navigateProductInfo = async()=>{
     try{
@@ -71,7 +77,7 @@ const ProductCard = ({product}) => {
     <>
       <div className='h-fit w-full capitalize  rounded-md font-Inter bg-white gap-2 lg:gap-4 flex justify-around mb-3 shadow pr-1 lg:pr-4'>
         <div className='flex flex-col gap-2 w-[45%] lg:w-[28%] rounded-l-md px-1 py-1 lg:px-2 lg:py-2 bg-gray-100'>
-          <div className=' h-full flex justify-center items-center '><img className='w-full min-h-full max-h-36 lg:max-h-44' src={product.mainImagePath.url}/></div>
+          <div className=' h-full flex justify-center items-center '><img className='w-full min-h-full max-h-36 lg:max-h-44 ' src={product.mainImagePath.url}/></div>
           <div className='lg:hidden w-full flex flex-col gap-2 justify-center text-sm text-white font-semibold'>
               <div><button className='bg-buttonColor w-full h-8 rounded-md'>Buy Now</button></div>
               <div><button onClick={handleAddtocart} className='bg-white border-2 border-buttonColor text-black w-full h-8 rounded-md'>Add to cart</button></div>

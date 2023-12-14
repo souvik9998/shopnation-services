@@ -51,7 +51,9 @@ const Navbar = () => {
                         </svg>
                     </div>
                     :
-                    <div className='flex gap-2 w-[30%] items-center justify-center '>
+                    <div
+                    onClick={()=>navigate("/loginpage")} 
+                    className='flex gap-2 w-[30%] items-center justify-center '>
                         <div className='font-medium text-[14px]'>Sign in</div>
                     </div>
                 }

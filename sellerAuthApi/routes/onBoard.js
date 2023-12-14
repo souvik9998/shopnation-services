@@ -234,6 +234,7 @@ router.get("/getProductInfo/:productId",async(req,res) =>{
       productName: result.productName,
       productDescription: result.productDescription,
       productPrice: result.productPrice,
+      productType: result.productType,
       productDescription: result.productDescription,
       expectedDelivery: result.expectedDelivery,
       brand: result.brand,
@@ -350,6 +351,7 @@ router.get("/showProduct/:productId",async(req,res)=>{
       brand: productInfo.brand,
       size: productInfo.size,
       gender: productInfo.gender,
+      productType:productInfo.productType,
       productImages: productInfo.productImages,
       isAvailable: productInfo.isAvailable,
       mainImagePath : productInfo.mainImage

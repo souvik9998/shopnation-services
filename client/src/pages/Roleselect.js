@@ -21,13 +21,13 @@ const Roleselect = () => {
       initial={{opacity:0}}
       animate={{opacity:1}}
       transition={{delay:0.5, duration:0.6}}
-      className='w-6/12 h-full flex justify-center items-center'><img src={loginsvg2} className='animate-bounceRoleSelect'></img></motion.div>
-      <div className='w-6/12 h-full flex justify-center items-center bg-[#516BFB]'>
+      className='hidden w-6/12 h-full lg:flex justify-center items-center'><img src={loginsvg2} className='animate-bounceRoleSelect'></img></motion.div>
+      <div className='w-full lg:w-6/12 h-full flex justify-center items-center bg-[#516BFB] px-4'>
       <motion.div 
       initial={{opacity:0}}
       animate={{opacity:1}}
       transition={{duration:0.4}}
-      className="w-[67%] px-6 py-8 bg-white rounded-lg shadow-lg">
+      className="w-[100%] lg:w-[67%] px-6 py-8 bg-white rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">Choose a Role</h2>
         <div className="flex justify-center mb-4">
           {/* Buyer Role Card */}
