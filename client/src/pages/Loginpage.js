@@ -7,7 +7,7 @@ const Loginpage = () => {
   const location = useLocation();
   return (
     <>
-      <div className='w-screen h-screen lg:h-[85vh] bg-buttonColor flex justify-center items-center'>
+      <div className='w-screen h-screen lg:h-[85vh] bg-gray-200/80 lg:bg-buttonColor flex justify-center items-center'>
         <motion.div
           initial={{opacity:0}}
           animate={{opacity:1}}
@@ -19,7 +19,7 @@ const Loginpage = () => {
     initial={{opacity:0}}
           animate={{opacity:1}}
           transition={{ duration:0.4 ,type : ''}}
-    className="h-fit bg-white w-full lg:w-[70%] py-6 px-10 drop-shadow-lg rounded-lg">
+    className="h-fit w-full lg:w-[70%] py-6 px-4 lg:px-10 drop-shadow-lg rounded-lg">
       <Outlet/>
       </motion.div></div>
       </div>

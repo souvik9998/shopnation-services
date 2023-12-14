@@ -76,8 +76,8 @@ const ProductCard = ({product}) => {
   return (
     <>
       <div className='h-fit w-full capitalize  rounded-md font-Inter bg-white gap-2 lg:gap-4 flex justify-around mb-3 shadow pr-1 lg:pr-4'>
-        <div className='flex flex-col gap-2 w-[45%] lg:w-[28%] rounded-l-md px-1 py-1 lg:px-2 lg:py-2 bg-gray-100'>
-          <div className=' h-full flex justify-center items-center '><img className='w-full min-h-full max-h-36 lg:max-h-44 ' src={product.mainImagePath.url}/></div>
+        <div className='flex flex-col gap-2 w-[45%] lg:w-[28%] rounded-l-md px-1 py-1 lg:px-2 lg:py-2 '>
+          <div className=' h-full flex justify-center items-center '><img className='w-full min-h-full max-h-36 lg:max-h-44 object-contain' src={product.mainImagePath.url}/></div>
           <div className='lg:hidden w-full flex flex-col gap-2 justify-center text-sm text-white font-semibold'>
               <div><button className='bg-buttonColor w-full h-8 rounded-md'>Buy Now</button></div>
               <div><button onClick={handleAddtocart} className='bg-white border-2 border-buttonColor text-black w-full h-8 rounded-md'>Add to cart</button></div>
