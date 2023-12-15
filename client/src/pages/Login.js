@@ -57,7 +57,7 @@ const Login = () => {
   return (
     <>
     {(authorizationMessage === 'authorized')?
-    <div className='w-96 h-28 mx-auto text-buttonColor rounded-lg bg-white font-semibold text-lg flex justify-center items-center'>You have already logged in...</div>:
+    <div className='w-96 h-fit  mx-auto text-buttonColor rounded-lg bg-white font-semibold text-lg flex justify-center items-center'>You have already logged in...</div>:
     <div className='flex flex-col lg:gap-6 gap-4'>
       <div className="flex flex-col gap-2">
       <div className="text-lg font-bold  text-gray-800/90">
@@ -73,28 +73,28 @@ const Login = () => {
           <div className='bg-buttonColor rounded-md h-fit py-1 font-medium text-white w-4/12 text-center cursor-pointer'>Register</div>
       </div>:''
       }
-      <form onSubmit={handleSubmit} action="" className="space-y-6">
+      <form onSubmit={handleSubmit} action="" className="flex flex-col gap-4 lg:gap-6">
       <div>
           
               <div>{
                 (errorMessage === 'Invalid email format')?
                 <span className='text-xs text-red-500 ml-5'>(Please give valid email address*)</span>:''
               }</div>
-          <div className="mt-2">
+          <div className="">
               <input type="text" name="email" value={userInfo.email} onChange={handleChange} placeholder="Email" 
-                     className="focus:ring-1 ring-buttonColor shadow-sm outline-none focus:outline-none appearance-none block w-full px-2 rounded-lg border border-gray-400/80 py-1.5 text-gray-900  placeholder:text-gray-400 "/>
+                     className="focus:ring-1 ring-buttonColor shadow-sm outline-none focus:outline-none appearance-none block w-full px-2 rounded-lg border lg:border-[1.5px] border-gray-400/80 py-1.5 text-gray-900  placeholder:text-gray-400 placeholder:text-sm"/>
               </div>
       </div>
       <div>
               
-              <div className="mt-2">
+              <div className="">
                 <input
                   name="password"
                   type="password"
                   value={userInfo.password}
                   onChange={handleChange} 
                   placeholder="Password"
-                  className="outline-none shadow-sm focus:ring-1 ring-buttonColor border border-gray-400/80 focus:outline-none focus:placeholder:bg-inherit block w-full px-2 rounded-lg  py-1.5 text-gray-900  placeholder:text-gray-400 "
+                  className="outline-none shadow-sm focus:ring-1 ring-buttonColor border lg:border-[1.5px] border-gray-400/80 focus:outline-none focus:placeholder:bg-inherit block w-full px-2 rounded-lg  py-1.5 text-gray-900  placeholder:text-gray-400 placeholder-text-sm"
                 />
               </div>
               <div>

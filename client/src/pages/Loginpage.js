@@ -19,7 +19,7 @@ const Loginpage = () => {
     initial={{opacity:0}}
           animate={{opacity:1}}
           transition={{ duration:0.4 ,type : ''}}
-    className="h-fit w-full lg:w-[70%] py-6 px-4 lg:px-10 rounded-lg lg:bg-white">
+    className="h-fit w-full lg:w-[70%] lg:py-8 px-4 lg:px-12 rounded-lg lg:bg-white">
       <Outlet/>
       </motion.div></div>
       </div>
