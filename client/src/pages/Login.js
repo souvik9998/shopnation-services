@@ -58,7 +58,7 @@ const Login = () => {
     <>
     {(authorizationMessage === 'authorized')?
     <div className='w-96 h-28 mx-auto text-buttonColor rounded-lg bg-white font-semibold text-lg flex justify-center items-center'>You have already logged in...</div>:
-    <div className='flex flex-col gap-6'>
+    <div className='flex flex-col lg:gap-6 gap-4'>
       <div className="flex flex-col gap-2">
       <div className="text-lg font-bold  text-gray-800/90">
           Log in as a buyer
@@ -82,18 +82,11 @@ const Login = () => {
               }</div>
           <div className="mt-2">
               <input type="text" name="email" value={userInfo.email} onChange={handleChange} placeholder="Email" 
-                     className="outline-none focus:outline-none appearance-none block w-full px-2 rounded-md border-0 py-1.5 text-gray-900  placeholder:text-gray-400 "/>
+                     className="focus:ring-1 ring-buttonColor shadow-sm outline-none focus:outline-none appearance-none block w-full px-2 rounded-lg border border-gray-400/80 py-1.5 text-gray-900  placeholder:text-gray-400 "/>
               </div>
       </div>
       <div>
-              <div className="flex items-center justify-between">
-                
-                <div className="text-sm">
-                  <Link to='/loginpage/forgot-password'><div className="font-semibold text-indigo-600 hover:text-indigo-500">
-                    Forgot password?
-                  </div></Link>
-                </div>
-              </div>
+              
               <div className="mt-2">
                 <input
                   name="password"
@@ -101,7 +94,7 @@ const Login = () => {
                   value={userInfo.password}
                   onChange={handleChange} 
                   placeholder="Password"
-                  className="outline-none focus:outline-none focus:placeholder:bg-inherit block w-full px-2 rounded-md border-0 py-1.5 text-gray-900  placeholder:text-gray-400 "
+                  className="outline-none shadow-sm focus:ring-1 ring-buttonColor border border-gray-400/80 focus:outline-none focus:placeholder:bg-inherit block w-full px-2 rounded-lg  py-1.5 text-gray-900  placeholder:text-gray-400 "
                 />
               </div>
               <div>
@@ -114,20 +107,29 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-buttonColor px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex drop-shadow w-full justify-center rounded-lg bg-buttonColor px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
               </button>
             </div>
           </form>
-
-          <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{' '}
-            <Link to='/Roleselect'><div className="font-semibold leading-6 text-buttonColor">
+          <div className='flex flex-col gap-2 mt-6'>
+          <div className="flex items-center justify-between">
+                
+                <div className="text-sm">
+                  <Link to='/loginpage/forgot-password'><div className="font-semibold text-buttonColor ">
+                    Forgot password?
+                  </div></Link>
+                </div>
+          </div>
+          <p className="text-sm text-gray-500 font-medium">
+            Don't have a account?{' '}
+            <Link to='/Roleselect'><span className="font-semibold leading-6 text-buttonColor">
               Create account
-            </div>
+            </span>
             </Link>
           </p>
+          </div>
         </div>
         </div>
 }
