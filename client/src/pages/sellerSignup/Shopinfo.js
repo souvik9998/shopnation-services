@@ -18,7 +18,7 @@ const Shopinfo = ({sellerInfo,setSellerInfo}) => {
   return (
     <>
      <div className="">
-            <h2 className="text-center mb-4 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className="lg:text-center mb-6 text-xl lg:text-2xl font-semibold lg:font-bold leading-9 tracking-tight text-gray-700">
                 Set up your shop
             </h2>
         </div>
@@ -35,7 +35,7 @@ const Shopinfo = ({sellerInfo,setSellerInfo}) => {
                         placeholder="Shop name"
                         onChange={handleChange}
                         value={sellerInfo.shopName}
-                        className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
 
                         />
                     </div>
@@ -52,7 +52,7 @@ const Shopinfo = ({sellerInfo,setSellerInfo}) => {
                         onChange={handleChange}
                         value={sellerInfo.shopType}
                         
-                        className=" outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className=" outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
                         
                         />
                     </div>
@@ -68,7 +68,7 @@ const Shopinfo = ({sellerInfo,setSellerInfo}) => {
                         name="shopImage"
                         onChange={handleFileChange}
                         placeholder="Upload your shop image"
-                        className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
                         
                         />
                     </div>

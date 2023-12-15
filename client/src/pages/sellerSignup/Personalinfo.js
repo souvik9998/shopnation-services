@@ -27,7 +27,7 @@ const Personalinfo = ({sellerInfo,setSellerInfo}) => {
     <>
         
             <div className="">
-            <h2 className="text-center mb-4 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className="lg:text-center mb-6 text-xl lg:text-2xl font-semibold lg:font-bold leading-9 tracking-tight text-gray-700">
                 Give your personal info
             </h2>
             </div>
@@ -42,7 +42,7 @@ const Personalinfo = ({sellerInfo,setSellerInfo}) => {
                     </label>
                     <div className="mt-2">
                         <input type="text" name="name" value={sellerInfo.name} onChange={handleChange} placeholder="Name" 
-                        className="outline-none block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                        className="outline-none block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm  ring-1 ring-gray-400/80 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"/>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@ const Personalinfo = ({sellerInfo,setSellerInfo}) => {
                     </label>
                     <div className="mt-2">
                     <input type="email" name="email" value={sellerInfo.email} onChange={handleChange} placeholder="Email" 
-                    className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"/>
                 </div>
                 </div>
 
@@ -66,7 +66,7 @@ const Personalinfo = ({sellerInfo,setSellerInfo}) => {
                     type="tel"
                     name="mobileNumber"
                     placeholder="Mobile Number"
-                    className=" outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className=" outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
                     value={sellerInfo.mobileNumber}
                     onChange={handleChange}
                     />
@@ -84,7 +84,7 @@ const Personalinfo = ({sellerInfo,setSellerInfo}) => {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
                     value={sellerInfo.password}
                     onChange={handleChange}
                     />
@@ -101,7 +101,7 @@ const Personalinfo = ({sellerInfo,setSellerInfo}) => {
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm Password"
-                        className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
                         value={sellerInfo.confirmPassword}
                         onChange={handleChange}
                         />

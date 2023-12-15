@@ -25,7 +25,7 @@ const Seller = () => {
     <>
     <div className='w-screen h-screen font-Inter overflow-x-hidden'>
       <div className='relative w-full h-full'>
-        <div className={`absolute top-0 right-0 bg-buttonColor w-full h-full transform-gpu ${ (slideFull) ? 'animate-slideFull flex' : 'animate-slideIn'} after z-10 px-10 pt-20`}>
+        <div className={`hidden lg:block absolute top-0 right-0 bg-buttonColor w-full h-full transform-gpu ${ (slideFull) ? 'animate-slideFull flex' : 'animate-slideIn'} after z-10 px-10 pt-20`}>
             {
               slideFull ? 
               <div className={`w-full h-full ${ (slideFull) ? 'flex' :''}`}>
@@ -52,8 +52,8 @@ const Seller = () => {
             }
 
         </div>
-        <div className='absolute top-0 right-0 bg-blue-200 w-full h-full transform-gpu animate-slideInBehind z-0'></div>
-        <div className='absolute'>
+        <div className='absolute lg:block hidden top-0 right-0 bg-blue-200 w-full h-full transform-gpu animate-slideInBehind z-0'></div>
+        <div className='lg:absolute '>
             <Sellersignup setSlideFull={setSlideFull} slideFull={slideFull}/>
         </div>
         </div>
