@@ -36,7 +36,7 @@ const AppProvider = ({children}) => {
 
 
     useEffect(()=>{
-        setIsLoading(true);
+        // setIsLoading(true);
         getUserDetails();
       },[authorizationMessage])
       const getUserDetails = async() =>{
@@ -55,10 +55,10 @@ const AppProvider = ({children}) => {
               // const res5 = await getOrderDetails(res1.user_id);
               await getShippingAddress(userId);
             }
-            setIsLoading(false);
+            // setIsLoading(false);
         }
         catch(err){
-          setIsLoading(false)
+          // setIsLoading(false)
             console.log(err);
         }
     }

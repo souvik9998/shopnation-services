@@ -57,7 +57,7 @@ const Login = () => {
   return (
     <>
     {(authorizationMessage === 'authorized')?
-    <div className='w-96 h-fit  mx-auto text-buttonColor rounded-lg bg-white font-semibold text-lg flex justify-center items-center'>You have already logged in...</div>:
+    <div className='w-fit h-fit  mx-auto text-buttonColor rounded-lg bg-white font-semibold text-lg flex justify-center items-center'>You have already logged in...</div>:
     <div className='flex flex-col lg:gap-6 gap-4'>
       <div className="flex flex-col gap-2">
       <div className="text-lg font-bold  text-gray-800/90">
