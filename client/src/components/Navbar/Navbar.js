@@ -8,13 +8,19 @@ import shopnation from '../../Images/Shopnation.png'
 import { motion } from 'framer-motion';
 const Navbar = () => {
     const[open,setOpen] = useState(false);
-    const {user,cartProductCounter,cartList,authorizationMessage} = useGlobalContext();
+    const {user,setUser,setAuthorizationMessage,cartProductCounter,cartList,authorizationMessage} = useGlobalContext();
     const userId = user.userId;
     const navigate = useNavigate();
     const handleClick = (e)=>{
         e.stopPropagation();
         setOpen(true);
     }
+    const logout = () =>{
+        setUser('');
+            window.localStorage.clear();
+        setAuthorizationMessage('');
+            navigate("/loginrole");
+        }
     open ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
   return (
     <>
@@ -38,7 +44,9 @@ const Navbar = () => {
                     <img className='h-[80%] w-fit ' src={shopnation}></img>
                 </Link></div>
                 </div>
-                <div className='w-[10%] relative'>
+                <div 
+                onClick={() =>navigate("/user-cart")}
+                className='w-[10%] relative'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white" class="w-5 h-5">
                     <path d="M1 1.75A.75.75 0 011.75 1h1.628a1.75 1.75 0 011.734 1.51L5.18 3a65.25 65.25 0 0113.36 1.412.75.75 0 01.58.875 48.645 48.645 0 01-1.618 6.2.75.75 0 01-.712.513H6a2.503 2.503 0 00-2.292 1.5H17.25a.75.75 0 010 1.5H2.76a.75.75 0 01-.748-.807 4.002 4.002 0 012.716-3.486L3.626 2.716a.25.25 0 00-.248-.216H1.75A.75.75 0 011 1.75zM6 17.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15.5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                     </svg>
@@ -130,12 +138,14 @@ const Navbar = () => {
                     </div>
                     <div>Orders</div>
                 </li>
-                <li className='py-[10px] pl-4  flex gap-2 items-center' onClick={handleClick}>
+                <li
+                onClick={() =>navigate("/user-cart")} 
+                className='py-[10px] pl-4  flex gap-2 items-center' onClick={handleClick}>
                     <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#808080" className="w-5 h-5">
                     <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
                     </svg>
                     </div>
-                    <Link to={`/user-cart/${userId}`}>My cart</Link>
+                    <div to={`/user-cart/${userId}`}>My cart</div>
                 </li>
                 <li 
                 onClick={()=>navigate('/user-profile')}
@@ -168,7 +178,9 @@ const Navbar = () => {
                     </div>
                     <div>Help center</div>
                 </li>
-                <li className='py-[10px] pl-4  flex gap-2 items-center'>
+                <li 
+                onClick={logout}
+                className='py-[10px] pl-4  flex gap-2 items-center'>
                 <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#808080" class="w-5 h-5">
                     <path fill-rule="evenodd" d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm5.03 4.72a.75.75 0 010 1.06l-1.72 1.72h10.94a.75.75 0 010 1.5H10.81l1.72 1.72a.75.75 0 11-1.06 1.06l-3-3a.75.75 0 010-1.06l3-3a.75.75 0 011.06 0z" clip-rule="evenodd" />
                     </svg>
