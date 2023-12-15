@@ -44,7 +44,7 @@ const Navbar = () => {
                     </svg>
                     {
                 (cartList.length === 0) ?''
-                :<div className='absolute -top-[4px] right-[2px] z-50 bg-red-500 w-4 h-4 rounded-full flex justify-center items-center text-xs '>{cartProductCounter}</div>
+                :<div className='absolute -top-[4px] right-[4px] z-40 bg-red-500 w-4 h-4 rounded-full flex justify-center items-center text-xs '>{cartProductCounter}</div>
             }
                 </div>
                 {
