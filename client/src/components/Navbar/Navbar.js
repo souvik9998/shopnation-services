@@ -71,7 +71,7 @@ const Navbar = () => {
                     </div>
                     :
                     <div
-                    onClick={()=>navigate("/Roleselect")} 
+                    onClick={()=>navigate("/Loginrole")} 
                     className='flex gap-2 w-[30%] items-center justify-center '>
                         <div className='font-medium text-[14px]'>Sign in</div>
                     </div>
