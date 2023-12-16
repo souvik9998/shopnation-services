@@ -47,7 +47,7 @@ const Sellerlogin = () => {
     initial={{opacity:0}}
     animate={{opacity:1}}
     transition={{ duration:0.4 ,type : ''}}
-    className='w-fit h-fit border border-black lg:bg-white lg:py-8 px-4 lg:px-12 rounded-lg lg:w-[70%] flex flex-col lg:gap-6 gap-4'>
+    className='w-fit h-fit lg:bg-white lg:py-8 px-4 lg:px-12 rounded-lg lg:w-[70%] flex flex-col lg:gap-6 gap-4'>
       <div className="flex flex-col gap-2">
       <div className="text-lg font-bold  text-gray-800/90">
           Log in as a seller
