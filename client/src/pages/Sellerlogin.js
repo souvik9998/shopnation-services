@@ -47,42 +47,34 @@ const Sellerlogin = () => {
     initial={{opacity:0}}
     animate={{opacity:1}}
     transition={{ duration:0.4 ,type : ''}}
-    className="h-fit bg-white w-[70%] py-6 px-10 drop-shadow-lg rounded-lg">
-      <div className="">
-      <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
+    className='w-fit h-fit border border-black lg:bg-white lg:py-8 px-4 lg:px-12 rounded-lg lg:w-[70%] flex flex-col lg:gap-6 gap-4'>
+      <div className="flex flex-col gap-2">
+      <div className="text-lg font-bold  text-gray-800/90">
           Log in as a seller
-      </h2>
+      </div>
+      <div className='text-xs lg:text-sm text-gray-500 font-medium'>Create your virtual shops and services<br/>  through shopnation</div>
     </div>
-      <div className="mt-10">
-      <form onSubmit={handleSubmit} action="" className="space-y-6">
+      <div className="">
+      <form onSubmit={handleSubmit} action="" className="flex flex-col gap-4 lg:gap-6">
       <div>
-          <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-              Name
-          </label>
-          <div className="mt-2">
-              <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="email" 
-                     className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+          
+          <div className="">
+          <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Email" 
+                     className="focus:ring-1 ring-buttonColor shadow-sm outline-none focus:outline-none appearance-none block w-full px-2 rounded-lg border lg:border-[1.5px] border-gray-400/80 py-1.5 text-gray-900  placeholder:text-gray-400 placeholder:text-sm"/>
+              
               </div>
       </div>
       <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                  Password
-                </label>
-                <div className="text-sm">
-                  <Link to><div className="font-semibold text-indigo-600 hover:text-indigo-500">
-                    Forgot password?
-                  </div></Link>
-                </div>
               </div>
-              <div className="mt-2">
-                <input
+              <div className="">
+              <input
                   name="password"
                   type="password"
                   value={user.password}
                   onChange={handleChange} 
-                  placeholder="password"
-                  className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Password"
+                  className="outline-none shadow-sm focus:ring-1 ring-buttonColor border lg:border-[1.5px] border-gray-400/80 focus:outline-none focus:placeholder:bg-inherit block w-full px-2 rounded-lg  py-1.5 text-gray-900  placeholder:text-gray-400 placeholder-text-sm"
                 />
               </div>
             </div>
@@ -97,13 +89,23 @@ const Sellerlogin = () => {
             </div>
           </form>
 
-          <p className="mt-6 text-center text-sm text-gray-500">
-            Not a member?{' '}
-            <Link to='/Roleselect'><div className="font-semibold leading-6 text-buttonColor">
+          <div className='flex flex-col gap-2 mt-6'>
+          <div className="flex items-center justify-between">
+                
+                <div className="text-sm">
+                  <Link to='/loginpage/forgot-password'><div className="font-semibold text-buttonColor ">
+                    Forgot password?
+                  </div></Link>
+                </div>
+          </div>
+          <p className="text-sm text-gray-500 font-medium">
+            Don't have a account?{' '}
+            <Link to='/Roleselect'><span className="font-semibold leading-6 text-buttonColor">
               Create account
-            </div>
+            </span>
             </Link>
           </p>
+          </div>
         </div>
       </motion.div>
     </>
