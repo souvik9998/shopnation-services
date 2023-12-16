@@ -8,8 +8,8 @@ import Addresscard from './Addresscard';
 import { baseUrl } from '../../config/config';
 const Addresspage = () => {
   const [isOpen,setIsOpen] = useState(false);
-  const[userAddress,setUserAddress] = useState([]);
-  const {defaultAddress,setDefaultAddress} = useGlobalContext();
+  // const[userAddress,setUserAddress] = useState([]);
+  const {defaultAddress,setDefaultAddress,userAddress,setUserAddress} = useGlobalContext();
   const {user,setUser,setAuthorizationMessage,authorizationMessage} = useGlobalContext();
   // const userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
   useEffect(()=>{
@@ -56,7 +56,7 @@ const Addresspage = () => {
       console.log(err);
     }
   }
-
+  console.log(userAddress);
   return (
     <>
       <div className='font-Inter'>

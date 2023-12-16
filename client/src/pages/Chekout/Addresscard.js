@@ -34,7 +34,7 @@ const Addresscard = (props) => {
       <div className='flex flex-col lg:flex-row font-medium text-start items-start text-xs lg:text-base'>
         <div>{city},{state},{country},{mobileNumber}</div>
       </div>
-      <Deleteaddressbutton onClick={()=>setLoading(true)} onFetch={()=>setLoading(true)} addressId = {addressId}/>
+      <Deleteaddressbutton onClick={()=>setLoading(true)} onFetch={()=>setLoading(true)}  addressId = {addressId}/>
     </button>
       
     </>

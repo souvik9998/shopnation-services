@@ -41,13 +41,12 @@ const ProductInfopage = () => {
         setVariantName(variant_name);
         setDefaultItem(main_product.item);
         setAdditional(main_product);
-        showProductInfo();
+        showProductInfo(variant_name);
       }
       else showProductInfo();
-
   },[location.pathname,variantId,productId])
 
-  const showProductInfo = async()=>{
+  const showProductInfo = async(variantName)=>{
     if(location.pathname === `/ShopProductPage/${shopId}/${productId}`){
       
       try{  
@@ -79,7 +78,6 @@ const ProductInfopage = () => {
               setSizeArray([res.data.item.size,...newSizeArray]);
             }
           
-          console.log(res.data);
           setItem(res.data.item);
           setSizeName(res.data.item.size);
           setMainImage(res.data.item.mainImagePath);
@@ -152,46 +150,7 @@ const ProductInfopage = () => {
       setVariants([...variantArray]);
   }
  
-  // const handleClickSize = async(size,variantId)=>{
-  //   console.log(variantId);
-  //   if(variants.length === 0){
-  //     setSizeName(size);
-  //     setVariantId(variantId);
-  //     if(size === defaultItem.size){
-  //       navigate(`/ShopProductPage/${shopId}/${variantId}`);
-  //     }
-      
-  //     else navigate(`/ShopProductPage/${shopId}/${productId}/${variantId}`);
-  //   }
-  //   else{
-  //     if(size === defaultItem.size && variantName === defaultItem.variantName){
-  //       setSizeName(size);
-  //       setVariantId(defaultItem.productId);
-  //       navigate(`/ShopProductPage/${shopId}/${productId}`);
-  //     }
-  //     else{
-  //       let id;
-  //       variants.forEach((i)=>{
-  //         i.typeArray.forEach((j)=>{
-  //           if(item.variantName === j.variantName){
-  //             j.variantArray.forEach((k)=>{
-  //             if(k.size === size){
-  //               id = k.variantId;
-  //             }
-  //           })
-  //           }
-            
-            
-  //         })
-  //       })
-  //       setSizeName(size);
-  //       setVariantId(id);
-  //       navigate(`/ShopProductPage/${shopId}/${productId}/${id}`);
-  //     }
-  //   }
-    
-    
-  // }
+
 
   const handleImageHover =(imagePath)=>{
     setMainImage(imagePath);
@@ -224,10 +183,6 @@ const ProductInfopage = () => {
     }
     
 
-  console.log(variants);
-  console.log(sizeArray);
-  console.log(item);
-  console.log(sizeName);
   return (
     <>
     {item? 
