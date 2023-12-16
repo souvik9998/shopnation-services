@@ -39,8 +39,7 @@ const Carttotal = () => {
     }
   return (
     <>
-      <div className={`lg:h-fit pb-2 lg:pb-4 flex flex-col justify-around lg:bg-white
-       lg:rounded-md lg:drop-shadow-lg`}>
+      <div className={`lg:h-fit pb-2 lg:pb-4 flex flex-col justify-around ${location.pathname === "/user-cart" ? '' : 'bg-white px-2 py-2'} lg:rounded-md lg:drop-shadow-lg`}>
         {/* ${(location.pathname === '/checkout' || location.pathname === '/checkout/reviewpage' || location.pathname === '/checkout/paymentpage') 
       ? 'px-2 py-1 lg:py-0 lg:px-0' : 
       'px-0'} */}

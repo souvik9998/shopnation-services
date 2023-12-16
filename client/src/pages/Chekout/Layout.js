@@ -3,10 +3,12 @@ import Checkout from './Checkout'
 import { Outlet } from 'react-router-dom';
 import Carttotal from '../../components/Carttotal.js';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 const Layout = () => {
   const [isSticky, setIsSticky] = useState(true);
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.getElementById('bottom-navbar');
@@ -25,9 +27,11 @@ const Layout = () => {
   }, []);
   return (
     <>
-    <div className='h-24 bg-gray-50 border-b border-gray-300 drop-shadow-lg w-screen flex items-center justify-around'>
-        <Link to='/'><div className='text-2xl font-semibold tracking-wide'>Ecommerce</div></Link>
-        <div className='text-3xl text-gray-600 font-semibold flex tracking-wide'>Checkout</div>
+    <div className='h-16 lg:h-24 bg-gray-50 border-b border-gray-300 drop-shadow-lg w-screen flex items-center justify-between px-2 lg:px-0 lg:justify-around'>
+        <div
+        onClick={()=>navigate('/')} 
+        className='text-lg lg:text-2xl font-semibold tracking-wide'>Shopnation</div>
+        <div className='text-xl lg:text-3xl text-gray-600 font-semibold flex tracking-wide'>Checkout</div>
         <div className='text-gray-600'><ion-icon name="lock-closed-sharp" style={{fontSize:'25px'}}></ion-icon></div>
     </div>
     <div className='min-h-screen w-screen flex flex-col lg:flex-row lg:p-4 lg:py-10 justify-around bg-gray-100'>

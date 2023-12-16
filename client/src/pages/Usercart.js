@@ -48,7 +48,7 @@ const Usercart = () => {
     </div>
     </div>
   </div>:<div className='bg-gray-100 flex flex-col lg:min-w-screen lg:min-h-screen lg:flex-row justify-around p-2 lg:p-4 lg:py-10 font-Inter'>
-        <div className='block lg:hidden px-1 pb-1 lg:pb-0'>
+        <div className='block lg:hidden px-1 mb-4 lg:pb-0'>
           <Carttotal />
         </div>
         <div className='w-full lg:w-8/12  h-fit rounded-md'>
