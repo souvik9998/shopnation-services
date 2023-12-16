@@ -7,7 +7,7 @@ module.exports = {
         'mybg': '#FBFBFB',
         'textcolor': '#0F5398',
         'cardColor': '#F2F2F2',
-        'buttonColor': '#516BFB',
+        'buttonColor': '#651fff',
         'navColor': '#242424'
       },
       fontFamily: {
