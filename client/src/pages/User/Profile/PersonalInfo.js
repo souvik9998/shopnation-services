@@ -9,7 +9,7 @@ import wishlist from '../../../Images/wishlist.svg'
 import order from '../../../Images/order.svg'
 import payment from '../../../Images/payment.svg'
 const PersonalInfo = () => {
-  const {user,setUser} = useGlobalContext();
+  const {user,setUser,shippingAddress} = useGlobalContext();
   const [nameEditing,setNameEditing] = useState(false);
   const [emailEditing,setEmailEditing] = useState(false);
   const [numberEditing,setNumberEditing] = useState(false);
@@ -211,8 +211,8 @@ const PersonalInfo = () => {
             </div>
             </div>
         </div>
-        <div className='font-Inter w-full h-full lg:hidden flex flex-col min-h-screen pb-1 pt-2 px-3 rounded-md'>
-        <div className='flex justify-between mb-6'>
+        <div className='font-Inter w-full h-full lg:hidden flex flex-col min-h-screen pb-1 py-2 px-3 rounded-md'>
+        <div className='flex justify-between mb-4'>
             <div 
             onClick={()=>navigate(-1)}
             className='bg-gray-200/50 px-2 py-2 shadow-sm rounded-xl flex items-center justify-center'>
@@ -238,14 +238,14 @@ const PersonalInfo = () => {
             </div>
             </div>
           </div>
-          <div className='flex flex-col gap-6'>
+          <div className='flex flex-col gap-4'>
             <div className='text-gray-700 font-extrabold text-2xl tracking-wide'>My Profile</div>
             <div className='rounded-xl px-4 py-8 flex gap-8 bg-white drop-shadow'>
                 <div className=' border-2 rounded-full p-1 border-gray-200 object-contain '><img className="w-full h-full rounded-full" src={profileImage}></img></div>
                 <div className='flex flex-col justify-center'>
                     <div className='text-gray-700 font-extrabold text-xl'>{user.userName}</div>
                     <div className='text-gray-400 font-semibold text-medium'>{user.email}</div>
-                    <div className='text-gray-500/80 py-1 w-fit px-4 font-bold text-sm bg-gray-200 rounded-xl shadow mt-4'>Change personal data</div>
+                    <div className='text-gray-500 py-1 w-fit px-4 font-semibold text-sm bg-gray-200 rounded-xl shadow mt-4'>Change personal data</div>
                 </div>
             </div>
             <div className='rounded-xl px-4 py-6 flex gap-4 bg-white drop-shadow'>
@@ -274,7 +274,145 @@ const PersonalInfo = () => {
                     <div className='text-gray-600 font-semibold text-xs'>Payments</div>
                 </div>
             </div>
+            <div className='rounded-xl px-4 py-3 flex flex-col gap-2 bg-white drop-shadow'>
+                <div className='flex justify-between'>
+                <div className='text-gray-700 font-bold text-lg tracking-wide'>Mange Addresses</div>
+                
+                </div>
+                <div className={`cursor-default focus:outline-none capitalize w-full h-fit gap-1 flex flex-col lg:justify-center`}>
+                    <div className='flex flex-col items-start text-start lg:flex-row gap-1'>
+                        <div className='text-gray-500 font-bold text-xs lg:text-lg lg:font-semibold'>{shippingAddress.full_name}, PIN CODE: {shippingAddress.postal_code}</div>
+                        <div className='text-gray-500 font-medium text-xs lg:text-base'>{shippingAddress.address_line1}</div>
+                    </div>
+                    <div className='text-gray-500 flex flex-col lg:flex-row font-medium text-start items-start text-xs lg:text-base'>
+                        <div>{shippingAddress.city},{shippingAddress.state},{shippingAddress.country},{shippingAddress.mobile_number}</div>
+                    </div>
+                    
+                </div>
+                <div className='flex gap-4 mt-2 items-center'>  
+                    <div className='text-gray-700 py-1 px-2 rounded-lg bg-gray-200 font-semibold text-xs'>Edit shipping addresses</div>
+                    <div 
+                    className='flex'>
+                    <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="blue" className="w-4 h-4 pb-[2px]">
+                        <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+                    </svg>
+                    </div>
+                    <div className='text-xs text-blue-600 font-bold'>Use current location</div>
+                </div>
+                </div>
+                </div>
+                <div className='rounded-xl px-4 py-3 flex flex-col gap-2 bg-white drop-shadow'>
+                    <div className='text-gray-700 font-bold text-lg tracking-wide'>Account settings</div>
+                    <div className=''>
+                    <div className='flex items-center'>
+                        <div className='flex gap-3 items-center py-2 w-full'>
+                            <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                            </div>
+                            <div className='text-gray-600 font-medium'>Edit profile</div>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="gray" class="w-3 h-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                        </div>
+                        </div>
+                        <div className='flex items-center'>
+                        <div className='flex gap-3 items-center py-2 w-full'>
+                            <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+                            </svg>
+                            </div>
+                            <div className='text-gray-600 font-medium'>Saved Cards & Wallet</div>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="gray" class="w-3 h-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                        </div>
+                        </div>
+                        <div className='flex items-center'>
+                        <div className='flex gap-3 items-center py-2 w-full'>
+                            <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                            </svg>
+                            </div>
+                            <div className='text-gray-600 font-medium'>Addresses</div>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="gray" class="w-3 h-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                        </div>
+                        </div>
+                        <div className='flex items-center'>
+                        <div className='flex gap-3 items-center py-2 w-full'>
+                            <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
+                            </svg>
+                            </div>
+                            <div className='text-gray-600 font-medium'>Select Language</div>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="gray" class="w-3 h-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                        </div>
+                        </div>
+                        
+                        <div className='flex items-center'>
+                        <div className='flex gap-3 items-center py-2 w-full'>
+                            <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
+                            </svg>
+                            </div>
+                            <div className='text-gray-600 font-medium'>Notifications settings</div>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="gray" class="w-3 h-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div className='rounded-xl px-4 py-3 flex flex-col gap-2 bg-white drop-shadow'>
+                    <div className='text-gray-700 font-bold text-lg tracking-wide'>Feedback & Information</div>
+                    <div className='flex items-center'>
+                        <div className='flex gap-3 items-center py-2 w-full'>
+                            <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+                            </svg>
+                            </div>
+                            <div className='text-gray-600 font-medium'>Terms,Policies & Licences</div>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="gray" class="w-3 h-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                        </div>
+                        </div>
+                        <div className='flex items-center'>
+                        <div className='flex gap-3 items-center py-2 w-full'>
+                            <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                            </svg>
+                            </div>
+                            <div className='text-gray-600 font-medium'>Browse FAQs</div>
+                        </div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="gray" class="w-3 h-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                        </div>
+                        </div>
+                    </div>
+                <div className='text-blue-600 font-semibold w-full py-2 text-center bg-white border-[1px] border-gray-200 te'>Log Out</div>
           </div>
+          
         </div>
       </>
   )
