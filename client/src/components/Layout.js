@@ -23,7 +23,8 @@ const Layout = () => {
       
     window.innerWidth < 1024 &&
     (location.pathname === `/ShopProductPage/${shopId}/${productId}` ||
-    location.pathname === `/ShopProductPage/${shopId}/${productId}/${variantId}`)
+    location.pathname === `/ShopProductPage/${shopId}/${productId}/${variantId}`
+    ||location.pathname === `/user-profile`)
     ? ''
     : <Header />
     }
