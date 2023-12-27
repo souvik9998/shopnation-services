@@ -212,7 +212,7 @@ const PersonalInfo = () => {
             </div>
         </div>
         <div className='font-Inter lg:hidden flex flex-col pb-1 py-2 px-3 rounded-md'>
-        <div className='flex justify-between mb-4'>
+        <div className='flex justify-between mb-1'>
             <div 
             onClick={()=>navigate(-1)}
             className='bg-gray-200/50 px-2 py-2 shadow-sm rounded-xl flex items-center justify-center'>
