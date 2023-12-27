@@ -239,8 +239,7 @@ const PersonalInfo = () => {
             </div>
           </div>
           <div className='flex flex-col gap-4'>
-            <div className='text-gray-700 font-extrabold text-2xl tracking-wide'>My Profile</div>
-            <div className='rounded-xl px-4 py-8 flex gap-8 bg-white drop-shadow'>
+            <div className='rounded-xl mt-2 px-4 py-8 flex gap-8 bg-white drop-shadow'>
                 <div className=' border-2 rounded-full p-1 border-gray-200 object-contain '><img className="w-full h-full rounded-full" src={profileImage}></img></div>
                 <div className='flex flex-col justify-center'>
                     <div className='text-gray-700 font-extrabold text-xl'>{user.userName}</div>
