@@ -383,7 +383,21 @@ const ProductInfopage = () => {
               </div>
               :''
             }
+            <div className='flex flex-col gap-2 py-4'>
+            <div className='flex gap-3 items-center'>
+            <div className='text-slate-700'><ion-icon name="bicycle" style={{fontSize:'22px'}}></ion-icon></div>
+            <div className='font-semibold text-slate-600 text-sm'>Expected delivery in <span className='text-black'>{calculateExpectedDelivery(item.expectedDelivery)}. </span><span className='underline'>Want it faster?</span></div>
+            </div>
+            <div className='flex gap-3 items-center'>
+            <div className='text-slate-700'><ion-icon name="home" style={{fontSize:'22px'}}></ion-icon></div>
+            <div className='font-semibold text-slate-600 text-sm'>Sold by <span className='text-black'>{item.shopName}. </span><span className='underline'>Contact shop.</span></div></div>
+          
+            <div className='flex gap-3 items-center'>
+            <div className='text-slate-700'><ion-icon name="wallet" style={{fontSize:'22px'}}></ion-icon></div>
+            <div className='font-semibold text-slate-600 text-sm'>FREE return by 30 days <span className='underline'>Details.</span></div></div>
+            </div>
         </div>
+        
       </div>
       :
       <div className='w-screen h-screen'>
