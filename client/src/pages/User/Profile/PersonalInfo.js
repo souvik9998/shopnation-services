@@ -211,7 +211,7 @@ const PersonalInfo = () => {
             </div>
             </div>
         </div>
-        <div className='font-Inter min-h-screen border-4 border-black lg:hidden flex flex-col pb-1 py-2 px-3 rounded-md'>
+        <div className='font-Inter min-h-screen lg:hidden flex flex-col pb-1 py-2 px-3 rounded-md'>
         <div className='flex justify-between mb-1'>
             <div 
             onClick={()=>navigate(-1)}
