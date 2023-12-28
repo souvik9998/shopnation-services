@@ -11,12 +11,6 @@ const Layout = () => {
   const {isLoading} = useGlobalContext();
   const location = useLocation();
   const { shopId, productId, variantId } = useParams();
-  if(isLoading){
-    return(
-      <Loadinscreen />
-    )
-  }
-  console.log(location.pathname);
   return (
     <>
     {
@@ -24,7 +18,7 @@ const Layout = () => {
     window.innerWidth < 1024 &&
     (location.pathname === `/ShopProductPage/${shopId}/${productId}` ||
     location.pathname === `/ShopProductPage/${shopId}/${productId}/${variantId}`
-    // ||location.pathname === `/user-profile`
+    
     )
     ? ''
     : <Header />
