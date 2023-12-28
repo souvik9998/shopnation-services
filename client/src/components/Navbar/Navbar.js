@@ -2,15 +2,32 @@ import React from 'react'
 import Myaccount from './Myaccount'
 import Searchbar from '../Searchbar';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import shopnation from '../../Images/Shopnation.png'
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { useParams } from 'react-router-dom';
 const Navbar = () => {
     const[open,setOpen] = useState(false);
     const {user,setUser,setAuthorizationMessage,cartProductCounter,cartList,authorizationMessage} = useGlobalContext();
     const userId = user.userId;
     const navigate = useNavigate();
+    const location = useLocation();
+    const { shopId, productId, variantId } = useParams();
+  const isMobile = useMediaQuery({ maxWidth: 1023 });
+  const isComputer = useMediaQuery({ minWidth: 1024});
+    const getLocation =()=>{
+        return ((location.pathname === `/ShopProductPage/${shopId}/${productId}` ||
+        location.pathname === `/ShopProductPage/${shopId}/${productId}/${variantId}`
+        ||location.pathname === `/user-profile`
+        )&& isMobile)
+      }
+      
+      useEffect(()=>{
+        const renderLocation = getLocation();
+      },[])
     const handleClick = (e)=>{
         e.stopPropagation();
         setOpen(true);
@@ -29,7 +46,7 @@ const Navbar = () => {
     open ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
   return (
     <>
-     <div className='font-Inter font-semibold w-full flex h-fit py-[10px]  lg:py-5 px-1 lg:pr-8 lg:pl-8 bg-navColor justify-between text-white items-center'>
+     <div className={!getLocation() ?`font-Inter font-semibold w-full flex h-fit py-[10px]  lg:py-5 px-1 lg:pr-8 lg:pl-8 bg-navColor justify-between text-white items-center` : 'hidden'}>
         <div className='hidden text-lg font-medium lg:font-semibold lg:text-xl lg:w-[12%] lg:block'>
         <Link to='/'>
             <img className=' lg:h-full lg:w-full' src={shopnation}></img>

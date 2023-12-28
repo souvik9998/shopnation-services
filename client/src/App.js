@@ -51,8 +51,12 @@ import Resetpassword from './pages/Resetpassword';
 import ProductInfopage from './pages/ProductInfopage';
 import MobileSearch from './pages/MobileSearch';
 import MobileProductInfo from './pages/MobileProductInfo';
+import { useMediaQuery } from 'react-responsive';
+import MobilePersonalInfo from './pages/User/Profile/MobilePersonalInfo';
 // import UserCart from './pages/UserCart';
 function App() {
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const isComputer = useMediaQuery({ minWidth: 1024});
   return (
     <>
     <BrowserRouter>
@@ -66,7 +70,8 @@ function App() {
             <Route path='/Storesearch' element={<Storesearch/>} />
             <Route path='/checkout-success' element={<Checkoutsuccess />} />
             <Route path='/user-profile' element={<ProfileLayout/>}>
-              <Route path='/user-profile' element={<PersonalInfo/>}/>
+              {isComputer&& <Route path='/user-profile' element={<PersonalInfo/>}/>}
+              {isMobile  && <Route path='/user-profile' element={<MobilePersonalInfo/>}/>}
             </Route>
             <Route path='/user-cart/:userId' element={<Usercart/>} />
             <Route path='/user-cart/*' element={<Usercart/>} />
