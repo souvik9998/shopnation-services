@@ -56,7 +56,6 @@ const Storecard = ({store}) => {
         
         
       </div>
-
     </>
   )
 }

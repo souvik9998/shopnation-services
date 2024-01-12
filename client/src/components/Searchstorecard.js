@@ -3,6 +3,7 @@ import store from '../Images/store.png';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { StoreProvider } from '../context/StoreContext';
 const Searchstorecard = ({store}) => {
   const navigate = useNavigate();
   const [clicked,setClicked] = useState(false);

@@ -7,22 +7,28 @@ import Productcard from '../components/Productcard';
 import StoredetailsCard from '../components/StoredetailsCard';
 import SkeletonshopdetailsCard from '../components/skeletonComponents/SkeletonshopdetailsCard';
 import { baseUrl } from '../config/config';
+import { StoreProvider, useStoreContext } from '../context/StoreContext';
 const ShopProductPage = () => {
   const {shopId} = useParams();
   const {calculateExpectedDelivery} = useGlobalContext();
-  const [shopInfo,setShopInfo] = useState('');
+  const {shopInfo,setShopInfo,productList,setProductList,currentShopId,setCurrentShopId} = useStoreContext();
+  
+  // const [shopInfo,setShopInfo] = useState('');
   const [isLoading,setIsLoading] = useState(false);
   const [searchQuery,setSearchQuery] = useState('');
-  const [productList,setProductList] = useState([]);
-
+  // const [productList,setProductList] = useState([]);
+  
   useEffect(() =>{
-    getAllProducts();
+    console.log(`shopid = ${shopId}`);
+    console.log(`currentShopId = ${currentShopId}`);
+    if(currentShopId !== shopId)getAllProducts();
   },[])
   const getAllProducts = async() => {
     try{
       const res1 = await axios.get(`https://${baseUrl}/sellerapi/auth/getSellerInfo/${shopId}`);
       console.log(res1);
       setShopInfo(res1.data.sellerInfo);
+      setCurrentShopId(shopId);
       const res2 = await axios.get(`https://${baseUrl}/sellerapi/onboard/getProduct/${shopId}`);
       console.log(res2);
       setProductList(res2.data);
@@ -63,6 +69,7 @@ const ShopProductPage = () => {
   }
   return (
     <>
+    
       <div className='font-Inter pt-2 lg:pt-10 flex px-1 lg:px-4 gap-8 bg-gray-200'>
         <div className='lg:flex flex-col gap-6 items-center hidden w-[23%] rounded-md bg-white h-fit py-6 shadow'>
           {
@@ -117,7 +124,6 @@ const ShopProductPage = () => {
           <h1 className='text-center'>Shop offers</h1>
       </div>
       </div>
-      
     </>
   )
 }

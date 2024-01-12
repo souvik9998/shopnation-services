@@ -53,6 +53,7 @@ import MobileSearch from './pages/MobileSearch';
 import MobileProductInfo from './pages/MobileProductInfo';
 import { useMediaQuery } from 'react-responsive';
 import MobilePersonalInfo from './pages/User/Profile/MobilePersonalInfo';
+import { StoreProvider } from './context/StoreContext';
 // import UserCart from './pages/UserCart';
 function App() {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
@@ -64,9 +65,18 @@ function App() {
           
           <Route path = '/' element = {<Layout/>}>
             <Route path= '/' index element = {<Home/>} />
-            <Route path ="/ShopProductPage/:shopId" element={<Shopproductpage/>}/>
-            <Route path="/ShopProductPage/:shopId/:productId" element={<ProductInfopage/>} />
-            <Route path="/ShopProductPage/:shopId/:productId/:variantId" element={<ProductInfopage/>} />
+            <Route path ="/ShopProductPage/:shopId" 
+            element={<StoreProvider>
+              <Shopproductpage/>
+            </StoreProvider>}/>
+            <Route path="/ShopProductPage/:shopId/:productId" 
+            element={<StoreProvider>
+              <ProductInfopage/>
+              </StoreProvider>} />
+            <Route path="/ShopProductPage/:shopId/:productId/:variantId" 
+            element={<StoreProvider>
+              <ProductInfopage/>
+            </StoreProvider>} />
             <Route path='/Storesearch' element={<Storesearch/>} />
             <Route path='/checkout-success' element={<Checkoutsuccess />} />
             <Route path='/user-profile' element={<ProfileLayout/>}>
