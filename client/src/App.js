@@ -69,14 +69,27 @@ function App() {
             element={<StoreProvider>
               <Shopproductpage/>
             </StoreProvider>}/>
+            {isComputer&&
             <Route path="/ShopProductPage/:shopId/:productId" 
             element={<StoreProvider>
               <ProductInfopage/>
               </StoreProvider>} />
+            }
+            {isComputer&&
             <Route path="/ShopProductPage/:shopId/:productId/:variantId" 
             element={<StoreProvider>
               <ProductInfopage/>
-            </StoreProvider>} />
+            </StoreProvider>} />}
+            {isMobile &&
+            <Route path="/ShopProductPage/:shopId/:productId" 
+            element={<StoreProvider>
+              <MobileProductInfo/>
+              </StoreProvider>} />}
+            {isMobile&&
+            <Route path="/ShopProductPage/:shopId/:productId/:variantId" 
+            element={<StoreProvider>
+              <MobileProductInfo/>
+            </StoreProvider>} />}
             <Route path='/Storesearch' element={<Storesearch/>} />
             <Route path='/checkout-success' element={<Checkoutsuccess />} />
             <Route path='/user-profile' element={<ProfileLayout/>}>

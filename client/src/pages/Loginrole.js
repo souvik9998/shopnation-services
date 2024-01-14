@@ -24,4 +24,4 @@ const Loginrole = () => {
   )
 }
 
-export default Loginrole
+export default Loginrole;

@@ -279,7 +279,8 @@ router.get("/getVariantInfo/:variantId", async (req, res) => {
               gender: result.gender,
               isAvailable: result.isAvailable,
               productImages: result.productImages,
-              mainImagePath: result.mainImage
+              mainImagePath: result.mainImage,
+              productType: result.productType,
           };
           res.status(200).json({ item });
       } else {
