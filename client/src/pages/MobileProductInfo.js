@@ -15,6 +15,7 @@ import { StoreProvider, useStoreContext } from '../context/StoreContext';
 import '../App.css';
 import { Pagination} from "swiper";
 import animationData from '../Images/addTocart.json'
+import celebrationData from '../Images/celebration.json'
 import addToCart from '../Images/add-to-the-cart.svg'
 import Lottie from 'lottie-react';
 const MobileProductInfo = () => {
@@ -31,7 +32,8 @@ const MobileProductInfo = () => {
   const token = window.localStorage.getItem("token");
   const {calculateExpectedDelivery} = useGlobalContext();
   const [loading,setLoading] = useState(false);
-  const {cartList,user,setCartList,getCartDetails,getCartProductInfo} = useGlobalContext();
+  const [celebration,setCelebration] = useState(false);
+  const {cartList,user,setCartList,getCartDetails,getCartProductInfo,cartProductCounter} = useGlobalContext();
   const {variants,setVariants,defaultProduct,setDefaultProduct,currentProduct,setCurrentProduct} = useStoreContext();
   useEffect(()=>{
       let variantArray;
@@ -186,7 +188,7 @@ const MobileProductInfo = () => {
       console.log(res1);
       const res2 = await getCartDetails(user.userId);
       setCartList(res2);
-      setLoading(false);
+      setCelebration(true);
     }
     catch(err){
       console.log(err);
@@ -197,7 +199,16 @@ const MobileProductInfo = () => {
     {
       currentProduct? 
     <div className='min-h-screen font-Inter overflow-x-hidden'>
-
+    {celebration?
+      <div className='absolute -bottom-2'>
+      <Lottie
+      animationData={celebrationData}
+      loop={false}
+      onComplete={()=>setCelebration(false)}
+      />
+    </div>:''
+    }
+    
     <div className='flex gap-[6px] z-10 h-fit w-full bg-gray-100 drop-shadow-lg pt-2 pb-1 px-2 fixed bottom-0'>
       <div
       onClick={handleAddtoCart} 
@@ -205,8 +216,10 @@ const MobileProductInfo = () => {
       
       {loading?
       <Lottie
+          className='h-7 w-7'
           animationData={animationData}
           loop={false}
+          onComplete={()=>setLoading(false)}
       />:<img  className='h-7 w-7' src={addToCart}></img>
       }
       </div>
@@ -240,10 +253,11 @@ const MobileProductInfo = () => {
               </div>
               <div 
               onClick={()=>navigate(`/user-cart/${user.userId}`)}
-              className='bg-gray-200/50 px-2 py-2 shadow-sm rounded-xl flex items-center justify-center'>
+              className='relative bg-gray-200/50 px-2 py-2 shadow-sm rounded-xl flex items-center justify-center'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#6c6c6c" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
               </svg>
+              {cartProductCounter !== 0 && <div className='absolute transition-all duration-300 bg-red-500 text-xs flex justify-center items-center p-[2px] text-white font-medium rounded-full w-4 h-4 top-[6px] right-[1px]'>{cartProductCounter}</div>}
             </div>
             </div>
             
