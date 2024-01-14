@@ -54,6 +54,7 @@ import MobileProductInfo from './pages/MobileProductInfo';
 import { useMediaQuery } from 'react-responsive';
 import MobilePersonalInfo from './pages/User/Profile/MobilePersonalInfo';
 import { StoreProvider } from './context/StoreContext';
+import {OrderProvider} from './context/OrderContext'
 // import UserCart from './pages/UserCart';
 function App() {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
@@ -100,7 +101,9 @@ function App() {
             <Route path='/user-cart/*' element={<Usercart/>} />
             
             
-            <Route path='/order-page' element={<OrderLayout/>}>
+            <Route path='/order-page' element={
+              <OrderProvider><OrderLayout/></OrderProvider>
+            }>
               <Route path='/order-page' element={<Orderdetails/>}/>
               <Route path='/order-page/cancelled-order' element={<Cancelledorder/>}/>
               <Route path='/order-page/successful-order' element={<Successfulorder/>} />

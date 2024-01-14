@@ -3,13 +3,14 @@ import { useGlobalContext } from '../../components/context'
 import axios, { isAxiosError } from 'axios';
 import Ordercard from './Ordercard';
 import { baseUrl } from '../../config/config';
+import orderLoadingData from '../../Images/orderLoading.json'
+import Lottie from 'lottie-react';
+import { useOrderContext } from '../../context/OrderContext';
 const Orderdetails = () => {
   const {user,setUser,setAuthorizationMessage,authorizationMessage} = useGlobalContext();
-  const[orderList,setOrderList] = useState([]);
-  const[orderLoading,setOrderLoading] = useState(false);
-  useEffect(()=>{
-    getOrderDetails();
-  },[])
+  const {orderList,setOrderList,orderLoading,setOrderLoading} = useOrderContext();
+  
+  
 
   const isAuthorized = async()=>{
     try{
@@ -40,7 +41,6 @@ const Orderdetails = () => {
       
       const res = await getOrderList(userId);
       console.log(res);
-      setOrderLoading(false);
     }
     catch(err){
       console.log(err);
@@ -85,7 +85,7 @@ const Orderdetails = () => {
     }
   }
 
-  if(orderList.length === 0){
+  if(!orderList){
     return(
       <>
       <div className='w-full h-screen pl-4'>
@@ -101,8 +101,13 @@ const Orderdetails = () => {
       <div className='w-full min-h-screen flex flex-col gap-10'>
         {
           orderLoading?
-          <div className='w-full rounded-xl h-42  flex flex-col bg-slate-300 shadow-md'>
-
+          <div className='flex justify-center items-center w-full lg:h-96 bg-white rounded-xl shadow'>
+              <Lottie
+          className='h-32 w-32'
+          animationData={orderLoadingData}
+          loop={false}
+          onComplete={()=>setOrderLoading(false)}
+      />
           </div>
           :
           orderList.map((order) =>{

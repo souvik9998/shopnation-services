@@ -6,23 +6,25 @@ const Ordercard = ({orderItem}) => {
     <>
         
         <div className='w-full rounded-xl h-fit  flex flex-col bg-white shadow-md'>
-            <div className='h-[30%] bg-gray-400/30 rounded-t-xl px-10 py-6 flex justify-between items-center'>
-              <div className='flex gap-10 justify-start items-center'>
-                <div className='flex flex-col gap-1'>
-                  <div className='font-medium text-slate-600'>ORDER PLACED</div>
-                  <div className='text-slate-500'>{created_at}</div>
+            <div className='w-full h-fit lg:h-[30%] bg-gray-400/30 rounded-t-xl px-2 py-3 lg:px-10 lg:py-6 flex justify-between items-center'>
+              <div className=' w-full grid grid-cols-2 grid-rows-2 gap-y-4 lg:flex gap-2 lg:gap-10 justify-start items-center'>
+                <div className='flex flex-col  gap-1 h-full'>
+                  <div className='font-medium text-slate-600 lg:text-base text-xs'>ORDER PLACED</div>
+                  <div className='text-slate-500 lg:text-base text-[10px]'>{created_at}</div>
                 </div>
-                <div className='flex flex-col gap-1'>
-                  <div className='font-medium text-slate-600'>Price</div>
-                  <div className='text-slate-500'>₹{price}.00</div>
+                <div className='flex flex-col gap-1 items-end lg:items-baseline h-full'>
+                  <div className='font-medium text-slate-600 lg:text-base text-xs'>Price</div>
+                  <div className='text-slate-500 lg:text-base text-[10px]'>₹{price}.00</div>
                 </div>
-                <div className='flex flex-col gap-1'>
-                  <div className='font-medium text-slate-600'>SHIPPING ADDRESS</div>
-                  <div className='text-slate-500'>Souvik Das</div>
+                <div className='flex flex-col gap-1  h-full'>
+                  <div className='font-medium text-slate-600 lg:text-base text-xs'>SHIPPING ADDRESS</div>
+                  <div className='text-slate-500 lg:text-base text-[10px]'>Souvik Das</div>
                 </div>
-                
+                <div className='lg:hidden flex flex-col gap-1 lg:gap-3 lg:w-4/12 h-full'>
+                <div className='text-[10px] lg:text-sm text-slate-600 font-medium'>ORDER #<span className='text-[8px] lg:text-sm font-medium'>{id}</span></div>
               </div>
-              <div className='flex flex-col gap-3 items-center justify-center w-4/12'>
+              </div>
+              <div className='hidden lg:flex flex-col gap-3 items-center justify-center w-4/12 '>
                 <div className='text-sm text-slate-600 font-medium'>ORDER #<span className='text-sm font-medium'>{id}</span></div>
                 <div className='flex justify-around items-center w-6/12'>
                   <div>Invoice</div>
@@ -31,17 +33,17 @@ const Ordercard = ({orderItem}) => {
                 </div>
               </div>
             </div>
-            <div className='px-10 py-8 flex justify-between'>
-                <div className='w-[13%] h-full flex justify-center items-center'><img className='w-full lg:w-11/12 min-h-full max-h-28 border border-gray-200' src={mainImagePath.url}></img></div>
-                <div className='w-[63%] flex flex-col gap-3'>
-                  <div className='capitalize text-base font-medium text-slate-600'>
+            <div className='lg:px-10 px-2 py-2 lg:py-8 flex gap-2 lg:gap-0 lg:justify-between'>
+                <div className='w-[35%] lg:w-[13%] lg:h-full flex justify-center items-center object-cover'><img className='w-full lg:w-11/12 min-h-full object-contain lg:max-h-28 border border-gray-200' src={mainImagePath.url}></img></div>
+                <div className='w-[65%] lg:w-[63%] flex flex-col gap-3'>
+                  <div className='capitalize text-xs lg:text-base font-medium text-slate-600'>
                   {productName} Mens Fly by Mid 3 Men's Basketball Shoes Boat Shoe
                   </div>
-                  <div className='bg-gray-300 w-fit h-fit px-4 py-1 text-slate-600 rounded-lg text-sm font-medium'>
+                  <div className='drop-shadow-sm bg-gray-300 w-fit h-fit px-2  lg:px-4 py-1 text-slate-600 rounded-lg text-xs lg:text-sm font-medium'>
                     View order
                   </div>
                   </div>
-                <div className='w-[20%] flex flex-col justify-center items-center gap-3'>
+                <div className='w-[20%] lg:flex flex-col justify-center items-center gap-3 hidden'>
                   <div className='bg-buttonColor py-1 px-4 rounded-lg text-white w-52 text-center shadow'>Return and refund</div>
                   <div className='bg-buttonColor py-1 px-4 rounded-lg text-white w-52 text-center shadow'>Product Review</div>
                   <div className='bg-buttonColor py-1 px-4 rounded-lg text-white w-52 text-center shadow'>Leave seller a feedback</div>
