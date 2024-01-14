@@ -209,7 +209,7 @@ const MobileProductInfo = () => {
     </div>:''
     }
     
-    <div className='flex gap-[6px] z-10 h-fit w-full bg-gray-100 drop-shadow-lg pt-2 pb-1 px-2 fixed bottom-0'>
+    <div className='flex gap-[6px] z-10 h-fit w-full bg-gray-100 drop-shadow-lg py-2 px-2 fixed bottom-0'>
       <div
       onClick={handleAddtoCart} 
       className=' bg-white py-2 px-2 flex w-[18%] items-center justify-center border border-slate-300 rounded-lg'>
@@ -327,7 +327,7 @@ const MobileProductInfo = () => {
               </div>
               :''
             }
-            <div className='flex flex-col gap-2 py-4'>
+            <div className='flex flex-col gap-2 py-4 pb-20'>
             <div className='flex gap-3 items-center'>
             <div className='text-slate-700'><ion-icon name="bicycle" style={{fontSize:'22px'}}></ion-icon></div>
             <div className='font-semibold text-slate-600 text-sm'>Expected delivery in <span className='text-black'>{calculateExpectedDelivery(currentProduct.expectedDelivery)}. </span><span className='underline'>Want it faster?</span></div>
