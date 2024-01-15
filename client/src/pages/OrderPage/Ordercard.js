@@ -5,7 +5,7 @@ const Ordercard = ({orderItem}) => {
   return (
     <>
         
-        <div className='w-full rounded-xl h-fit  flex flex-col bg-white shadow-md'>
+        <div className='w-full rounded-xl h-fit flex flex-col bg-white shadow-md'>
             <div className='w-full h-fit lg:h-[30%] bg-gray-400/30 rounded-t-xl px-2 py-3 lg:px-10 lg:py-6 flex justify-between items-center'>
               <div className=' w-full grid grid-cols-2 grid-rows-2 gap-y-4 lg:flex gap-2 lg:gap-10 justify-start items-center'>
                 <div className='flex flex-col  gap-1 h-full'>
@@ -20,8 +20,9 @@ const Ordercard = ({orderItem}) => {
                   <div className='font-medium text-slate-600 lg:text-base text-xs'>SHIPPING ADDRESS</div>
                   <div className='text-slate-500 lg:text-base text-[10px]'>Souvik Das</div>
                 </div>
-                <div className='lg:hidden flex flex-col gap-1 lg:gap-3 lg:w-4/12 h-full'>
-                <div className='text-[10px] lg:text-sm text-slate-600 font-medium'>ORDER #<span className='text-[8px] lg:text-sm font-medium'>{id}</span></div>
+                <div className='lg:hidden flex flex-col items-end gap-1 h-full border border-black'>
+                <div className='text-[10px] lg:text-sm text-slate-600 font-medium'>ORDER ID</div>
+                <div className='text-[8px] lg:text-sm font-medium'># {id}</div>
               </div>
               </div>
               <div className='hidden lg:flex flex-col gap-3 items-center justify-center w-4/12 '>

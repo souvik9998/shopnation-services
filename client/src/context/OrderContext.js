@@ -43,6 +43,7 @@ const OrderProvider =({children})=>{
           
           const res = await getOrderList(userId);
           console.log(res);
+          setOrderLoading(false);
         }
         catch(err){
           console.log(err);

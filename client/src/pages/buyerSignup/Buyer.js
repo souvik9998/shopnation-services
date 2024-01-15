@@ -12,9 +12,9 @@ const Buyer = () => {
   }
   return (
     <>
-    <div className='w-screen h-screen font-Inter overflow-x-hidden'>
-      <div className='relative w-full h-full border border-black'>
-        <div className={`absolute top-0 right-0 bg-buttonColor w-full h-full transform-gpu ${ (slideFull) ? 'animate-slideFull flex' : 'animate-slideIn'} after z-10 px-10 pt-20`}>
+    <div className='w-[100%] lg:w-screen min-h-screen bg-gray-200/70 lg:bg-white  lg:h-screen font-Inter overflow-x-hidden'>
+      <div className='relative w-full h-full'>
+        <div className={`lg:block hidden absolute top-0 right-0 bg-buttonColor w-full h-full transform-gpu ${ (slideFull) ? 'animate-slideFull flex' : 'animate-slideIn'} after z-10 px-10 pt-20`}>
             {
               slideFull ? 
               <div className={`w-full h-full ${ (slideFull) ? 'flex' :''}`}>
@@ -41,8 +41,8 @@ const Buyer = () => {
             }
 
         </div>
-        <div className='absolute top-0 right-0 bg-blue-200 w-full h-full transform-gpu animate-slideInBehind z-0'></div>
-        <div className='absolute'>
+        <div className='lg:block hidden absolute top-0 right-0 bg-blue-200 w-full h-full transform-gpu animate-slideInBehind z-0'></div>
+        <div className='w-full lg:absolute'>
                     <Buyersignup />
             </div>
         </div>

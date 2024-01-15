@@ -14,7 +14,7 @@ const OrderLayout = () => {
     
       <div className='w-full h-fit lg:py-16 py-6 bg-gray-100'>
         <div className='w-full lg:w-10/12 px-2 lg:pl-20 mx-auto'>
-        <div className='flex item-center justify-center lg:items-baseline lg:justify-normal gap-4 lg:gap-10 font-semibold'>
+        <div className='flex item-center justify-around lg:items-baseline lg:justify-normal gap-4 lg:gap-10 font-semibold'>
             <Link to='/order-page'><div className={`${isActive(location.pathname,'/order-page')} lg:text-base text-xs`}>Order</div></Link>
             <Link to='/order-page/successful-order'><div className={`${isActive(location.pathname,'/order-page/successful-order')} lg:text-base text-xs`}>Successful Orders</div></Link>
             <Link to='/order-page/cancelled-order'><div className={`${isActive(location.pathname,'/order-page/cancelled-order')} lg:text-base text-xs`}>Cancelled Orders</div></Link>

@@ -105,8 +105,7 @@ const Orderdetails = () => {
               <Lottie
           className='h-32 w-32'
           animationData={orderLoadingData}
-          loop={false}
-          onComplete={()=>setOrderLoading(false)}
+          loop={true}
       />
           </div>
           :

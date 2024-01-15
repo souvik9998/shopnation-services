@@ -22,7 +22,7 @@ const Roleselect = () => {
       animate={{opacity:1}}
       transition={{delay:0.5, duration:0.6}}
       className='hidden w-6/12 h-full lg:flex justify-center items-center'><img src={loginsvg2} className='animate-bounceRoleSelect'></img></motion.div>
-      <div className='w-full lg:w-6/12 h-full flex justify-center items-center bg-[#516BFB] px-4'>
+      <div className='w-full lg:w-6/12 h-full flex justify-center items-center bg-buttonColor px-4'>
       <motion.div 
       initial={{opacity:0}}
       animate={{opacity:1}}

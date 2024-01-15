@@ -33,8 +33,9 @@ const Buyerinfo = () => {
   }
   return (
     <>
+    <div className="w-full h-full flex flex-col ">
       <div className="">
-              <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+              <h2 className="lg:text-center mb-8 lg:mb-6 text-2xl lg:text-2xl font-semibold lg:font-bold leading-9 tracking-tight text-gray-700">
                   Create account
               </h2>
             </div>
@@ -49,7 +50,7 @@ const Buyerinfo = () => {
                     </label>
                     <div className="mt-2">
                         <input type="text" name="name" value={user.name} onChange={handleChange} placeholder="Name" 
-                        className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                        className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"/>
                     </div>
                 </div>
 
@@ -60,7 +61,7 @@ const Buyerinfo = () => {
                     </label>
                     <div className="mt-2">
                     <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Email" 
-                    className="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"/>
                     </div>
                 </div>
 
@@ -73,7 +74,7 @@ const Buyerinfo = () => {
                     type="tel"
                     name="mobileNumber"
                     placeholder="Mobile Number"
-                    className="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
                     value={user.mobileNumber}
                     onChange={handleChange}
                     />
@@ -91,7 +92,7 @@ const Buyerinfo = () => {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    className="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
                     value={user.password}
                     onChange={handleChange}
                     />
@@ -100,7 +101,7 @@ const Buyerinfo = () => {
 
                 {/* confirm password field */}
                 <div>
-                    <label htmlFor="email" className="block text-sm px-1 font-medium leading-6 text-gray-900">
+                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                     Confirm password
                     </label>
                     <div className="mt-2">
@@ -108,7 +109,7 @@ const Buyerinfo = () => {
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm Password"
-                        className="block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="outline-none block w-full rounded-md px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400/80 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-buttonColor sm:text-sm sm:leading-6"
                         value={user.confirmPassword}
                         onChange={handleChange}
                         />
@@ -117,12 +118,13 @@ const Buyerinfo = () => {
                 <div>
                     <button
                         onClick={handleSubmit}
-                        className="flex w-full justify-center rounded-md bg-buttonColor px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="flex py-2 px-4 items-center justify-center rounded-md bg-buttonColor text-base font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
                     Sign up
                     </button>
                 </div>
               </form>
+              </div>
               </div>
     </>
   )

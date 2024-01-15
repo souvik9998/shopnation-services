@@ -133,7 +133,7 @@ const Sellersignup = ({setSlideFull,slideFull}) => {
         <div className="bg-gray-200/70 h-2.5">
             <div className={`bg-blue-600 fixed lg:static z-50 transition-all ease-in-out duration-700 h-2.5 ${(progressBar === false) ? 'w-[0%]' : (page === 0) ?'w-[25%] rounded-r-lg' :(page === 1) ? 'w-[50%] rounded-r-lg' : (page === 2) ? 'w-[75%] rounded-r-lg':'w-[100%]'}`}></div>
         </div>
-      <div className=" h-screen lg:h-fit bg-cardColor w-full lg:w-7/12 mx-auto lg:mt-20 drop-shadow-lg pt-16 px-6 lg:p-6 rounded-lg font-Inter">
+      <div className="h-screen lg:h-fit bg-cardColor w-full lg:w-7/12 mx-auto lg:mt-20 drop-shadow-lg pt-16 px-6 lg:p-6 rounded-lg font-Inter">
         <div>{signUpSuccess ? <div className='flex flex-col gap-4 justify-center items-center'><div className='w-full h-full flex justify-center items-center'>
           <Lottie
           animationData={animationData}
