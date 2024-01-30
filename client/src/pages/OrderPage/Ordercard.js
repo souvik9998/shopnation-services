@@ -20,7 +20,7 @@ const Ordercard = ({orderItem}) => {
                   <div className='font-medium text-slate-600 lg:text-base text-xs'>SHIPPING ADDRESS</div>
                   <div className='text-slate-500 lg:text-base text-[10px]'>Souvik Das</div>
                 </div>
-                <div className='lg:hidden flex flex-col items-end gap-1 h-full border border-black'>
+                <div className='lg:hidden flex flex-col items-end gap-1 h-full'>
                 <div className='text-[10px] lg:text-sm text-slate-600 font-medium'>ORDER ID</div>
                 <div className='text-[8px] lg:text-sm font-medium'># {id}</div>
               </div>

@@ -3,7 +3,7 @@ import Dropzone from '../../components/SellerComponents/Dropzone'
 import Dropzonesecond from '../../components/SellerComponents/Maindropzone';
 import { useState } from 'react';
 import axios from 'axios';
-import { useSellerContext } from '../../components/Sellercontext';
+// import { useSellerContext } from '../../components/Sellercontext';
 import Successmessage from '../../components/Successmessage';
 import { createPortal } from 'react-dom';
 import Maindropzone from '../../components/SellerComponents/Maindropzone';
@@ -12,7 +12,7 @@ import ProductForm from './ProductForm';
 import AddproductVariant from './AddproductVariant';
 import { baseUrl } from '../../config/config';
 const Addproductinfo = () => {
-  const {savedProduct,setSavedProduct} = useSellerContext();
+  // const {savedProduct,setSavedProduct} = useSellerContext();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'))
   const id = userInfo.id;
   const token = window.localStorage.getItem("token")
@@ -261,8 +261,6 @@ const Addproductinfo = () => {
   //     console.log(err);
   //   }
   // }
-  console.log(formData);
-  console.log(sizeArray);
   return (
     <>
         {
