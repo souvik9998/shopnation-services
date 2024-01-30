@@ -7,85 +7,85 @@ const { Client } = require('@elastic/elasticsearch')
 
     //connect to client api
     const client = new Client({
-        cloud: { id: 'a2a17c8fcb6147ff80fb512cf5a59165:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDhiZDc1ZmI1OTg4MzRkMjliY2Q3ODg3MzliOGM3ZmY2JDE3NDdjM2NjOWRmODQ4Mjk4NTRhZjVlMmY1YjE3NTg2' },
-        auth: { apiKey:  'RHFzZF9vd0JDMVRTaUtnai1oQW86aHdfTHFTNmRTb0dOS3B1SllpOC1zUQ=='}
+        cloud: { id: 'd8e0092786a24b76b8ba89eb12568ffe:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDM1OTA5N2MyOWI5MTRiYTk5MjkzMzJhNmY4MmUzZDQ5JGQ4MTBmYjkwYTFiMzRjZGU5YTY1ZDZiMWZhNjMwZGEx' },
+        auth: { apiKey:  'aFVzOVc0MEI2R1JOQzl0bzV0Ulk6dmx4WHlLaThRYWVqbFhDdVlDYmxxZw=='}
       })
-      async function run (req,res,next) {
-        console.log(req.body);
-        try{
-          await client.index({
-            index: 'shop-details',
-            document: {
-              shopId : req.body.shopId,
-              storeName : req.body.shopName,
-              type : req.body.shopType,
-              shopImagePath: req.body.shopImagePath
-            }
-          })
-          await client.indices.refresh({ index: 'shop-details' })
-        res.status(201).json({msg:'registered'})
-        }catch (error) {
-        res.send(error);
-        next();
-    }
-  }
-  //     async function run () {
-  //             await client.index({
-  //               index: 'shop-details',
-  //               document: {
-  //                 shopId : '655ce265d4d02eda006568b7',
-  //                 storeName : 'food shop',
-  //                 type : 'food',
-  //                 shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700586083720_shopImage_360_F_286178925_8zk89O9uC5JJVPvqhvBMUpaRxp8AFXzD.jpg'
-  //               }
-  //             })
-  //             await client.index({
-  //               index: 'shop-details',
-  //               document: {
-  //                 shopId : '655ce191d4d02eda006568b1',
-  //                 storeName : 'mobile shop',
-  //                 type : 'electronics',
-  //                 shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700585872405_shopImage_futuristic-gadgets-showcase-lineup-sleek-modern-technological-devices_977107-682.avif'
-  //               }
-  //             })
-  //             await client.index({
-  //               index: 'shop-details',
-  //               document: {
-  //                 shopId : '655cdb5ed4d02eda006568af',
-  //                 storeName : 'great shop',
-  //                 type : 'shoes',
-  //                 shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700584284158_shopImage_premium_photo-1682435561654-20d84cef00eb.avif'
-  //               }
-  //             })
-  //            await client.index({
-  //                 index: 'shop-details',
-  //                 document: {
-  //                   shopId : '655c7dccabd801febc9e30c4',
-  //                   storeName : 'grocery shop',
-  //                   type : 'grocery',
-  //                   shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700560332218_shopImage_download%20%281%29.jfif'
-  //                 }
-  //               })
+  //     async function run (req,res,next) {
+  //       console.log(req.body);
+  //       try{
+  //         await client.index({
+  //           index: 'shop-details',
+  //           document: {
+  //             shopId : req.body.shopId,
+  //             storeName : req.body.shopName,
+  //             type : req.body.shopType,
+  //             shopImagePath: req.body.shopImagePath
+  //           }
+  //         })
+  //         await client.indices.refresh({ index: 'shop-details' })
+  //       res.status(201).json({msg:'registered'})
+  //       }catch (error) {
+  //       res.send(error);
+  //       next();
+  //   }
+  // }
+      async function run () {
+              await client.index({
+                index: 'shop-details',
+                document: {
+                  shopId : '655ce265d4d02eda006568b7',
+                  storeName : 'food shop',
+                  type : 'food',
+                  shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700586083720_shopImage_360_F_286178925_8zk89O9uC5JJVPvqhvBMUpaRxp8AFXzD.jpg'
+                }
+              })
+              await client.index({
+                index: 'shop-details',
+                document: {
+                  shopId : '655ce191d4d02eda006568b1',
+                  storeName : 'mobile shop',
+                  type : 'electronics',
+                  shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700585872405_shopImage_futuristic-gadgets-showcase-lineup-sleek-modern-technological-devices_977107-682.avif'
+                }
+              })
+              await client.index({
+                index: 'shop-details',
+                document: {
+                  shopId : '655cdb5ed4d02eda006568af',
+                  storeName : 'great shop',
+                  type : 'shoes',
+                  shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700584284158_shopImage_premium_photo-1682435561654-20d84cef00eb.avif'
+                }
+              })
+             await client.index({
+                  index: 'shop-details',
+                  document: {
+                    shopId : '655c7dccabd801febc9e30c4',
+                    storeName : 'grocery shop',
+                    type : 'grocery',
+                    shopImagePath: 'https://shopnationbucket.s3.ap-south-1.amazonaws.com/1700560332218_shopImage_download%20%281%29.jfif'
+                  }
+                })
               
               
             
 
-  //   await client.indices.refresh({ index: 'shop-details' })
+    await client.indices.refresh({ index: 'shop-details' })
 
-  //   // Let's search!
-  //   const result= await client.search({
-  //     index: 'shop-details',
-  //     query: {
-  //       match_phrase_prefix: {
-  //           storeName: 'Swarup Biriyani'
-  //       }
-  //     }
-  //   })
+    // Let's search!
+    const result= await client.search({
+      index: 'shop-details',
+      query: {
+        match_phrase_prefix: {
+            storeName: 'Swarup Biriyani'
+        }
+      }
+    })
   
-  //   console.log(result.hits.hits)
-  // }
+    console.log(result.hits.hits)
+  }
   
-  // run().catch(console.log)
+  run().catch(console.log)
 async function run1 (req,res,next) {
 
     //Let's search!
