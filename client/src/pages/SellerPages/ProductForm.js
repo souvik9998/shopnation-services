@@ -3,7 +3,7 @@ import Dropzone from '../../components/SellerComponents/Dropzone'
 import Dropzonesecond from '../../components/SellerComponents/Maindropzone';
 import { useState } from 'react';
 import axios from 'axios';
-import { useSellerContext } from '../../components/Sellercontext';
+// import { useSellerContext } from '../../components/Sellercontext';
 import Successmessage from '../../components/Successmessage';
 import { createPortal } from 'react-dom';
 import Maindropzone from '../../components/SellerComponents/Maindropzone';
@@ -11,7 +11,7 @@ import VariantDropzone from '../../components/SellerComponents/VariantDropzone';
 
 const ProductForm = ({formData,setFormData,mainImage,setMainImage,productImages,setProductImages,clearImages,setClearImages,
   sizeArray,setSizeArray}) => {
-    const {savedProduct,setSavedProduct} = useSellerContext();
+    // const {savedProduct,setSavedProduct} = useSellerContext();
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
     const id = userInfo.id;
     const token = window.localStorage.getItem("token")
