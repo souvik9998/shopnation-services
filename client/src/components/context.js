@@ -85,7 +85,7 @@ const AppProvider = ({children}) => {
 
       const getCartCount = async(userId) =>{
         try{
-          const res = await axios.get(`http://localhost:9000/userapi/cart/getCartListCount/${userId}`,{
+          const res = await axios.get(`https://${baseUrl}/userapi/cart/getCartListCount/${userId}`,{
                   headers : {
                       "Authorization" : window.localStorage.getItem("token"), 
                     }
