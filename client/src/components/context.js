@@ -50,7 +50,7 @@ const AppProvider = ({children}) => {
             console.log(authorizationMessage)
             if(authorizationMessage === 'authorized'){
               const userId = user.userId || res1.user_id
-              const res3 = await getCartDetails(userId);
+              const res3 = await getCartCount(userId);
               // console.log(res3);
               // const res5 = await getOrderDetails(res1.user_id);
               await getShippingAddress(userId);
@@ -82,33 +82,48 @@ const AppProvider = ({children}) => {
         console.log(err);
       }
       }
-      const getCartDetails = async(userId) =>{
-        return await axios
-        .get(`https://${baseUrl}/userapi/cart/getCartDetails/${userId}`,{
-            headers : {
-                "Authorization" : window.localStorage.getItem("token"), 
-              }
-        })
-        .then((res) =>{
-            cartTotal(res.data);
-            setCartList(res.data);
-            console.log(res);
-            return res.data
-        })
-        .catch((err) =>{
-            console.log(err.msg);
-        })
-       }
-       const cartTotal = (cartList) =>{
-        let totalPrice = 0;
-        let totalQuantity = 0;
-        cartList.forEach((item) =>{
-          totalPrice += item.product_amount * item.quantity;
-          totalQuantity += item.quantity;
-        })
-        setCartProductCounter(totalQuantity);
-        setCartTotalPrice(totalPrice);
-       }
+
+      const getCartCount = async(userId) =>{
+        try{
+          const res = await axios.get(`http://localhost:9000/userapi/cart/getCartListCount/${userId}`,{
+                  headers : {
+                      "Authorization" : window.localStorage.getItem("token"), 
+                    }
+              })
+          setCartProductCounter(res.data.cartCount)
+        }
+        catch(err){
+          console.log(err);
+        }
+      }
+      
+      // const getCartDetails = async(userId) =>{
+      //   return await axios
+      //   .get(`https://${baseUrl}/userapi/cart/getCartDetails/${userId}`,{
+      //       headers : {
+      //           "Authorization" : window.localStorage.getItem("token"), 
+      //         }
+      //   })
+      //   .then((res) =>{
+      //       cartTotal(res.data);
+      //       setCartList(res.data);
+      //       console.log(res);
+      //       return res.data
+      //   })
+      //   .catch((err) =>{
+      //       console.log(err.msg);
+      //   })
+      //  }
+      //  const cartTotal = (cartList) =>{
+      //   let totalPrice = 0;
+      //   let totalQuantity = 0;
+      //   cartList.forEach((item) =>{
+      //     totalPrice += item.product_amount * item.quantity;
+      //     totalQuantity += item.quantity;
+      //   })
+      //   setCartProductCounter(totalQuantity);
+      //   setCartTotalPrice(totalPrice);
+      //  }
        const getAll = async() => {
         return await axios
           .get(`https://${baseUrl}/searchapi/getAll`)
@@ -243,7 +258,7 @@ const AppProvider = ({children}) => {
         }
       };
     return <AppContext.Provider 
-    value={{isAuthorized,getCartDetails,user,setUser,authorizationMessage,setAuthorizationMessage,storeList,setStoreList,loginStatus,setLoginStatus,cartList,setCartList,searchQuery,setSearchQuery,searchStoreList,setSearchStoreList,cartProductCounter,setCartProductCounter,cartTotalPrice,setCartTotalPrice
+    value={{isAuthorized,user,setUser,authorizationMessage,setAuthorizationMessage,storeList,setStoreList,loginStatus,setLoginStatus,cartList,setCartList,searchQuery,setSearchQuery,searchStoreList,setSearchStoreList,cartProductCounter,setCartProductCounter,cartTotalPrice,setCartTotalPrice
     ,userAddress,setUserAddress,defaultAddress,setDefaultAddress,isLoading,setIsLoading
     ,calculateExpectedDelivery,cartLoading,setCartLoading,isFormClicked,setFormClicked,
     shippingAddress,setShippingAddress,getShippingAddress}}>

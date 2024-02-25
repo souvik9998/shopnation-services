@@ -10,14 +10,68 @@ import Skeletoncard from '../components/skeletonComponents/Skeletoncard';
 import SkeletonCarttoal from '../components/skeletonComponents/SkeletonCarttoal';
 import cartsvg from '../Images/Cartnotloggedin.svg';
 import Loadinscreen from './Loadinscreen';
-
+import {baseUrl} from "../config/config.js";
 const Usercart = () => {
    const {userId} = useParams();
    const{cartProductCounter,setCartProductCounter,cartTotalPrice,setCartTotalPrice} = useGlobalContext();
    const {cartList,setCartList,isAuthorized,authorizationMessage,isLoading} = useGlobalContext();
    const {cartLoading,setCartLoading} = useGlobalContext();
    const navigate = useNavigate();
-   
+   useEffect(()=>{
+    setCartLoading(true);
+    getCartProducts();
+   },[])
+   const getCartProducts = async()=>{
+     const res = await getCartDetails();
+     await getCartProductInfo(res);
+   }
+   const getCartDetails = async() =>{
+        return await axios
+        .get(`https://${baseUrl}/userapi/cart/getCartDetails/${userId}`,{
+            headers : {
+                "Authorization" : window.localStorage.getItem("token"), 
+              }
+        })
+        .then(async(res) =>{
+            cartTotal(res.data);
+            setCartList(res.data);
+            console.log(res);
+            return res.data
+        })
+        .catch((err) =>{
+            console.log(err.msg);
+        })
+       }
+       const cartTotal = (cartList) =>{
+        let totalPrice = 0;
+        let totalQuantity = 0;
+        cartList.forEach((item) =>{
+          totalPrice += item.product_amount * item.quantity;
+          totalQuantity += item.quantity;
+        })
+        setCartProductCounter(totalQuantity);
+        setCartTotalPrice(totalPrice);
+       }
+   const getCartProductInfo = async(cartList) =>{
+    try{
+      const cartPromises = cartList.map(async(item) =>{
+        const productInfo = await axios.get(`https://${baseUrl}/sellerapi/onboard/getProductInfo/${item.product_id}`);
+        return (
+          {
+            ...item,
+            mainImagePath : productInfo.data.item.mainImagePath.url,
+            shopName : productInfo.data.item.shopName
+          }
+        )
+      })
+      const updatedCartList = await Promise.all(cartPromises);
+      setCartList(updatedCartList)
+      setCartLoading(false);
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
   return (
     <>{
       
@@ -55,17 +109,22 @@ const Usercart = () => {
           {
             // isLoading ? 
             // skeleton.map((curr)=>{return <Skeletoncard />}):
+            cartList?
             cartList.map((currProduct)=>{
                 return <Cartproductcard 
-                  productId = {currProduct.product_id}
-                  productName={currProduct.product_name}
-                  productAmount={currProduct.product_amount}
-                  quantity = {currProduct.quantity}
-                  productType = {currProduct.product_type}
-                  userId = {userId}
+                productId = {currProduct.product_id}
+                productName={currProduct.product_name}
+                productAmount = {currProduct.product_amount}
+                userId ={currProduct.userId}
+                quantity = {currProduct.quantity}
+                productType={currProduct.product_type}
+                mainImagePath={currProduct.mainImagePath}
+                expectedDelivery={currProduct.expected_delivery}
+                shopName = {currProduct.shopName}
                 />
             }
             )
+            :''
           }
           </div>
           {

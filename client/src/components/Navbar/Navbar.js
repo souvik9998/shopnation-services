@@ -113,7 +113,7 @@ const Navbar = () => {
                 <div className='pt-1'><ion-icon style={{fontSize:'30px'}} name="cart-outline"></ion-icon></div>
                 <div>Cart</div>
             {
-                (cartList.length === 0) ?''
+                (cartProductCounter === 0) ?''
                 :<div className='absolute top-[1px] -right-[15px] z-50 bg-red-500 w-[18px] h-[18px] rounded-full flex justify-center items-center text-xs pr-[0.1px]'>{cartProductCounter}</div>
             }
             </div></Link></li>

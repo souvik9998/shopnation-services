@@ -84,5 +84,22 @@ router.put('/updateCart',async(req,res) => {
         res.status(500).json({error : err.message});
     }
 })
+
+router.get('/getCartListCount/:id',verifyToken,async(req,res) =>{
+    const userId = req.params.id;
+    console.log(userId);
+    try{
+        await db.query('select count(*) as count from cart where user_id = ?',userId,(err,result)=>{
+            if(err){
+                console.log(err);
+            }
+            res.status(200).json({cartCount : result[0].count})
+        })
+    }
+    catch(err){
+        res.status(500).json({error: err.message})
+    }
+})
+
 export default router;
 //module.exports = router;
