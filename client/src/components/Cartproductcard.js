@@ -88,7 +88,7 @@ const Cartproductcard = (props) => {
     <>{
 
   (cartLoading)?<Skeletoncard />:
-    <div className='border border-gray-200 min-h-48  m-auto font-Inter capitalize rounded-sm bg-white flex gap-1 flex-1 mb-2 lg:mb-4 '>
+    <div className='border-[0.5px] border-gray-200 min-h-48  m-auto font-Inter capitalize rounded-sm bg-white flex gap-1 flex-1 mb-2 lg:mb-4 '>
       <div className='flex flex-col border gap-4 w-5/12 lg:w-3/12 bg-gray-50 py-2 px-2'>
         <div className='h-full flex justify-center items-center'><img className='w-full min-h-full max-h-44 object-contain' src={mainImagePath}/></div>
 
