@@ -90,8 +90,8 @@ app.use(function (err, req, res, next) {
 });
 
 mongoose
-  .connect("mongodb+srv://ecommerce:ecommerce9998@cluster0.hbwdzdi.mongodb.net/?retryWrites=true&w=majority",
-   { useNewUrlParser: true },mongoose.set('strictQuery',true))
+  .connect("mongodb+srv://ecommerce:ecommerce9998@cluster0.hbwdzdi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  ,{ useNewUrlParser: true },mongoose.set('strictQuery',true))
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
